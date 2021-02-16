@@ -1,0 +1,38 @@
+n = 128
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 679.221093
+reduce_done_lco = 4300832
+vertex 417 reduced actions invocked is 1029944472
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 15360816 resources: utime ~118983s, stime ~450s, Rss ~2653168, inblocks ~558229, outblocks ~185664
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 678.320769
+reduce_done_lco = 4300832
+vertex 417 reduced actions invocked is 1024365846
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 15360819 resources: utime ~119753s, stime ~455s, Rss ~2651076, inblocks ~558229, outblocks ~185664
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+Job Cleanup ran on Wed Feb 28 13:43:20 EST 2018
+===============================
+submit_args  : 	 submit_args = run_job128_19.sh
+NIDS         : 	 959,963-964,993
+NID Placement: 	 959/32 963/32 964/32 993/32 

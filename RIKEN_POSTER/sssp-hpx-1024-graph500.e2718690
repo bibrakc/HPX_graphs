@@ -1,0 +1,6 @@
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+GSL version 2.3 loaded.
+aprun: Apid 17296396: Caught signal Terminated, sending to application
+=>> PBS: job killed: walltime 1818 exceeded limit 1800

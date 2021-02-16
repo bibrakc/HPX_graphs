@@ -1,0 +1,14 @@
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+GSL version 2.3 loaded.
+aprun: Apid 15361959: Caught signal Terminated, sending to application
+_pmiu_daemon(SIGCHLD): [NID 00007] [c0-0c0s3n1] [Thu Mar  1 04:03:31 2018] PE RANK 24 exit signal Terminated
+_pmiu_daemon(SIGCHLD): [NID 00015] [c0-0c0s7n1] [Thu Mar  1 04:03:31 2018] PE RANK 123 exit signal Terminated
+_pmiu_daemon(SIGCHLD): [NID 00022] [c0-0c0s4n2] [Thu Mar  1 04:03:31 2018] PE RANK 214 exit signal Terminated
+_pmiu_daemon(SIGCHLD): [NID 00018] [c0-0c0s6n2] [Thu Mar  1 04:03:31 2018] PE RANK 166 exit signal Terminated
+_pmiu_daemon(SIGCHLD): [NID 00014] [c0-0c0s7n0] [Thu Mar  1 04:03:31 2018] PE RANK 68 exit signal Terminated
+_pmiu_daemon(SIGCHLD): [NID 00025] [c0-0c0s3n3] [Thu Mar  1 04:03:31 2018] PE RANK 225 exit signal Terminated
+_pmiu_daemon(SIGCHLD): [NID 00010] [c0-0c0s5n0] [Thu Mar  1 04:03:31 2018] PE RANK 34 exit signal Terminated
+_pmiu_daemon(SIGCHLD): [NID 00016] [c0-0c0s7n2] [Thu Mar  1 04:03:31 2018] PE RANK 130 exit signal Terminated
+=>> PBS: job killed: walltime 9687 exceeded limit 9600

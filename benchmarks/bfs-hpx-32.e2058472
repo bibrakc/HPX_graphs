@@ -1,0 +1,17 @@
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+GSL version 2.3 loaded.
+/var/spool/torque/mom_priv/jobs/2058472.SC: line 9: /N/u/bchandio/BigRed2/work/Research/graphs/mydev/HPX_Graph/benchmarks: is a directory
+aprun: file ./bfs not found
+aprun: Exiting due to errors. Application aborted
+aprun: file ./bfs not found
+aprun: Exiting due to errors. Application aborted
+aprun: file ./bfs not found
+aprun: Exiting due to errors. Application aborted
+aprun: file ./bfs not found
+aprun: Exiting due to errors. Application aborted
+aprun: file ./bfs not found
+aprun: Exiting due to errors. Application aborted
+aprun: file ./bfs not found
+aprun: Exiting due to errors. Application aborted

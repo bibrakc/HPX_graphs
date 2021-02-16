@@ -1,0 +1,10 @@
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+GSL version 2.3 loaded.
+[NID 00042] 2019-02-09 14:09:31 Apid 17289810: initiated application termination
+[NID 00042] 2019-02-09 14:10:06 Apid 17289810: OOM killer terminated this process.
+[NID 00020] 2019-02-09 14:14:01 Apid 17289880: initiated application termination
+[NID 00020] 2019-02-09 14:14:14 Apid 17289880: OOM killer terminated this process.
+=>> PBS: job killed: walltime 2031 exceeded limit 1800
+aprun: Apid 17290188: Caught signal Terminated, sending to application

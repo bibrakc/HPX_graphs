@@ -1,0 +1,153 @@
+n = 32
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1056964608
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 6119966
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 1.820351
+Application 15309005 resources: utime ~107s, stime ~8s, Rss ~99792, inblocks ~28618, outblocks ~46416
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1056964608
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 6058850
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 1.873264
+Application 15309008 resources: utime ~108s, stime ~8s, Rss ~99788, inblocks ~28618, outblocks ~46416
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1056964608
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 6030424
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 1.815410
+Application 15309009 resources: utime ~106s, stime ~8s, Rss ~99792, inblocks ~28618, outblocks ~46416
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1056964608
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 6102186
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 1.832830
+Application 15309015 resources: utime ~107s, stime ~9s, Rss ~99792, inblocks ~28618, outblocks ~46416
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1056964608
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 6138850
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 1.881053
+Application 15309017 resources: utime ~109s, stime ~8s, Rss ~99792, inblocks ~28618, outblocks ~46416
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1056964608
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 6142934
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 1.810412
+Application 15309019 resources: utime ~106s, stime ~9s, Rss ~99796, inblocks ~28618, outblocks ~46416
+-----------
+n = 16
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1040187392
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 19477190
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 9.663369
+Application 15309021 resources: utime ~177s, stime ~7s, Rss ~191720, inblocks ~26585, outblocks ~46415
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1040187392
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 19381144
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 11.112715
+Application 15309023 resources: utime ~201s, stime ~7s, Rss ~201512, inblocks ~26585, outblocks ~46415
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1040187392
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 19373392
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 10.114007
+Application 15309026 resources: utime ~185s, stime ~7s, Rss ~194904, inblocks ~26585, outblocks ~46415
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1040187392
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 19294840
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 9.776516
+Application 15309029 resources: utime ~179s, stime ~6s, Rss ~189612, inblocks ~26585, outblocks ~46415
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1040187392
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 19350636
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 10.476023
+Application 15309030 resources: utime ~190s, stime ~7s, Rss ~193036, inblocks ~26585, outblocks ~46415
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 1040187392
+bfs_done_lco = 4300832
+BFS_hpx_async and LCOs done waited and deleted
+reduce_done_lco = 4300832
+vertex 3 reduced actions invocked is 19294280
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Time taken secs: 9.797490
+Application 15309032 resources: utime ~180s, stime ~7s, Rss ~191460, inblocks ~26585, outblocks ~46415
+-----------
+Job Cleanup ran on Wed Feb 21 04:13:18 EST 2018
+===============================
+submit_args  : 	 submit_args = run_job32.sh
+NIDS         : 	 1001
+NID Placement: 	 1001/32 

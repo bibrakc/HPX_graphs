@@ -1,0 +1,773 @@
+n = 256
+-----------
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+Hello World in _sssp_handler from 0 the graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 60.331749
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 1443221249, sum of action time is 132111298.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276177 resources: utime ~48716s, stime ~120s, Rss ~1440324, inblocks ~321435, outblocks ~102152
+n = 128
+-----------
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+Hello World in _sssp_handler from 0 the graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 101.376181
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 1952648582, sum of action time is 151099387.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276178 resources: utime ~37447s, stime ~56s, Rss ~1447608, inblocks ~281667, outblocks ~51076
+n = 64
+-----------
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+./_Powerlaw-clustered.edgelist.w -- filename
+Hello World in _sssp_handler from 0 the graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 143.674204
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 1411221553, sum of action time is 131956377.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276179 resources: utime ~25335s, stime ~35s, Rss ~1462480, inblocks ~261995, outblocks ~25538
+n = 32
+-----------
+Graph: ./_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071644672
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 29.352374
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 848779129, sum of action time is 16840090.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276181 resources: utime ~2875s, stime ~21s, Rss ~1468560, inblocks ~251827, outblocks ~12769
+Power Law Ends
+n = 256
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 32.491131
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 146666, sum of action time is 86416400.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276182 resources: utime ~36553s, stime ~124s, Rss ~1451008, inblocks ~320362, outblocks ~102152
+n = 128
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 55.552713
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -466602921, sum of action time is 86815336.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276183 resources: utime ~27598s, stime ~56s, Rss ~1467112, inblocks ~280594, outblocks ~51076
+n = 64
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 95.510773
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 993722937, sum of action time is 107298694.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276184 resources: utime ~21130s, stime ~36s, Rss ~1502804, inblocks ~260922, outblocks ~25538
+n = 32
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071644672
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 26.653822
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 431993499, sum of action time is 7967350.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276185 resources: utime ~2442s, stime ~21s, Rss ~1545200, inblocks ~250754, outblocks ~12769
+n = 256
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 34.497640
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 434586953, sum of action time is 93715765.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276186 resources: utime ~37823s, stime ~122s, Rss ~1450984, inblocks ~320362, outblocks ~102152
+n = 128
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 55.804456
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 509130434, sum of action time is 108382458.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276187 resources: utime ~29255s, stime ~57s, Rss ~1467136, inblocks ~280594, outblocks ~51076
+n = 64
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 94.203811
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -641114149, sum of action time is 74035597.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276188 resources: utime ~19514s, stime ~37s, Rss ~1508476, inblocks ~260922, outblocks ~25538
+n = 32
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071644672
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 26.091226
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 473424633, sum of action time is 8954046.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276189 resources: utime ~2470s, stime ~22s, Rss ~1545200, inblocks ~250754, outblocks ~12769
+n = 256
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 34.176051
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -290280627, sum of action time is 80548228.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276190 resources: utime ~37139s, stime ~128s, Rss ~1450952, inblocks ~320362, outblocks ~102152
+n = 128
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 56.324029
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -523136521, sum of action time is 85016577.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276191 resources: utime ~27596s, stime ~56s, Rss ~1467096, inblocks ~280594, outblocks ~51076
+n = 64
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 85.301866
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -815399075, sum of action time is 71227765.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276192 resources: utime ~18482s, stime ~36s, Rss ~1508348, inblocks ~260922, outblocks ~25538
+n = 32
+-----------
+Graph: ./_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071644672
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 26.509454
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 440765750, sum of action time is 8240966.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276193 resources: utime ~2437s, stime ~21s, Rss ~1545200, inblocks ~250754, outblocks ~12769
+Scale Free ends
+n = 256
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 80.825148
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 374960268, sum of action time is 395979099.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276194 resources: utime ~89298s, stime ~128s, Rss ~838060, inblocks ~206521, outblocks ~102152
+n = 128
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 131.313549
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 345570211, sum of action time is 394268030.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276195 resources: utime ~88330s, stime ~61s, Rss ~798980, inblocks ~166753, outblocks ~51076
+n = 64
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 171.604638
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 299559094, sum of action time is 264503800.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276196 resources: utime ~67078s, stime ~33s, Rss ~838344, inblocks ~147081, outblocks ~25538
+n = 32
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071644672
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 36.884361
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 179823852, sum of action time is 120694481.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276201 resources: utime ~12378s, stime ~19s, Rss ~892592, inblocks ~136913, outblocks ~12769
+n = 256
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 78.122153
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 329883968, sum of action time is 460117651.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276204 resources: utime ~97585s, stime ~129s, Rss ~849220, inblocks ~206521, outblocks ~102152
+n = 128
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 132.192473
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 382390101, sum of action time is 394481805.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276207 resources: utime ~88238s, stime ~63s, Rss ~797996, inblocks ~166753, outblocks ~51076
+n = 64
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 167.389073
+reduce_done_lco = 2150432
+Job Cleanup ran on Tue Feb 5 22:39:27 EST 2019
+===============================
+submit_args  : 	 submit_args = run_job_19_2.sh
+NIDS         : 	 10-12,42,81,84-86
+NID Placement: 	 10/32 11/32 12/32 42/32 81/32 84/32 85/32 86/32 

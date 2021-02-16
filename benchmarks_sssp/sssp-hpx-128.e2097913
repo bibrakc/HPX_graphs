@@ -1,0 +1,790 @@
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+GSL version 2.3 loaded.
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 5] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 30] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 29] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 28] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 3] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+[Rank 8] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 6] Listing of dir '/dev/shm'[Rank 31] Listing of dir '/dev/shm'[Rank 11] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+[Rank 1] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 2] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 10] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 9] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+[Rank 14] Listing of dir '/dev/shm'[Rank 12] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 16] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 18] Listing of dir '/dev/shm'[Rank 19] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 22] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 23] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 21] Listing of dir '/dev/shm'[Rank 20] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 15] Listing of dir '/dev/shm'[Rank 24] Listing of dir '/dev/shm'[Rank 26] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 27] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 13] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 4] Listing of dir '/dev/shm'[Rank 25] Listing of dir '/dev/shm'[Rank 7] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 17] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+[Rank 0] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 39] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 43] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+[Rank 38] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 35] Listing of dir '/dev/shm'[Rank 61] Listing of dir '/dev/shm'[Rank 55] Listing of dir '/dev/shm'[Rank 56] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+[Rank 33] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 37] Listing of dir '/dev/shm'[Rank 36] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 42] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 45] Listing of dir '/dev/shm'[Rank 44] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 47] Listing of dir '/dev/shm'[Rank 46] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 48] Listing of dir '/dev/shm'[Rank 49] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 52] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+[Rank 51] Listing of dir '/dev/shm'[Rank 53] Listing of dir '/dev/shm'[Rank 50] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+[Rank 54] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 57] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 59] Listing of dir '/dev/shm'[Rank 58] Listing of dir '/dev/shm'[Rank 60] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 40] Listing of dir '/dev/shm'[Rank 63] Listing of dir '/dev/shm'[Rank 62] Listing of dir '/dev/shm'[Rank 41] Listing of dir '/dev/shm'[Rank 32] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351039-1399847.tmp
+open: No such file or directory
+[Rank 34] Listing of dir '/dev/shm'_pmiu_daemon(SIGCHLD): [NID 00057] [c0-0c1s3n3] [Sun Feb 25 23:33:05 2018] PE RANK 10 exit signal Segmentation fault
+[NID 00057] 2018-02-25 23:33:05 Apid 15351039: initiated application termination
+_pmiu_daemon(SIGCHLD): [NID 00058] [c0-0c1s2n2] [Sun Feb 25 23:33:05 2018] PE RANK 63 exit signal Segmentation fault
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 1] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+[Rank 4] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 11] Listing of dir '/dev/shm'[Rank 7] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 25] Listing of dir '/dev/shm'[Rank 15] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 30] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 17] Listing of dir '/dev/shm'[Rank 6] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 8] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 3] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+[Rank 10] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 9] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+[Rank 13] Listing of dir '/dev/shm'[Rank 12] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 14] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 16] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 22] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 19] Listing of dir '/dev/shm'[Rank 18] Listing of dir '/dev/shm'[Rank 20] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 21] Listing of dir '/dev/shm'[Rank 24] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 23] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 26] Listing of dir '/dev/shm'[Rank 27] Listing of dir '/dev/shm'[Rank 31] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 28] Listing of dir '/dev/shm'[Rank 29] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 0] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+[Rank 2] Listing of dir '/dev/shm'[Rank 5] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 36] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+[Rank 38] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 35] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 56] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+[Rank 34] Listing of dir '/dev/shm'[Rank 44] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+[Rank 58] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 60] Listing of dir '/dev/shm'[Rank 62] Listing of dir '/dev/shm'[Rank 63] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 51] Listing of dir '/dev/shm'[Rank 50] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 33] Listing of dir '/dev/shm'[Rank 39] Listing of dir '/dev/shm'[Rank 52] Listing of dir '/dev/shm'[Rank 53] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 42] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 40] Listing of dir '/dev/shm'[Rank 43] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 41] Listing of dir '/dev/shm'[Rank 46] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 47] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 45] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+[Rank 49] Listing of dir '/dev/shm'[Rank 57] Listing of dir '/dev/shm'[Rank 48] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+[Rank 54] Listing of dir '/dev/shm'[Rank 55] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 59] Listing of dir '/dev/shm'[Rank 61] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351040-1399847.tmp
+open: No such file or directory
+[Rank 32] Listing of dir '/dev/shm'[Rank 37] Listing of dir '/dev/shm'_pmiu_daemon(SIGCHLD): [NID 00058] [c0-0c1s2n2] [Sun Feb 25 23:33:14 2018] PE RANK 58 exit signal Segmentation fault
+_pmiu_daemon(SIGCHLD): [NID 00057] [c0-0c1s3n3] [Sun Feb 25 23:33:14 2018] PE RANK 12 exit signal Segmentation fault
+[NID 00058] 2018-02-25 23:33:14 Apid 15351040: initiated application termination
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 2] Listing of dir '/dev/shm'[Rank 4] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 3] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 8] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 25] Listing of dir '/dev/shm'[Rank 24] Listing of dir '/dev/shm'[Rank 28] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 7] Listing of dir '/dev/shm'[Rank 9] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 11] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 6] Listing of dir '/dev/shm'[Rank 12] Listing of dir '/dev/shm'[Rank 29] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+[Rank 15] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 18] Listing of dir '/dev/shm'[Rank 10] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 0] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 17] Listing of dir '/dev/shm'[Rank 16] Listing of dir '/dev/shm'[Rank 13] Listing of dir '/dev/shm'[Rank 26] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 30] Listing of dir '/dev/shm'[Rank 19] Listing of dir '/dev/shm'[Rank 22] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 14] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 21] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 27] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 23] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 31] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 20] Listing of dir '/dev/shm'[Rank 5] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+[Rank 1] Listing of dir '/dev/shm'[Rank 43] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+[Rank 38] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 34] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 47] Listing of dir '/dev/shm'[Rank 35] Listing of dir '/dev/shm'[Rank 33] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 59] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+[Rank 37] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+[Rank 36] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 40] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 39] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 41] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 42] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 46] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 45] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 52] Listing of dir '/dev/shm'[Rank 49] Listing of dir '/dev/shm'[Rank 48] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 51] Listing of dir '/dev/shm'[Rank 50] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+[Rank 53] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 54] Listing of dir '/dev/shm'[Rank 55] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 57] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 56] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 60] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+[Rank 58] Listing of dir '/dev/shm'[Rank 61] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 44] Listing of dir '/dev/shm'[Rank 62] Listing of dir '/dev/shm'[Rank 63] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351042-1399847.tmp
+open: No such file or directory
+[Rank 32] Listing of dir '/dev/shm'_pmiu_daemon(SIGCHLD): [NID 00058] [c0-0c1s2n2] [Sun Feb 25 23:33:23 2018] PE RANK 33 exit signal Segmentation fault
+_pmiu_daemon(SIGCHLD): [NID 00057] [c0-0c1s3n3] [Sun Feb 25 23:33:23 2018] PE RANK 5 exit signal Segmentation fault
+[NID 00058] 2018-02-25 23:33:23 Apid 15351042: initiated application termination
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+[Rank 31] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+[Rank 41] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 11] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 9] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 1] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 7] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 6] Listing of dir '/dev/shm'[Rank 5] Listing of dir '/dev/shm'[Rank 14] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 4] Listing of dir '/dev/shm'[Rank 29] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 27] Listing of dir '/dev/shm'[Rank 26] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 3] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 30] Listing of dir '/dev/shm'[Rank 28] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 8] Listing of dir '/dev/shm'[Rank 10] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+[Rank 12] Listing of dir '/dev/shm'[Rank 13] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+[Rank 15] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 17] Listing of dir '/dev/shm'[Rank 16] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 19] Listing of dir '/dev/shm'[Rank 18] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 20] Listing of dir '/dev/shm'[Rank 21] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 22] Listing of dir '/dev/shm'[Rank 24] Listing of dir '/dev/shm'[Rank 25] Listing of dir '/dev/shm'[Rank 23] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+[Rank 0] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 40] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 39] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+[Rank 42] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 44] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 59] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 47] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 63] Listing of dir '/dev/shm'[Rank 43] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 60] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 48] Listing of dir '/dev/shm'[Rank 45] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 50] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 32] Listing of dir '/dev/shm'[Rank 51] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 52] Listing of dir '/dev/shm'[Rank 53] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 54] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 55] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 49] Listing of dir '/dev/shm'[Rank 61] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 57] Listing of dir '/dev/shm'[Rank 56] Listing of dir '/dev/shm'[Rank 62] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+[Rank 58] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 46] Listing of dir '/dev/shm'[Rank 38] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 35] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+[Rank 33] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 37] Listing of dir '/dev/shm'[Rank 36] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351045-1399847.tmp
+open: No such file or directory
+[Rank 2] Listing of dir '/dev/shm'[Rank 34] Listing of dir '/dev/shm'_pmiu_daemon(SIGCHLD): [NID 00058] [c0-0c1s2n2] [Sun Feb 25 23:33:32 2018] PE RANK 43 exit signal Segmentation fault
+_pmiu_daemon(SIGCHLD): [NID 00057] [c0-0c1s3n3] [Sun Feb 25 23:33:32 2018] PE RANK 3 exit signal Segmentation fault
+[NID 00058] 2018-02-25 23:33:32 Apid 15351045: initiated application termination
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 2] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 4] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 1] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+[Rank 7] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 9] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 11] Listing of dir '/dev/shm'[Rank 16] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 13] Listing of dir '/dev/shm'[Rank 27] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 26] Listing of dir '/dev/shm'[Rank 19] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 31] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 18] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 21] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 24] Listing of dir '/dev/shm'[Rank 29] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+[Rank 30] Listing of dir '/dev/shm'[Rank 22] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 25] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+[Rank 28] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 8] Listing of dir '/dev/shm'[Rank 12] Listing of dir '/dev/shm'[Rank 17] Listing of dir '/dev/shm'[Rank 15] Listing of dir '/dev/shm'[Rank 14] Listing of dir '/dev/shm'[Rank 10] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+[Rank 20] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 6] Listing of dir '/dev/shm'[Rank 5] Listing of dir '/dev/shm'[Rank 3] Listing of dir '/dev/shm'[Rank 23] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+[Rank 0] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 49] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+[Rank 45] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 58] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 41] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 59] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+[Rank 61] Listing of dir '/dev/shm'[Rank 56] Listing of dir '/dev/shm'[Rank 60] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 33] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 35] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+[Rank 37] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 36] Listing of dir '/dev/shm'[Rank 38] Listing of dir '/dev/shm'[Rank 39] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 42] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 44] Listing of dir '/dev/shm'[Rank 40] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+[Rank 46] Listing of dir '/dev/shm'[Rank 47] Listing of dir '/dev/shm'[Rank 43] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 50] Listing of dir '/dev/shm'[Rank 51] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 52] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 57] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 55] Listing of dir '/dev/shm'[Rank 54] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 53] Listing of dir '/dev/shm'[Rank 63] Listing of dir '/dev/shm'[Rank 62] Listing of dir '/dev/shm'[Rank 32] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351046-1399847.tmp
+[Rank 34] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 48] Listing of dir '/dev/shm'_pmiu_daemon(SIGCHLD): [NID 00057] [c0-0c1s3n3] [Sun Feb 25 23:33:41 2018] PE RANK 0 exit signal Segmentation fault
+[NID 00057] 2018-02-25 23:33:41 Apid 15351046: initiated application termination
+_pmiu_daemon(SIGCHLD): [NID 00058] [c0-0c1s2n2] [Sun Feb 25 23:33:41 2018] PE RANK 37 exit signal Segmentation fault
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 4] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 63] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 1] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 7] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 11] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 31] Listing of dir '/dev/shm'[Rank 2] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 30] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 29] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 5] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 14] Listing of dir '/dev/shm'[Rank 24] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 22] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 6] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 3] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 8] Listing of dir '/dev/shm'[Rank 9] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 13] Listing of dir '/dev/shm'[Rank 10] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 12] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 15] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 17] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 18] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 19] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 25] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 20] Listing of dir '/dev/shm'[Rank 21] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 23] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 27] Listing of dir '/dev/shm'[Rank 26] Listing of dir '/dev/shm'[Rank 28] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 0] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 16] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 38] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 35] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 41] Listing of dir '/dev/shm'[Rank 39] Listing of dir '/dev/shm'[Rank 60] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 47] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 42] Listing of dir '/dev/shm'open: No such file or directory
+[Rank 44] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 36] Listing of dir '/dev/shm'[Rank 37] Listing of dir '/dev/shm'[Rank 53] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 54] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 55] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+[Rank 51] Listing of dir '/dev/shm'[Rank 58] Listing of dir '/dev/shm'[Rank 33] Listing of dir '/dev/shm'[Rank 49] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 32] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 40] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 43] Listing of dir '/dev/shm'[Rank 45] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 46] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 48] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 50] Listing of dir '/dev/shm'open: No such file or directory
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+[Rank 52] Listing of dir '/dev/shm'open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+open: No such file or directory
+[Rank 62] Listing of dir '/dev/shm'[Rank 59] Listing of dir '/dev/shm'[Rank 61] Listing of dir '/dev/shm'[Rank 56] Listing of dir '/dev/shm'[Rank 57] Listing of dir '/dev/shm'open failed for file:/dev/shm/cray-shared-mem-coll-setup-kvs_15351048-1399847.tmp
+open: No such file or directory
+[Rank 34] Listing of dir '/dev/shm'_pmiu_daemon(SIGCHLD): [NID 00058] [c0-0c1s2n2] [Sun Feb 25 23:33:47 2018] PE RANK 37 exit signal Segmentation fault
+_pmiu_daemon(SIGCHLD): [NID 00057] [c0-0c1s3n3] [Sun Feb 25 23:33:47 2018] PE RANK 30 exit signal Segmentation fault
+[NID 00057] 2018-02-25 23:33:47 Apid 15351048: initiated application termination

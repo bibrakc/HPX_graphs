@@ -1,0 +1,26 @@
+n = 1024
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 28.969467
+reduce_done_lco = 4300832
+vertex 417 reduced actions invocked is 285339900
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 15362016 resources: utime ~536376s, stime ~2329s, Rss ~3841444, inblocks ~1150525, outblocks ~1485312
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+Application 15362027 exit codes: 143
+Application 15362027 resources: utime ~128s, stime ~94s, Rss ~17516, inblocks ~547014, outblocks ~1485312
+Job Cleanup ran on Thu Mar 1 05:55:55 EST 2018
+===============================
+submit_args  : 	 submit_args = run_job1024_19.sh
+NIDS         : 	 7,10,14-16,18,22,25-26,28,35,39,45,47,60,66,821,824,883,886,896,903,908-910,919,924,941,945,949-950,953
+NID Placement: 	 7/32 10/32 14/32 15/32 16/32 18/32 22/32 25/32 26/32 28/32 35/32 39/32 45/32 47/32 60/32 66/32 821/32 824/32 883/32 886/32 896/32 903/32 908/32 909/32 910/32 919/32 924/32 941/32 945/32 949/32 950/32 953/32 

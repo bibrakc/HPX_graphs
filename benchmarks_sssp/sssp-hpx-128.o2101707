@@ -1,0 +1,85 @@
+n = 256
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 65535 with 1818848 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 4.440478
+reduce_done_lco = 4300832
+vertex 417 reduced actions invocked is 28302538
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 15359422 resources: utime ~4358s, stime ~135s, Rss ~428528, inblocks ~217689, outblocks ~371328
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 65535 with 1818848 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 4.374151
+reduce_done_lco = 4300832
+vertex 417 reduced actions invocked is 28488662
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 15359428 resources: utime ~13583s, stime ~131s, Rss ~430656, inblocks ~217720, outblocks ~371328
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 65535 with 1818848 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 4.453365
+reduce_done_lco = 4300832
+vertex 417 reduced actions invocked is 27768502
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 15359446 resources: utime ~4313s, stime ~132s, Rss ~421052, inblocks ~217720, outblocks ~371328
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 65535 with 1818848 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 4.309404
+reduce_done_lco = 4300832
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+vertex 417 reduced actions invocked is 27803296
+Freeing memory, vertices
+Application 15359447 resources: utime ~12689s, stime ~131s, Rss ~429340, inblocks ~217720, outblocks ~371328
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 65535 with 1818848 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 4.269610
+reduce_done_lco = 4300832
+vertex 417 reduced actions invocked is 28008052
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 15359459 resources: utime ~4262s, stime ~135s, Rss ~422252, inblocks ~217720, outblocks ~371328
+-----------
+Hello World in _sssp_handler from 0 the graph vertex count is 65535 with 1818848 egdes.
+allocation is done
+vertices = 1069657728
+initialied vertex structures
+sssp_done_lco = 4300832
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 4.184878
+reduce_done_lco = 4300832
+vertex 417 reduced actions invocked is 28293074
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 15359460 resources: utime ~13094s, stime ~135s, Rss ~421856, inblocks ~217720, outblocks ~371328
+-----------
+Job Cleanup ran on Tue Feb 27 13:34:42 EST 2018
+===============================
+submit_args  : 	 submit_args = run_job256.sh
+NIDS         : 	 60,63,73,782,992-993,1001,1008
+NID Placement: 	 60/32 63/32 73/32 782/32 992/32 993/32 1001/32 1008/32 

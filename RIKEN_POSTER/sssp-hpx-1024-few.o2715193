@@ -1,0 +1,215 @@
+n = 1024
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 11.044731
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 2126814182, sum of action time is 39289297.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290421 resources: utime ~69835s, stime ~2382s, Rss ~1440468, inblocks ~557930, outblocks ~408608
+n = 512
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 19.775134
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 2948110809, sum of action time is 54397890.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290422 resources: utime ~48357s, stime ~512s, Rss ~1444204, inblocks ~399737, outblocks ~204304
+n = 256
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 35.008848
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 3958970964, sum of action time is 79038039.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290423 resources: utime ~37498s, stime ~128s, Rss ~1451044, inblocks ~320421, outblocks ~102152
+n = 128
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 56.109046
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 4502356505, sum of action time is 100088850.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290458 resources: utime ~28258s, stime ~57s, Rss ~1467060, inblocks ~280591, outblocks ~51076
+n = 64
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 86.307448
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 3801775249, sum of action time is 77684257.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290581 resources: utime ~18696s, stime ~36s, Rss ~1497116, inblocks ~260953, outblocks ~25538
+n = 1024
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 9.933481
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 1317010054, sum of action time is 23763846.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290769 resources: utime ~66631s, stime ~2388s, Rss ~1440448, inblocks ~557907, outblocks ~408608
+n = 512
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 16.920453
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 2435602750, sum of action time is 45333619.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290825 resources: utime ~45684s, stime ~504s, Rss ~1444220, inblocks ~399717, outblocks ~204304
+n = 256
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 34.279221
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 4681632096, sum of action time is 94077676.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290876 resources: utime ~37639s, stime ~126s, Rss ~1450956, inblocks ~320421, outblocks ~102152
+n = 128
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 55.302990
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 4118117370, sum of action time is 92689738.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290903 resources: utime ~27718s, stime ~59s, Rss ~1467032, inblocks ~280591, outblocks ~51076
+n = 64
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 90.393441
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 3718156000, sum of action time is 76193460.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290950 resources: utime ~19266s, stime ~37s, Rss ~1503632, inblocks ~260953, outblocks ~25538
+n = 1024
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 10.085291
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 2193829590, sum of action time is 40422447.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290997 resources: utime ~67885s, stime ~2399s, Rss ~1440420, inblocks ~557969, outblocks ~408608
+n = 512
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 18.997293
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 2813934535, sum of action time is 52878236.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17291000 resources: utime ~48020s, stime ~509s, Rss ~1444224, inblocks ~399615, outblocks ~204304
+n = 256
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 34.953670
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 2057847910, sum of action time is 122693355.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17291001 resources: utime ~39570s, stime ~128s, Rss ~1451076, inblocks ~320452, outblocks ~102152
+n = 128
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 56.350661
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 4202720325, sum of action time is 93208199.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17291002 resources: utime ~27887s, stime ~58s, Rss ~1467176, inblocks ~280591, outblocks ~51076
+n = 64
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 96.764865
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 463704636, sum of action time is 96970050.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17291003 resources: utime ~20628s, stime ~37s, Rss ~1501736, inblocks ~260953, outblocks ~25538
+Job Cleanup ran on Sat Feb 9 15:37:04 EST 2019
+===============================
+submit_args  : 	 submit_args = run_job_19_few.sh
+NIDS         : 	 20,23,25-29,32-37,39-43,46,50-53,57-65
+NID Placement: 	 20/32 23/32 25/32 26/32 27/32 28/32 29/32 32/32 33/32 34/32 35/32 36/32 37/32 39/32 40/32 41/32 42/32 43/32 46/32 50/32 51/32 52/32 53/32 57/32 58/32 59/32 60/32 61/32 62/32 63/32 64/32 65/32 

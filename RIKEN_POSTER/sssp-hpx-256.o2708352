@@ -1,0 +1,86 @@
+n = 32
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071644672
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 41.131268
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 189772204, sum of action time is 125437025.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276503 resources: utime ~12939s, stime ~19s, Rss ~892580, inblocks ~136881, outblocks ~12769
+n = 256
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 77.014785
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 372923752, sum of action time is 459792211.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276536 resources: utime ~96803s, stime ~126s, Rss ~836284, inblocks ~206492, outblocks ~102152
+n = 128
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 128.082277
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 365386854, sum of action time is 401227618.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276543 resources: utime ~87916s, stime ~63s, Rss ~799332, inblocks ~166722, outblocks ~51076
+n = 64
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 158.079468
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 318243306, sum of action time is 254484826.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276556 resources: utime ~64240s, stime ~33s, Rss ~837372, inblocks ~147081, outblocks ~25538
+n = 32
+-----------
+Graph: ./_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071644672
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 42.379950
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 195771949, sum of action time is 138469834.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17276578 resources: utime ~14122s, stime ~20s, Rss ~892584, inblocks ~136881, outblocks ~12769
+Small World ends
+n = 256
+-----------
+Graph: ./scale19_s.mm, graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 149.106174
+reduce_done_lco = 2150432
+Job Cleanup ran on Wed Feb 6 01:54:37 EST 2019
+===============================
+submit_args  : 	 submit_args = run_job_19_3.sh
+NIDS         : 	 886,894,896,909,914-915,917-918
+NID Placement: 	 886/32 894/32 896/32 909/32 914/32 915/32 917/32 918/32 

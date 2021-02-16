@@ -1,0 +1,142 @@
+n = 1024
+-----------
+Graph: ../../../graph_database_networkx/_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 15.392216
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 241147069, sum of action time is 278898054.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17289670 resources: utime ~79610s, stime ~544s, Rss ~2294660, inblocks ~444034, outblocks ~408608
+n = 512
+-----------
+Graph: ../../../graph_database_networkx/_Small-world.edgelist.w, graph vertex count is 524288 with 4194304 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 31.492782
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 301219388, sum of action time is 343944507.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17289684 resources: utime ~79538s, stime ~282s, Rss ~1363384, inblocks ~285784, outblocks ~204304
+Small World ends
+n= 1024
+Graph: ./scale19_s.mm, graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 17.103439
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 217410414, sum of action time is 336497.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17289725 resources: utime ~125471s, stime ~2251s, Rss ~3853728, inblocks ~790244, outblocks ~408608
+n = 512
+-----------
+Graph: ./scale19_s.mm, graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 52.105425
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 219230262, sum of action time is 335617.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17289761 resources: utime ~100130s, stime ~485s, Rss ~3053952, inblocks ~631951, outblocks ~204304
+n = 64
+-----------
+Graph: ./scale19_s.mm, graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+Application 17289810 exit signals: Killed
+Application 17289810 resources: utime ~0s, stime ~4s, Rss ~4992, inblocks ~11138, outblocks ~25538
+n = 64
+-----------
+Graph: ./scale19_s.mm, graph vertex count is 524286 with 15481231 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+Application 17289880 exit signals: Killed
+Application 17289880 resources: utime ~0s, stime ~5s, Rss ~5268, inblocks ~11138, outblocks ~25538
+n = 64
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 91.383210
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 3891454569, sum of action time is 78518240.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17289959 resources: utime ~19590s, stime ~35s, Rss ~1503664, inblocks ~260921, outblocks ~25538
+n = 64
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 90.345460
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 3835939574, sum of action time is 78082770.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290022 resources: utime ~19625s, stime ~35s, Rss ~1502652, inblocks ~260952, outblocks ~25538
+n = 512
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 20.746962
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 3720674932, sum of action time is 69526004.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290125 resources: utime ~50285s, stime ~498s, Rss ~1444144, inblocks ~399582, outblocks ~204304
+n = 1024
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 11.448674
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 1896306590, sum of action time is 34931679.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17290155 resources: utime ~70245s, stime ~2381s, Rss ~1440384, inblocks ~557906, outblocks ~408608
+n = 128
+-----------
+Graph: ../../../graph_database_networkx/_Scale-free.edgelist.w, graph vertex count is 524288 with 8388352 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+Job Cleanup ran on Sat Feb 9 14:29:37 EST 2019
+===============================
+submit_args  : 	 submit_args = run_job_19_few.sh
+NIDS         : 	 20,23,25-29,32-37,39-43,46,50-53,57-65
+NID Placement: 	 20/32 23/32 25/32 26/32 27/32 28/32 29/32 32/32 33/32 34/32 35/32 36/32 37/32 39/32 40/32 41/32 42/32 43/32 46/32 50/32 51/32 52/32 53/32 57/32 58/32 59/32 60/32 61/32 62/32 63/32 64/32 65/32 

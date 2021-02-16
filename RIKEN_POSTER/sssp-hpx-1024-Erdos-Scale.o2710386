@@ -1,0 +1,174 @@
+n = 1024
+-----------
+Graph: ./_Erdos-Renyi_ef_32.edgelist.w, graph vertex count is 524288 with 16777216 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 18.299503
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -1358178777, sum of action time is 57482046.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280866 resources: utime ~134355s, stime ~2394s, Rss ~2823756, inblocks ~826556, outblocks ~408608
+n = 512
+-----------
+Graph: ./_Erdos-Renyi_ef_32.edgelist.w, graph vertex count is 524288 with 16777216 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 28.021982
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -841522704, sum of action time is 94953704.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280867 resources: utime ~96756s, stime ~526s, Rss ~2828808, inblocks ~668403, outblocks ~204304
+n = 1024
+-----------
+Graph: ./_Erdos-Renyi_ef_32.edgelist.w, graph vertex count is 524288 with 16777216 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 14.208363
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 1588124528, sum of action time is 46774757.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280872 resources: utime ~127731s, stime ~2391s, Rss ~2823836, inblocks ~826603, outblocks ~408608
+n = 512
+-----------
+Graph: ./_Erdos-Renyi_ef_32.edgelist.w, graph vertex count is 524288 with 16777216 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 27.791923
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 105267483, sum of action time is 102566509.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280873 resources: utime ~96764s, stime ~524s, Rss ~2828836, inblocks ~668415, outblocks ~204304
+n = 1024
+-----------
+Graph: ./_Erdos-Renyi_ef_32.edgelist.w, graph vertex count is 524288 with 16777216 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 18.018489
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -454886286, sum of action time is 64102531.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280877 resources: utime ~135655s, stime ~2387s, Rss ~2823764, inblocks ~826621, outblocks ~408608
+n = 512
+-----------
+Graph: ./_Erdos-Renyi_ef_32.edgelist.w, graph vertex count is 524288 with 16777216 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 27.553168
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -1737104137, sum of action time is 88200339.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280878 resources: utime ~94828s, stime ~521s, Rss ~2828820, inblocks ~668403, outblocks ~204304
+Erdos ends
+n = 1024
+-----------
+Graph: ./_Scale-free_ef_32.edgelist.w, graph vertex count is 524288 with 16776192 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 22.026237
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -382811025, sum of action time is 76076537.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280879 resources: utime ~145238s, stime ~2251s, Rss ~2823336, inblocks ~799243, outblocks ~408608
+n = 512
+-----------
+Graph: ./_Scale-free_ef_32.edgelist.w, graph vertex count is 524288 with 16776192 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 45.515160
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -693207477, sum of action time is 179191007.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280880 resources: utime ~111942s, stime ~448s, Rss ~2828592, inblocks ~641076, outblocks ~204304
+n = 1024
+-----------
+Graph: ./_Scale-free_ef_32.edgelist.w, graph vertex count is 524288 with 16776192 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 22.455535
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 449743109, sum of action time is 164896277.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280881 resources: utime ~149803s, stime ~2271s, Rss ~2823372, inblocks ~799305, outblocks ~408608
+n = 512
+-----------
+Graph: ./_Scale-free_ef_32.edgelist.w, graph vertex count is 524288 with 16776192 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 46.156157
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is -1849539025, sum of action time is 165625629.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280882 resources: utime ~111709s, stime ~453s, Rss ~2828580, inblocks ~641094, outblocks ~204304
+n = 1024
+-----------
+Graph: ./_Scale-free_ef_32.edgelist.w, graph vertex count is 524288 with 16776192 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 22.697368
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 186945936, sum of action time is 80983318.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280908 resources: utime ~144243s, stime ~2288s, Rss ~2823380, inblocks ~799262, outblocks ~408608
+n = 512
+-----------
+Graph: ./_Scale-free_ef_32.edgelist.w, graph vertex count is 524288 with 16776192 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 46.576517
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 96968085, sum of action time is 233009711.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17280912 resources: utime ~115747s, stime ~464s, Rss ~2828588, inblocks ~641077, outblocks ~204304
+Job Cleanup ran on Thu Feb 7 19:46:11 EST 2019
+===============================
+submit_args  : 	 submit_args = run_job_19_Er_Sc_1024.sh
+NIDS         : 	 18,38,44-45,862-864,871-879,881-885,887,892-893,908,943,954,957,973,980,999,1051
+NID Placement: 	 18/32 38/32 44/32 45/32 862/32 863/32 864/32 871/32 872/32 873/32 874/32 875/32 876/32 877/32 878/32 879/32 881/32 882/32 883/32 884/32 885/32 887/32 892/32 893/32 908/32 943/32 954/32 957/32 973/32 980/32 999/32 1051/32 

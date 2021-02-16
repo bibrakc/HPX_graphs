@@ -1,0 +1,5 @@
+Job Cleanup ran on Tue Feb 27 13:22:56 EST 2018
+===============================
+submit_args  : 	 submit_args = run_job128.sh
+NIDS         : 	 25,799,919,949
+NID Placement: 	 25/32 799/32 919/32 949/32 

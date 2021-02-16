@@ -1,0 +1,31 @@
+n = 128
+-----------
+Application 15351039 exit codes: 139
+Application 15351039 exit signals: Killed
+Application 15351039 resources: utime ~0s, stime ~11s, Rss ~6276, inblocks ~67882, outblocks ~185665
+-----------
+Application 15351040 exit codes: 139
+Application 15351040 exit signals: Killed
+Application 15351040 resources: utime ~0s, stime ~12s, Rss ~6276, inblocks ~67882, outblocks ~185665
+-----------
+Application 15351042 exit codes: 139
+Application 15351042 exit signals: Killed
+Application 15351042 resources: utime ~1s, stime ~10s, Rss ~6276, inblocks ~67882, outblocks ~185665
+-----------
+Application 15351045 exit codes: 139
+Application 15351045 exit signals: Killed
+Application 15351045 resources: utime ~0s, stime ~10s, Rss ~6276, inblocks ~67882, outblocks ~185665
+-----------
+Application 15351046 exit codes: 139
+Application 15351046 exit signals: Killed
+Application 15351046 resources: utime ~0s, stime ~11s, Rss ~6636, inblocks ~67884, outblocks ~185666
+-----------
+Application 15351048 exit codes: 139
+Application 15351048 exit signals: Killed
+Application 15351048 resources: utime ~0s, stime ~10s, Rss ~6276, inblocks ~67882, outblocks ~185665
+-----------
+Job Cleanup ran on Sun Feb 25 23:33:48 EST 2018
+===============================
+submit_args  : 	 submit_args = run_job128.sh
+NIDS         : 	 57-58,796,802
+NID Placement: 	 57/32 58/32 796/32 802/32 

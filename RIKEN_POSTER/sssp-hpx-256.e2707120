@@ -1,0 +1,5 @@
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
+aprun: Apid 17273922: Caught signal Terminated, sending to application
+=>> PBS: job killed: walltime 3726 exceeded limit 3600

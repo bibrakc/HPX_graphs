@@ -1,0 +1,1000 @@
+   53  ls
+   54  cd HPX_Graph/
+   55  ls
+   56  cd ..
+   57  ls
+   58  cd ..
+   59  ls
+   60  cd GeminiGraph-master/
+   61  ls
+   62  make clean
+   63  make
+   64  ls ~/installs/numactl/
+   65  ls ~/installs/numactl/lib/
+   66  echo $LD_LIBRARY_P
+   67  ls ~/installs/numactl/bin/
+   68  ~/installs/numactl/bin/numastat 
+   69  ~/installs/numactl/bin/numademo 
+   70  ~/installs/numactl/bin/numactl 
+   71  ~/installs/numactl/bin/memhog 
+   72  ls
+   73  echo $LD_LIBRARY_P
+   74  echo $LD_LIBRARY_PATH
+   75  vi MA
+   76  vi Makefile 
+   77  make
+   78  vi Makefile 
+   79  make clean
+   80  vi Makefile 
+   81  make
+   82  ls
+   83  cd toolkits/
+   84  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -q debug_cpu
+   85  make
+   86  cd ..
+   87  make
+   88  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -q debug_cpu
+   89  ls
+   90  cd work/
+   91  ls
+   92  mkdir CS_education
+   93  cd CS_education/
+   94  mkdir 330_comp_arch_course
+   95  cd 330_comp_arch_course/
+   96  wget -r -k https://people.cs.clemson.edu/~mark/330/
+   97  ls
+   98  exit
+   99  aprun -n 16 hostname
+  100  aprun -N 16 hostname
+  101  aprun -N 2 hostname
+  102  aprun -n 16 -N 2 hostname
+  103  aprun -n 2 -N 2 hostname
+  104  aprun -n 2 -N 1 hostname
+  105  aprun -n 2 -N 1 -d 2 hostname
+  106  aprun -n 4 -N 1 -d 2 hostname
+  107  aprun -n 2 -N 1 -d 2 hostname
+  108  aprun -n 1 -N 1 -d 2 hostname
+  109  aprun -n 1 -N 2 -d 2 hostname
+  110  aprun -n 2 -N 1 -d 1 hostname
+  111  aprun -n 2 -N 1 -d 8 hostname
+  112  aprun -n 4 -N 1 -d 8 hostname
+  113  aprun -n 4 -N 1 -d 2 hostname
+  114  aprun -n 2 -N 1 -d 2 hostname
+  115  exit
+  116  aprun -n 4 -N 2 hostname
+  117  aprun -n 4 -N 4 hostname
+  118  aprun -n 4 -N 1 hostname
+  119  aprun -n 4 -N 1 -d 4 hostname
+  120  aprun -n 4 hostname
+  121  aprun -n 16 hostname
+  122  aprun -n 4 -d 4 hostname
+  123  aprun -n 4 -N 1 -d 1 hostname
+  124  aprun -n 4 -N 1 -d 4 hostname
+  125  aprun -n 4 -N 1 -d 5 hostname
+  126  aprun -n 2 -N 4 hostname
+  127  exit
+  128  man aprun
+  129  ls
+  130  cd work/
+  131  ls
+  132  cd P
+  133  ls
+  134  cd Research/
+  135  ls
+  136  cd graphs/
+  137  ls
+  138  cd mydev/
+  139  ls
+  140  cd HPX_Graph/
+  141  ls
+  142  cd benchmarks_sssp/
+  143  vi run_job1024.sh 
+  144  cd ..
+  145  ls
+  146  cd benchmarks
+  147  ls
+  148  cat run_job64.sh 
+  149  cat run_job*
+  150  clear
+  151  ls
+  152  cd ..
+  153  l;s
+  154  ls
+  155  cd benchmarks_sssp/
+  156  cat run_job*
+  157  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -q debug_cpu
+  158  qsub -I -l walltime=00:30:00 -l nodes=2:ppn=8 -q debug_cpu
+  159  qsub -I -l walltime=00:30:00 -l nodes=4:ppn=4 -q debug_cpu
+  160  ls
+  161  top
+  162  exit
+  163  cd work/
+  164  ls
+  165  cd Research/
+  166  ls
+  167  cd graphs/
+  168  ls
+  169  cd mydev/
+  170  ls
+  171  cd HPX_Graph/
+  172  ls
+  173  more scale16.mm 
+  174  more scale16_s.
+  175  more scale16_s.mm
+  176  ls
+  177  cd ~/work/Research/graphs/SprayList-master
+  178  ls
+  179  vi run_sssp_all.sh 
+  180  ./run_sssp.sh paper/inputs/grid1000.txt 
+  181  vi run_sssp.sh 
+  182  ./bin/sssp -i paper/inputs/small.txt -o out.txt -n 4 -l -m 2000000 
+  183  ./bin/sssp -i paper/inputs/grid1000.txt -o out.txt -n 4 -l -m 2000000 
+  184  ls
+  185  more out.txt 
+  186  :q
+  187  ls
+  188  cp ../mydev/HPX_Graph/graph_s.mm .
+  189  mkdir inputs_G500
+  190  mv graph_s.mm inputs_G500/
+  191  ls
+  192  vi inputs_G500/graph_s.mm 
+  193  cp ../mydev/HPX_Graph/scale11.mm inputs_G500/
+  194  head paper/inputs/grid1000.txt 
+  195  vi inputs_G500/scale11.mm 
+  196  history
+  197  ./bin/sssp -i inputs_G500/scale11.mm -o out.txt -n 4 -l -m 2000000
+  198  ls
+  199  more out.txt 
+  200  vi sssp.c 
+  201  make
+  202  ./bin/sssp -i inputs_G500/scale11.mm -o out.txt -n 4 -l -m 2000000
+  203  more out.txt 
+  204  clear
+  205  rm out.txt 
+  206  ./bin/sssp -i inputs_G500/scale11.mm -o out.txt -n 16 -l -m 2000000
+  207  more out.txt 
+  208  exit
+  209  cd ~/work/Research/graphs/SprayList-master
+  210  ls
+  211  make
+  212  cd /N/u/bchandio/BigRed2/work/Research/graphs/SprayList-master
+  213  ls
+  214  ./bin/sssp -i inputs_G500/scale11.mm -o out.txt -n 2 -l -m 2000000
+  215  more out.txt 
+  216  ls
+  217  exit
+  218  cd /N/u/bchandio/BigRed2/work/Research/graphs/SprayList-master
+  219  exit
+  220  cd work/
+  221  ls
+  222  cd P
+  223  cd PhD/
+  224  ls
+  225  cd ..
+  226  ls
+  227  cd Research/
+  228  ls
+  229  ls ../PhD/CE/
+  230  ls ../PhD/CE/software/distro
+  231  ls
+  232  cd graphs/
+  233  ls
+  234  ls share/
+  235  ls share/apps/
+  236  ls
+  237  pwd
+  238  ls
+  239  cd GeminiGraph-master/
+  240  ls
+  241  cd datasets/
+  242  ls
+  243  cd ..
+  244  ls
+  245  cd core/
+  246  ls
+  247  cd ..
+  248  ls
+  249  clear
+  250  ls
+  251  cd toolkits/
+  252  ls
+  253  ./sssp 
+  254  cd ..
+  255  ls
+  256  cd ..
+  257  ls
+  258  cd mydev/
+  259  lks
+  260  ls
+  261  cd HPX_Graph/
+  262  ls
+  263  vi ASCII2Bin.c 
+  264  history | grep a.ou
+  265  vi ASCII2Bin.c 
+  266  cd ..
+  267  ls
+  268  cd ..
+  269  ls
+  270  unzip SprayList-master.zip 
+  271  ls
+  272  cd SprayList-master/
+  273  ls
+  274  make
+  275  ls
+  276  vi run_sssp.sh 
+  277  ./run_sssp.sh paper/inputs/small.txt 
+  278  ./run_sssp.sh paper/inputs/roadNet-CA.txt 
+  279  qsub -I -l walltime=00:30:00 -l nodes=4:ppn=4 -q debug_cpu
+  280  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -q debug_cpu
+  281  vi run_sssp.sh 
+  282  ls
+  283  cd inputs_G500/
+  284  ls
+  285  pwd
+  286  vi scale11.mm 
+  287  cd ..
+  288  ls
+  289  vi sssp.c 
+  290  make
+  291  pwd
+  292  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -q debug_cpu
+  293  exit
+  294  ls
+  295  uname
+  296  uname -a
+  297  cpuinfo
+  298  cat /proc/cpuinfo
+  299  ls
+  300  cd work/
+  301  ls
+  302  cd Research/
+  303  ls
+  304  cd graphs/
+  305  ls
+  306  cd mydev/
+  307  ls
+  308  cd HPX_Graph/
+  309  ls
+  310  vi scale14.mm 
+  311  vi sssp_hpx.c 
+  312  ls
+  313  pwd
+  314  vi sssp_hpx.c 
+  315  ls
+  316  cd ..
+  317  ls
+  318  cd ..
+  319  ls
+  320  cd SprayList-master/
+  321  ls
+  322  make
+  323  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -q debug_cpu
+  324  vi include/measurements.h 
+  325  vi include/utils.h 
+  326  make
+  327  ls
+  328  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -q debug_cpu
+  329  exit
+  330  ls
+  331  cd work/
+  332  ls
+  333  cd Research/
+  334  ls
+  335  cd graphs/
+  336  ls
+  337  cd mydev/
+  338  ls
+  339  cd HPX_Graph/
+  340  ls
+  341  cd benchmarks_sssp/
+  342  ls
+  343  more scale19_s.mm 
+  344  pwd
+  345  cd ../..
+  346  ls
+  347  cd ..
+  348  ls
+  349  cd SprayList-master/
+  350  vi sssp.c 
+  351  make
+  352  cd work/
+  353  ls
+  354  cd Research/
+  355  ls
+  356  cd graphs/
+  357  ls
+  358  cd mydev/
+  359  ls
+  360  cd ..
+  361  ls
+  362  cd SprayList-master/
+  363  ls
+  364  aprun hostname
+  365  aprun -n 1 -N 16 hostname
+  366  aprun -n 1 -d 16 hostname
+  367  ls
+  368  history
+  369  ./bin/sssp -i paper/inputs/small.txt -o out.txt -n 4 -l -m 2000000
+  370  aprun -n 1 -d 4 ./bin/sssp -i ../mydev/HPX_Graph/benchmarks_sssp/scale16_s.mm -o out.txt -n 4 -l -m 2000000
+  371  aprun -n 1 -d 4 ./bin/sssp -i ../mydev/HPX_Graph/benchmarks_sssp/scale17_s.mm -o out.txt -n 4 -l -m 2000000
+  372  aprun -n 1 -d 16 ./bin/sssp -i ../mydev/HPX_Graph/benchmarks_sssp/scale17_s.mm -o out.txt -n 16 -l -m 2000000
+  373  .
+  374  exit
+  375  ls
+  376  cd work/
+  377  ls
+  378  cd Research/
+  379  ls
+  380  cd 
+  381  cd work/Research/graphs/SprayList-master/
+  382  vi sssp.c 
+  383  make
+  384  exirt
+  385  exit
+  386  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -q debug_cpu
+  387  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -l h_vmem=4G -q debug_cpu
+  388  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -l vmem=8gb -q debug_cpu
+  389  cd work/
+  390  ls
+  391  cd Research/
+  392  ls
+  393  cd graphs/
+  394  ls
+  395  mkdir grap_database
+  396  mv grap_database graph_database/
+  397  cd graph_database/
+  398  pwd
+  399  cd ..
+  400  ls
+  401  cd SprayList-master/
+  402  ./bin/sssp -i ../graph_database/scale21_s.mm -o out.txt -n 16 -l -m 2100000
+  403  aprun -n 1 -d 16 ./bin/sssp -i ../graph_database/scale21_s.mm -o out.txt -n 16 -l -m 2100000
+  404  aprun -n 1 -d 16 ./bin/sssp -i ../graph_database/scale21_s.mm -o out.txt -n 4 -l -m 2100000
+  405  ls
+  406  vi run_sssp.sh 
+  407  aprun -n 1 -d 32 hostname
+  408  aprun -n 1 -d 32 run_sssp.sh ../graph_database/scale21_s.mm 
+  409  exit
+  410  cd work/
+  411  ls
+  412  cd Research/
+  413  ls
+  414  cd graphs/
+  415  ls
+  416  cd SprayList-master/
+  417  ls
+  418  vi run_sssp_all.sh 
+  419  aprun -n 1 -d 32 run_sssp.sh ../graph_database/scale21_s.mm 
+  420  cp run_sssp.sh run_sssp_ap.sh 
+  421  vi run_sssp_ap.sh 
+  422  ./run_sssp_ap.sh 
+  423  vi run_sssp_ap.sh 
+  424  ./run_sssp_ap.sh 
+  425  vi run_sssp_ap.sh 
+  426  clear
+  427  aprun -n 1 -d 8 $bin -i ../graph_database/scale21_s.mm -o out.txt -n 8 -l -m 4000000 
+  428  aprun -n 1 -d 8 ./bin/sssp -i ../graph_database/scale21_s.mm -o out.txt -n 8 -l -m 4000000 
+  429  vi run_sssp_ap.sh 
+  430  ./run_sssp_ap.sh 
+  431  vi run_sssp_ap.sh 
+  432  ./run_sssp_ap.sh 
+  433  vi run_sssp_ap.sh 
+  434  cd ..
+  435  ls
+  436  cd graph_database/
+  437  mv ../mydev/HPX_Graph/benchmarks_sssp/scale16_s.mm .
+  438  cd ..
+  439  ls
+  440  cd SprayList-master/
+  441  vi run_sssp_ap.sh 
+  442  ./run_sssp_ap.sh ../graph_database/scale16_s.mm 
+  443  vi run_sssp_ap.sh 
+  444  ./run_sssp_ap.sh ../graph_database/scale16_s.mm 
+  445  vi run_sssp_ap.sh 
+  446  ./run_sssp_ap.sh ../graph_database/scale16_s.mm 
+  447  vi run_sssp_ap.sh 
+  448  ./run_sssp_ap.sh ../graph_database/scale16_s.mm 
+  449  exit
+  450  ls
+  451  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -l vmem=8gb -q debug_cpu
+  452  ar
+  453  qsub -l walltime=02:30:00 -l nodes=1:ppn=32 -l vmem=12gb -q cpu 
+  454  ls
+  455  cd work/
+  456  ls
+  457  cd Research/
+  458  ls
+  459  cd graphs/
+  460  ls
+  461  cd SprayList-master/
+  462  ls
+  463  ar
+  464  clear
+  465  man ar
+  466  ls
+  467  mkdir benchmarks
+  468  cd benchmarks/
+  469  cp ../run_sssp_ap.sh .
+  470  vi run_sssp_ap.sh 
+  471  qsub -l walltime=02:30:00 -l nodes=1:ppn=32 -l vmem=12gb -q cpu 
+  472  qsub -l walltime=02:30:00 -l nodes=1:ppn=32 -l vmem=12gb -q cpu run_sssp_ap.sh ../../graph_database/scale16_s.mm 
+  473  cat ../../mydev/HPX_Graph/benchmarks/run_job1.sh 
+  474  vi run_sssp_ap.sh 
+  475  qsub run_sssp_ap.sh ../../graph_database/scale16_s.mm 
+  476  vi run_sssp_ap.sh 
+  477  qsub run_sssp_ap.sh 
+  478  qstat -u bchandio
+  479  vi run_sssp_ap.sh 
+  480  history | grep qsub
+  481  vi run_sssp_ap.sh 
+  482  qstat -u bchandio
+  483  cp run_sssp_ap.sh run_sssp_ap1.sh 
+  484  vi run_sssp_ap1.sh 
+  485  qsub run_sssp_ap1.sh 
+  486  qstat -u bchandio
+  487  ls
+  488  cat conc-sssp-16.e2210019 
+  489  ../bin/sssp 
+  490  ls
+  491  vi run_sssp_ap.sh 
+  492  ./run_sssp_ap.sh 
+  493  vi run_sssp_ap.sh 
+  494  ./run_sssp_ap.sh 
+  495  vi run_sssp_ap.sh 
+  496  cd ..
+  497  pwd
+  498  vi run_sssp_ap.sh 
+  499  cd benchmarks/
+  500  vi run_sssp_ap.sh 
+  501  qstat -u bchandio
+  502  qdel 2210033
+  503  vi run_sssp_ap.sh 
+  504  qsub run_sssp_ap.sh 
+  505  qstat -u bchandio
+  506  exit
+  507  ls
+  508  cd work/
+  509  ls
+  510  cd Research/
+  511  ls
+  512  cd graphs/
+  513  ls
+  514  cd SprayList-master/
+  515  ls
+  516  cd benchmarks/
+  517  ls
+  518  more conc-sssp-16.e2210040 
+  519  more conc-sssp-16.o2210040 
+  520  vi run_sssp_ap.sh 
+  521  qsub run_sssp_ap.sh 
+  522  qstat -u bchandio
+  523  more conc-sssp-21.o2210951 
+  524  more conc-sssp-21.e2210951 
+  525  more conc-sssp-21.o2210951 
+  526  qstat -u bchandio
+  527  more conc-sssp-21.o2210951 
+  528  exit
+  529  ls
+  530  cd work/
+  531  ls
+  532  cd Research/
+  533  ls
+  534  cd graphs/
+  535  ls
+  536  cd mydev/
+  537  ls
+  538  cd HPX_Graph/
+  539  ls
+  540  ls -h
+  541  ls -ah
+  542  ls -a
+  543  du -h ~
+  544  du -h ~/scale25 
+  545  ls
+  546  ls -l -h ~/scale25 
+  547  ls
+  548  cd ..
+  549  ls
+  550  mkdir utils
+  551  cd utils/
+  552  cp ../HPX_Graph/ASCII2Bin.c .
+  553  cp ASCII2Bin.c Bin2ASCII.c 
+  554  top
+  555  ls
+  556  vi Bin2ASCII.c 
+  557  qstat -u bchandio
+  558  cd ../../SprayList-master/
+  559  ls
+  560  cd benchmarks/
+  561  ls
+  562  cat conc-sssp-21.o2210951 
+  563  lscpu
+  564  more /proc/cpuinfo 
+  565  cat conc-sssp-21.o2210951 
+  566  ls
+  567  cd ..
+  568  ls
+  569  vi run_throughput.sh 
+  570  cd benchmarks/
+  571  cp ../run_throughput.sh .
+  572  vi run_throughput.sh 
+  573  cat run_sssp_ap
+  574  cat run_sssp_ap.sh 
+  575  vi run_throughput.sh 
+  576  qsub run_throughput.sh 
+  577  qstat -u bchandio
+  578  more conc-throughput.e2211011 
+  579  more conc-throughput.o2211011 
+  580  cd ..
+  581  vi test.c 
+  582  make
+  583  ls
+  584  cd b
+  585  cd benchmarks/
+  586  ls
+  587  qsub run_throughput.sh 
+  588  qstat -u bchandio
+  589  more conc-throughput.o2211014 
+  590  vi run_throughput.sh 
+  591  qsub run_throughput.sh 
+  592  qstat -u bchandio
+  593  more conc-throughput.o2211020 
+  594  ls
+  595  cd work/Research/graphs/
+  596  ls
+  597  cd graph500-graph500-3.0.0/
+  598  ls
+  599  cd src/
+  600  ls
+  601  aprun -n 1 hostname
+  602  aprun -n 1 ./graph500_reference_bfs_sssp 8 16
+  603  SKIP_BFS=TRUE aprun -n 1 ./graph500_reference_bfs_sssp 8 16
+  604  SKIP_BFS=TRUE aprun -n 32 ./graph500_reference_bfs_sssp 21 16
+  605  vi main.c 
+  606  SKIP_BFS=TRUE aprun -n 32 ./graph500_reference_bfs_sssp 21 16
+  607  clear
+  608  SKIP_BFS=TRUE aprun -n 1 ./graph500_reference_bfs_sssp 21 16
+  609  SKIP_BFS=TRUE aprun -n 2 ./graph500_reference_bfs_sssp 21 16
+  610  SKIP_BFS=TRUE aprun -n 4 ./graph500_reference_bfs_sssp 21 16
+  611  SKIP_BFS=TRUE aprun -n 8 ./graph500_reference_bfs_sssp 21 16
+  612  SKIP_BFS=TRUE aprun -n 16 ./graph500_reference_bfs_sssp 21 16
+  613  SKIP_BFS=TRUE aprun -n 32 ./graph500_reference_bfs_sssp 21 16
+  614  exit
+  615  cd work/Research/graphs/graph500-graph500-3.0.0/
+  616  ls
+  617  cd src/
+  618  SKIP_BFS=TRUE aprun -n 64 ./graph500_reference_bfs_sssp 21 16
+  619  exit
+  620  cd work/
+  621  ls
+  622  cd Research/
+  623  ls
+  624  cd graphs/
+  625  ls
+  626  cd graph500-graph500-3.0.0/
+  627  ls
+  628  cd src/
+  629  make
+  630  ls
+  631  cd work/
+  632  ls
+  633  cd Research/
+  634  ls
+  635  cd graphs/
+  636  ls
+  637  mv ~/graph500-graph500-3.0.0.tar.gz .
+  638  ls
+  639  lsd
+  640  ls
+  641  tar -xvf graph500-graph500-3.0.0.tar.gz .
+  642  tar -xvf graph500-graph500-3.0.0.tar.gz 
+  643  ls
+  644  cd graph500-graph500-3.0.0/
+  645  ls
+  646  cd src/
+  647  ls
+  648  vi Makefile 
+  649  make
+  650  ls
+  651  history | grep qsub
+  652  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -l vmem=8gb -q debug_cpu
+  653  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -l vmem=8gb -q cpu
+  654  qsub -I -l walltime=00:30:00 -l nodes=2:ppn=32 -l vmem=8gb -q cpu
+  655  cd work/
+  656  ls
+  657  cd Research/
+  658  ls
+  659  cd graphs/
+  660  ls
+  661  cd GeminiGraph-master/
+  662  ls
+  663  cd toolkits/
+  664  ls
+  665  ./sssp 
+  666  aprun -n 1 ./sssp 
+  667  aprun -n 1 ./sssp ../../graph_database/scale21_s.mm.bin 65535 0
+  668  aprun -n 1 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  669  aprun -n 2 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  670  module avail
+  671  module load openmpi/ccm/gnu/1.8.4
+  672  cd ..
+  673  ls
+  674  make clean
+  675  make
+  676  module load PrgEnv-gnu
+  677  make
+  678  aprun -n 2 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  679  cd toolkits/
+  680  aprun -n 2 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  681  aprun -n 1 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  682  mpirun -v
+  683  mpirun -version
+  684  mpirun -n 1 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  685  mpirun -n 1 hostname
+  686  aprun -n 1 hostname
+  687  mpirun -n 1 mpirun -n 1 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  688  mpirun -n 1 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  689  aprun -n 1 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  690  cd ..
+  691  ls
+  692  exit
+  693  mpirun -version
+  694  mpirun
+  695  aprun -version
+  696  exit
+  697  cd work/Research/graphs/GeminiGraph-master/
+  698  ls
+  699  module load openmpi/ccm/gnu/1.8.4
+  700  ls
+  701  make
+  702  aprun -version
+  703  mpirun -version
+  704  exit
+  705  ls
+  706  cd w
+  707  cd work/
+  708  ls
+  709  cd Research/
+  710  ls
+  711  cd graphs/
+  712  ls
+  713  cd GeminiGraph-master/
+  714  ls
+  715  cd core/
+  716  ls
+  717  cd ..
+  718  ls
+  719  cd ..
+  720  ls
+  721  ls graph_database/
+  722  cd graph_database/
+  723  ls
+  724  more scale21_s.mm 
+  725  ls
+  726  more scale16_s.mm 
+  727  ls
+  728  cd ..
+  729  ls
+  730  cd mt
+  731  cd mydev/
+  732  ls
+  733  ls utils/
+  734  cd HPX_Graph/
+  735  ls
+  736  sdiff ASCII2Bin.c 
+  737  sdiff ASCII2Bin.c ../utils/ASCII2Bin.c 
+  738  ls
+  739  cd ..
+  740  ls
+  741  cd utils/
+  742  ls
+  743  vi ASCII2Bin.c 
+  744  gcc -o AtoBin ASCII2Bin.c
+  745  cd ..
+  746  ls
+  747  cd ..
+  748  ls
+  749  cd graph_database/
+  750  ls
+  751  ../mydev/utils/AtoBin scale21_s.mm 1
+  752  ls
+  753  ls -lah 
+  754  ls
+  755  cd ..
+  756  ls
+  757  cd GeminiGraph-master/
+  758  ls
+  759  cd toolkits/
+  760  ls
+  761  ./sssp 
+  762  history | grep qsub
+  763  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -l vmem=8gb -q cpu
+  764  vi sssp.cpp 
+  765  cd ..
+  766  ls
+  767  cd core/
+  768  ls
+  769  cd ..
+  770  ls
+  771  cd toolkits/
+  772  ls
+  773  vi sssp.cpp 
+  774  cd ..
+  775  ls
+  776  grep -r "MPI_Ini" .
+  777  cd core/
+  778  vi mpi.hpp 
+  779  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -l vmem=8gb -q cpu
+  780  vi mpi.hpp 
+  781  exit
+  782  ls
+  783  cd work/
+  784  ls
+  785  cd Research/
+  786  ls
+  787  cd graphs/
+  788  ls
+  789  cd GeminiGraph-master/
+  790  ls
+  791  grep -r "numa" .
+  792  grep -r "numa_num_configured_cpus()" .
+  793  vi core/graph.hpp 
+  794  make
+  795  vi core/graph.hpp 
+  796  make
+  797  vi core/graph.hpp 
+  798  qsub -I -l walltime=00:30:00 -l nodes=1:ppn=32 -l vmem=8gb -q cpu
+  799  ls
+  800  cd work/
+  801  ls
+  802  cd Research/graphs/
+  803  ls
+  804  cd mydev/
+  805  ls
+  806  cd ..
+  807  ls
+  808  cd GeminiGraph-master/
+  809  lks
+  810  ls
+  811  cd toolkits/
+  812  history 
+  813  aprun -n 1 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  814  MPICH_MAX_THREAD_SAFETY=multiple aprun -n 2 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  815  MPICH_MAX_THREAD_SAFETY=multiple aprun -n 2 hostname
+  816  MPICH_MAX_THREAD_SAFETY=multiple aprun -N 2 hostname
+  817  MPICH_MAX_THREAD_SAFETY=multiple aprun -n 1 -N 2 hostname
+  818  MPICH_MAX_THREAD_SAFETY=multiple aprun -n 4 -N 2 hostname
+  819  MPICH_MAX_THREAD_SAFETY=multiple aprun -n 64 -N 2 hostname
+  820  MPICH_MAX_THREAD_SAFETY=multiple aprun -n 64 -N 1 hostname
+  821  MPICH_MAX_THREAD_SAFETY=multiple aprun -n 64  hostname
+  822  MPICH_MAX_THREAD_SAFETY=multiple aprun -n 2 -N 1  hostnam
+  823  MPICH_MAX_THREAD_SAFETY=multiple aprun -n 2  -N 1 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  824  MPICH_MAX_THREAD_SAFETY=multiple OMP_NUM_THREADS=32 aprun -n 2  -N 1 ./sssp ../../graph_database/scale21_s.mm.bin 2097152 0
+  825  exit
+  826  history
+  827  qsub -I -l walltime=00:30:00 -l nodes=2:ppn=32 -l vmem=8gb -q cpu
+  828  exit
+  829  ls
+  830  ls -la
+  831  vi ~/.bashrc 
+  832  ls
+  833  cd ..
+  834  ls
+  835  pwd
+  836  ls
+  837  Karst/
+  838  ls
+  839  cd Karst/
+  840  ls
+  841  ls -la
+  842  ls
+  843  ls -la
+  844  cd ..
+  845  ls
+  846  cd BigRed2/
+  847  ls
+  848  pwd
+  849  cd ..
+  850  ls
+  851  cd BigRed2/
+  852  ls
+  853  exit
+  854  echo $PATH
+  855  export NEW_VAR=63
+  856  echo $NEW_VAR 
+  857  vi ~/.bashrc 
+  858  ls
+  859  export NEW_VAR=63
+  860  ls ~ -la
+  861  module list
+  862  module avail
+  863  module load tensorflow/1.1.0
+  864  python
+  865  exit
+  866  xclock 
+  867  clock 
+  868  gedit 
+  869  exit
+  870  ssh homes.sice.indiana.edu
+  871  exit
+  872  ls
+  873  cd work/
+  874  ls
+  875  cd ..
+  876  ls
+  877  cd work/
+  878  ls
+  879  cd P
+  880  cd PhD/
+  881  ls
+  882  cd ..
+  883  ls
+  884  cd Research/
+  885  ls
+  886  cd graphs/
+  887  ls
+  888  cd mydev/
+  889  ls
+  890  cd HPX_Graph/
+  891  ls
+  892  vi Makefile 
+  893  ls 
+  894  ls -a
+  895  ls -l
+  896  cd bin
+  897  ls
+  898  cd ..
+  899  cd benchmarks_sssp/
+  900  ls
+  901  vi run_job1024.sh 
+  902  vi run_job32.sh 
+  903  cp run_job32.sh run_job32_test.sh 
+  904  vi run_job32_test.sh 
+  905  qsub run_job32_test.sh 
+  906  qstat -u bchandio
+  907  ls
+  908  cat sssp17-hpx-32.o2695163 
+  909  rm sssp17-hpx-32.*
+  910  ls
+  911  ./sssp17
+  912  cd ..
+  913  ls
+  914  cd sample/
+  915  ls
+  916  cd ..
+  917  ls
+  918  more scale15_s.mm 
+  919  ls
+  920  vi sssp_hpx.c 
+  921  more graph_s.mm 
+  922  ls
+  923  vi bfs_hpx.c 
+  924  ls
+  925  vi Makefile 
+  926  ls
+  927  vi Makefile 
+  928  cd binaryfiles/
+  929  ls
+  930  cd ..
+  931  ls
+  932  cd benchmarks
+  933  ;s
+  934  ls
+  935  cd ..
+  936  ls
+  937  cd benchmarks_sssp/
+  938  ls
+  939  du *
+  940  du -H
+  941  du 
+  942  du * -h
+  943  more scale17_s.mm 
+  944  ls
+  945  more scale19_s.mm 
+  946  ls
+  947  more sssp17-hpx-128.o2103049 
+  948  more scale17_s.mm 
+  949  ls
+  950  more sssp17-hpx-128.o2103049 
+  951  ls
+  952  ls -l
+  953  ls -lh
+  954  ls
+  955  cd ..
+  956  ls
+  957  cd ..
+  958  ls
+  959  cd utils/
+  960  ls
+  961  cd ..
+  962  ls
+  963  cd HPX_Graph/
+  964  ls
+  965  more temp16 
+  966  ls
+  967  owd
+  968  ls
+  969  pwd
+  970  ls
+  971  ls -lh
+  972  more scale16.mm 
+  973  ls
+  974  cd ..
+  975  ls
+  976  cd u
+  977  cd utils/
+  978  ls
+  979  vi ASCII2Bin.c 
+  980  vi AtoBin 
+  981  cp ASCII2Bin.c ASCII2ASCII_add_weight\.c 
+  982  ls
+  983  vi ASCII2ASCII_add_weight.c 
+  984  cd work/
+  985  ls
+  986  cd Research/
+  987  ls
+  988  cd graphs/
+  989  ls
+  990  cd mydev/
+  991  ls
+  992  cd utils/
+  993  ls
+  994  vi ASCII2ASCII_add_weight.c 
+  995  ls -a
+  996  rm *.swp
+  997  rm .ASCII2ASCII_add_weight.c.swp 
+  998  ls
+  999  vi ASCII2ASCII_add_weight.c 
+ 1000  gcc ASCII2ASCII_add_weight.c 
+ 1001  ls
+ 1002  cd work/
+ 1003  ls
+ 1004  cd Research/
+ 1005  ls
+ 1006  cd graphs/
+ 1007  ls
+ 1008  cd 
+ 1009  cd work/Research/graphs/mydev/
+ 1010  ls
+ 1011  cd HPX_Graph/
+ 1012  ls
+ 1013  cd ..
+ 1014  ls
+ 1015  ls -lah
+ 1016  cd HPX_Graph/
+ 1017  ls
+ 1018  ls -lah
+ 1019  vi Makefile 
+ 1020  cd benchmarks_sssp/
+ 1021  ls
+ 1022  cd ..
+ 1023  ls
+ 1024  sdiff bfs_hpx.c sssp_hpx.c 
+ 1025  vi Makefile 
+ 1026  make
+ 1027  rm ASCII2Bin*
+ 1028  ls
+ 1029  make clean
+ 1030  make
+ 1031  vi Makefile 
+ 1032  ls
+ 1033  cc -std=gnu99 -D_POSIX_C_SOURCE=200809L -I/N/u/bchandio/BigRed2/installs/hpx-4.0.0/include  -g -O2   -o ./bin/sssp-hpx sssp_hpx.o -lm -L/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lhpx -lrt -lffi -lstdc++ -Wl,-rpath,/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lm -lpciaccess -lm -lcityhash -Wl,-rpath,/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lm -lpciaccess -lm -lcityhash -lurcu-qsbr -lurcu-cds -ljemalloc
+ 1034  cc -std=gnu99 -D_POSIX_C_SOURCE=200809L -I/N/u/bchandio/BigRed2/installs/hpx-4.0.0/include  -g -O2   -o ./bin/sssp-hpx sssp_hpx.o -lm -L/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lhpx -lrt -lffi -lstdc++ -Wl,-rpath,/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lm -lpciaccess -lm -lcityhash -Wl,-rpath,/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lm -lpciaccess -lm -lcityhash -lurcu-qsbr -lurcu-cds 
+ 1035  cc -std=gnu99 -D_POSIX_C_SOURCE=200809L -I/N/u/bchandio/BigRed2/installs/hpx-4.0.0/include  -g -O2   -o ./bin/sssp-hpx sssp_hpx.o -lm -L/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lhpx -lrt -lffi -lstdc++ -Wl,-rpath,/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lm -lpciaccess -lm -lcityhash -Wl,-rpath,/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lm -lpciaccess -lm -lcityhash -lurcu-qsbr -lurcu-cds -ljemalloc
+ 1036  ls
+ 1037  cat temp16 
+ 1038  ls Reports/
+ 1039  cd backup/
+ 1040  ls
+ 1041  cd ..
+ 1042  ls
+ 1043  echo $LD_LIBRARY_PATH 
+ 1044  history | grep cc
+ 1045  cc -std=gnu99 -D_POSIX_C_SOURCE=200809L -I/N/u/bchandio/BigRed2/installs/hpx-4.0.0/include  -g -O2   -o ./bin/sssp-hpx sssp_hpx.o -lm -L/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lhpx -lrt -lffi -lstdc++ -Wl,-rpath,/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lpciaccess -lcityhash  -lurcu-qsbr -lurcu-cds -ljemalloc
+ 1046  cc -std=gnu99 -D_POSIX_C_SOURCE=200809L -I/N/u/bchandio/BigRed2/installs/hpx-4.0.0/include  -g -O2   -o ./bin/sssp-hpx sssp_hpx.o -lm -L/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lhpx -lrt -lffi -lstdc++  -lpciaccess -lcityhash  -lurcu-qsbr -lurcu-cds -ljemalloc
+ 1047  cc -std=gnu99 -D_POSIX_C_SOURCE=200809L -I/N/u/bchandio/BigRed2/installs/hpx-4.0.0/include  -g -O2   -o ./bin/sssp-hpx sssp_hpx.o -lm -lhpx -lrt -lffi -lstdc++ -Wl,-rpath,/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lpciaccess -lcityhash  -lurcu-qsbr -lurcu-cds -ljemalloc
+ 1048  cc -std=gnu99 -D_POSIX_C_SOURCE=200809L -I/N/u/bchandio/BigRed2/installs/hpx-4.0.0/include  -g -O2   -o ./bin/sssp-hpx sssp_hpx.o -lm -L/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lhpx -lrt -lffi -lstdc++  -lpciaccess -lcityhash  -lurcu-qsbr -lurcu-cds -ljemalloc
+ 1049  cc -std=gnu99 -D_POSIX_C_SOURCE=200809L -I/N/u/bchandio/BigRed2/installs/hpx-4.0.0/include  -g -O2   -o ./bin/sssp-hpx sssp_hpx.o -lm -L/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lhpx -lrt -lffi -lstdc++ -Wl,-rpath,/N/u/bchandio/BigRed2/installs/hpx-4.0.0/lib -lpciaccess -lcityhash  -lurcu-qsbr -lurcu-cds -ljemalloc
+ 1050  vi ~/.bashrc 
+ 1051  history | head
+ 1052  history > tm

@@ -1,0 +1,145 @@
+n = 1024
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 18.080105
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 6106140392, sum of action time is 111040110.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17295846 resources: utime ~80965s, stime ~2439s, Rss ~1435944, inblocks ~555515, outblocks ~408608
+n = 512
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 38.014311
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 6430974093, sum of action time is 122889115.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17295915 resources: utime ~65264s, stime ~481s, Rss ~1437648, inblocks ~399435, outblocks ~204304
+n = 256
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 60.278326
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 5794940219, sum of action time is 131413534.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17296026 resources: utime ~48813s, stime ~124s, Rss ~1440240, inblocks ~320883, outblocks ~102152
+n = 128
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 97.946702
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 1507225667, sum of action time is 138700511.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17296079 resources: utime ~36546s, stime ~57s, Rss ~1446768, inblocks ~281407, outblocks ~51076
+n = 64
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 138.986327
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 1065187730, sum of action time is 124256254.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17296118 resources: utime ~24924s, stime ~34s, Rss ~1465320, inblocks ~261865, outblocks ~25538
+n = 1024
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 19.508998
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 6118557348, sum of action time is 109806542.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17296148 resources: utime ~82487s, stime ~2347s, Rss ~1435888, inblocks ~556476, outblocks ~408608
+n = 512
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 35.985199
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 7166046015, sum of action time is 136216763.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17296152 resources: utime ~64285s, stime ~477s, Rss ~1437680, inblocks ~399435, outblocks ~204304
+n = 256
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 60.440767
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 2702374164, sum of action time is 160856827.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17296155 resources: utime ~50490s, stime ~122s, Rss ~1440328, inblocks ~320883, outblocks ~102152
+n = 128
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 100.919060
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 4590183852, sum of action time is 110025423.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17296164 resources: utime ~35300s, stime ~56s, Rss ~1446772, inblocks ~281407, outblocks ~51076
+n = 64
+-----------
+Graph: ../../../graph_database_networkx/_Powerlaw-clustered.edgelist.w, graph vertex count is 524288 with 8387875 egdes.
+allocation is done
+vertices = 1071700800
+initialied vertex structures
+sssp_done_lco = 2150432
+SSSP_hpx_async and LCOs done waited and deleted
+Time taken secs: 148.159362
+reduce_done_lco = 2150432
+vertex 0 reduced actions invocked is 4822342833, sum of action time is 111258823.000000
+REDUCE_actions_invoked_async and LCOs done waited and deleted
+Freeing memory, vertices
+Application 17296175 resources: utime ~24844s, stime ~34s, Rss ~1465244, inblocks ~261865, outblocks ~25538
+Job Cleanup ran on Mon Feb 11 14:06:44 EST 2019
+===============================
+submit_args  : 	 submit_args = run_job_19_few.sh
+NIDS         : 	 833,902,904-921,924-935
+NID Placement: 	 833/32 902/32 904/32 905/32 906/32 907/32 908/32 909/32 910/32 911/32 912/32 913/32 914/32 915/32 916/32 917/32 918/32 919/32 920/32 921/32 924/32 925/32 926/32 927/32 928/32 929/32 930/32 931/32 932/32 933/32 934/32 935/32 

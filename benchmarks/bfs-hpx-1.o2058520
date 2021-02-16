@@ -1,0 +1,93 @@
+n = 2
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 805306368
+bfs_done_lco = 4300832
+Application 15309161 exit signals: Killed
+Application 15309161 resources: utime ~0s, stime ~1s, Rss ~4928, inblocks ~16645, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 805306368
+bfs_done_lco = 4300832
+Application 15309164 exit signals: Killed
+Application 15309164 resources: utime ~0s, stime ~1s, Rss ~4928, inblocks ~16645, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 805306368
+bfs_done_lco = 4300832
+Application 15309167 exit signals: Killed
+Application 15309167 resources: utime ~0s, stime ~0s, Rss ~4928, inblocks ~16645, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 805306368
+bfs_done_lco = 4300832
+Application 15309174 exit signals: Killed
+Application 15309174 resources: utime ~0s, stime ~0s, Rss ~4928, inblocks ~16645, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 805306368
+bfs_done_lco = 4300832
+Application 15309179 exit signals: Killed
+Application 15309179 resources: utime ~0s, stime ~1s, Rss ~4928, inblocks ~16645, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 805306368
+bfs_done_lco = 4300832
+Application 15309188 exit signals: Killed
+Application 15309188 resources: utime ~0s, stime ~0s, Rss ~4928, inblocks ~16645, outblocks ~46414
+-----------
+n = 1
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 46912526876672
+bfs_done_lco = 46912518656000
+Application 15309193 exit signals: Killed
+Application 15309193 resources: utime ~0s, stime ~0s, Rss ~4928, inblocks ~16635, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 46912526876672
+bfs_done_lco = 46912518656000
+Application 15309198 exit signals: Killed
+Application 15309198 resources: utime ~0s, stime ~0s, Rss ~4928, inblocks ~16635, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 46912526876672
+bfs_done_lco = 46912518656000
+Application 15309201 exit signals: Killed
+Application 15309201 resources: utime ~0s, stime ~0s, Rss ~4928, inblocks ~16635, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 46912526876672
+bfs_done_lco = 46912518656000
+Application 15309206 exit signals: Killed
+Application 15309206 resources: utime ~0s, stime ~0s, Rss ~4928, inblocks ~16635, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 46912526876672
+bfs_done_lco = 46912518656000
+Application 15309207 exit signals: Killed
+Application 15309207 resources: utime ~0s, stime ~1s, Rss ~4928, inblocks ~16635, outblocks ~46414
+-----------
+Hello World in _bfs_handler from 0 the graph vertex count is 32768 with 357904 egdes.
+allocation is done
+vertices = 46912526876672
+bfs_done_lco = 46912518656000
+Application 15309211 exit signals: Killed
+Application 15309211 resources: utime ~0s, stime ~0s, Rss ~4928, inblocks ~16635, outblocks ~46414
+-----------
+Job Cleanup ran on Wed Feb 21 05:09:51 EST 2018
+===============================
+submit_args  : 	 submit_args = run_job1.sh
+NIDS         : 	 1015
+NID Placement: 	 1015/32 
