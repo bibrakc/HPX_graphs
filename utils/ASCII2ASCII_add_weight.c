@@ -1,7 +1,8 @@
 /*
  * Author:  Bibrak Qamar
  * File:    ASCII2Bin.c
- *
+ * 2018-2023
+ * 
  * Basic C code to read an ASCII graph file and
  * write the edges to a binay file
  *
@@ -9,7 +10,7 @@
 
 /*
  * compile: gcc ASCII2ASCII_add_weight.c
- * run: ./a.out ./scale16.mm
+ * run: ./a.out ./scale16.mm 1
 */
 
 #include <stdio.h>
@@ -21,6 +22,8 @@ int main(int argc, char* argv[]){
   //printf("file is: %s\n", filename);
   // is the file graph500 generated from Octave?
   // 0 for no, 1 for yes
+  // Octave stores matrices from 1 not 0, therefore need to convert
+  // for C representations that start index from 0.
   int is_graph500 = atoi(argv[2]);
 
 
