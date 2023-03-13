@@ -1,4 +1,0 @@
-cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
-cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
-cmdModule.c(567):ERROR:50: Cannot open file '--APPMARKER--' for 'reading'
-apsched: claim exceeds reservation's node-count
