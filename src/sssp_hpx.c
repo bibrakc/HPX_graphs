@@ -300,7 +300,6 @@ void FREE_vertices_internal(hpx_addr_t vertices, int N)
   return;
 }
 
-
 // Read the input graph from file and populate the vertices
 void populate_graph(hpx_addr_t vertices, int N, int N_edges, FILE *f)
 {
@@ -318,7 +317,7 @@ void populate_graph(hpx_addr_t vertices, int N, int N_edges, FILE *f)
   {
     total_sending_chunks++;
   }
- printf("edges_chunk_size: %d, total_sending_chunks: %d, left_over_sending_chunks: %d\n", edges_chunk_size, total_sending_chunks, left_over_sending_chunks);
+  printf("edges_chunk_size: %d, total_sending_chunks: %d, left_over_sending_chunks: %d\n", edges_chunk_size, total_sending_chunks, left_over_sending_chunks);
   for (int i = 0; i < total_sending_chunks; i++)
   {
     int LCO_size = edges_chunk_size;
@@ -880,8 +879,8 @@ static int _sssp_handler(void)
   Yes, it is working, so commenting it out.
   */
 
-   int target_vertex = 47;
-   print_distance_at(vertices, target_vertex);
+  int target_vertex = 47;
+  print_distance_at(vertices, target_vertex);
 
   // reduce the results, in this case the number of actions invoked
   hpx_addr_t reduce_done_lco = hpx_lco_and_new(1);
@@ -891,7 +890,6 @@ static int _sssp_handler(void)
 
   printf("Input Graph: %s\n", filename_);
   printf("HPX Processes: %d\n", hpx_get_num_ranks());
-
 
   printf("Freeing memory, vertices\n");
   FREE_vertices_internal(vertices, N);
