@@ -248,20 +248,6 @@ static int _send_edge_handler(Vertex *v_, int edge, int weight)
 static HPX_ACTION_DECL(_init_count_vertices_dispatch);
 static int _init_count_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
 {
-  //printf("_init_count_vertices_dispatch_handler from %d.\n", hpx_get_my_rank());
-
-  /*
-  hpx_addr_t local = hpx_thread_current_target();
-  Vertex *v = NULL;
-  if (!hpx_gas_try_pin(local, (void **)&v))
-    return HPX_RESEND;
-
-  printf("v->vertex_id = %d, v->distance_from_start = %d\n", v->vertex_id, v->distance_from_start);
-
-  hpx_gas_unpin(local);
-  return HPX_SUCCESS;
-*/
-
   int chunk = N / hpx_get_num_ranks();
   int my_chunk = chunk;
   if (hpx_get_num_ranks() == (hpx_get_my_rank() + 1))
