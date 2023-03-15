@@ -2,7 +2,7 @@
  * Author:  Bibrak Qamar
  * File:    ASCII2Bin.c
  * 2018-2023
- * 
+ *
  * Basic C code to read an ASCII graph file and
  * write the edges to a binay file
  *
@@ -53,19 +53,19 @@ int main(int argc, char *argv[])
 
   sprintf(num_vertices_str, "%d", N);
   sprintf(num_edges_str, "%d", N_edges);
-  //itoa(N, num_vertices_str, DECIMAL);
-  //itoa(N_edges, num_edges_str, DECIMAL);
+  // itoa(N, num_vertices_str, DECIMAL);
+  // itoa(N_edges, num_edges_str, DECIMAL);
 
   printf("num_vertices_str: %s\n", num_vertices_str);
   printf("num_edges_str: %s\n", num_edges_str);
 
   strcpy(filename_w, filename);
-
+/*
   strcat(filename_w, "_v_");
   strcat(filename_w, num_vertices_str);
   strcat(filename_w, "_e_");
   strcat(filename_w, num_edges_str);
-
+*/
   strcat(filename_w, ".bin");
 
   if ((f_wtr = fopen(filename_w, "wb")) == NULL) // w for write, b for binary
@@ -75,6 +75,11 @@ int main(int argc, char *argv[])
   int weight;
   vert_from = -1;
   vert_to = -1;
+
+  // header with meta data about the number of vertices and edges
+  fwrite(&N, sizeof(N), 1, f_wtr);
+  fwrite(&N, sizeof(N), 1, f_wtr);
+  fwrite(&N_edges, sizeof(N_edges), 1, f_wtr);
 
   // int is_EOF;
   // while((is_EOF = fscanf(f, "%d %d", &vert_from, &vert_to)) != EOF){

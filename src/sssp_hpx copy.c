@@ -22,9 +22,6 @@ PhD in Intelligent Systems Engineering
 char *filename_;
 int root_vertex_;
 int graph500_gen;
-int N = 0;
-int N_ = 0;
-int N_edges = 0;
 
 typedef struct
 {
@@ -92,6 +89,16 @@ hpx_addr_t vertex_element_at(hpx_addr_t vert, int i)
   return hpx_addr_add(vert, sizeof(Vertex) * i, sizeof(Vertex));
 }
 
+/*
+// For checking to see if HPX works fine
+static HPX_ACTION_DECL(_hello);
+static int _hello_action(void)
+{
+  printf("Hello World from %u.\n", hpx_get_my_rank());
+  hpx_exit(0, NULL);
+}
+*/
+
 static HPX_ACTION_DECL(_free_vertices);
 static int _free_vertices_handler(Vertex *v_, int id)
 {
@@ -126,7 +133,7 @@ static int __print_distance_at_handler(Vertex *v_, int id)
     return HPX_RESEND;
 
   printf("v->vertex_id = %d, v->distance_from_start = %d\n", v->vertex_id, v->distance_from_start);
-  fflush(stdout);
+
   hpx_gas_unpin(local);
   return HPX_SUCCESS;
 }
@@ -244,60 +251,17 @@ static int _send_edge_handler(Vertex *v_, int edge, int weight)
   return HPX_SUCCESS;
 }
 
-// For checking to see if HPX works fine
-static HPX_ACTION_DECL(_init_count_vertices_dispatch);
-static int _init_count_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
+// TODO: make this return int
+// call/fork the _init_count_vertices
+void init_count_vertices(hpx_addr_t vertices, int N)
 {
-  //printf("_init_count_vertices_dispatch_handler from %d.\n", hpx_get_my_rank());
-
-  /*
-  hpx_addr_t local = hpx_thread_current_target();
-  Vertex *v = NULL;
-  if (!hpx_gas_try_pin(local, (void **)&v))
-    return HPX_RESEND;
-
-  printf("v->vertex_id = %d, v->distance_from_start = %d\n", v->vertex_id, v->distance_from_start);
-
-  hpx_gas_unpin(local);
-  return HPX_SUCCESS;
-*/
-
-  int chunk = N / hpx_get_num_ranks();
-  int my_chunk = chunk;
-  if (hpx_get_num_ranks() == (hpx_get_my_rank() + 1))
+  hpx_addr_t done = hpx_lco_and_new(N);
+  for (int i = 0; i < N; i++)
   {
-    my_chunk += N % hpx_get_num_ranks();
-  }
-
-  int start_vertex = chunk * hpx_get_my_rank();
-  //printf("Dispatching from: %d, my_chunk: %d, start_vertex: %d\n", hpx_get_my_rank(), my_chunk, start_vertex);
-
-  //fflush(stdout);
-
-  hpx_addr_t done = hpx_lco_and_new(my_chunk);
-
-  for (int i = start_vertex; i < start_vertex + my_chunk; i++)
-  {
+    // printf("i = %d\n", i);
     hpx_addr_t vertex_ = vertex_element_at(vertices, i);
     // printf("vertex_ = %ld\n", vertex_);
     hpx_call(vertex_, _init_count_vertices, done, &i);
-  }
-
-  hpx_lco_wait(done);
-  hpx_lco_delete(done, HPX_NULL);
-
-  return HPX_SUCCESS;
-}
-
-void init_count_vertices(hpx_addr_t hook, hpx_addr_t vertices, int N)
-{
-  hpx_addr_t done = hpx_lco_and_new(hpx_get_num_ranks());
-  for (int i = 0; i < hpx_get_num_ranks(); i++)
-  {
-    // printf("i = %d\n", i);
-    hpx_addr_t hpx_process_ = hpx_addr_add(hook, sizeof(int) * i, sizeof(int));
-    // printf("vertex_ = %ld\n", vertex_);
-    hpx_call(hpx_process_, _init_count_vertices_dispatch, done, &vertices, &N);
     // printf("i = %d done\n", i);
   }
 
@@ -306,8 +270,6 @@ void init_count_vertices(hpx_addr_t hook, hpx_addr_t vertices, int N)
 
   return;
 }
-
-
 
 void print_distance_at(hpx_addr_t vertices, int target_vertex)
 {
@@ -339,11 +301,8 @@ void FREE_vertices_internal(hpx_addr_t vertices, int N)
 }
 
 // Read the input graph from file and populate the vertices
-static HPX_ACTION_DECL(_populate_graph_dispatch);
-static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
+void populate_graph(hpx_addr_t vertices, int N, int N_edges, FILE *f)
 {
- // printf("_populate_graph_dispatch_handler from %d.\n", hpx_get_my_rank());
- // fflush(stdout);
 
   int vert_from, vert_to, weight;
   vert_from = -1;
@@ -352,44 +311,13 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
 
   const int edges_chunk_size = 4000;
 
-  // open file
-  FILE *f = NULL;
-  if ((f = fopen(filename_, "rb")) == NULL)
-  {
-    printf("File reading failed!\n");
-    return -1;
-  }
-
-  fread(&N, sizeof(int), 1, f);
-  fread(&N_, sizeof(int), 1, f);
-  fread(&N_edges, sizeof(int), 1, f);
-
-  int edges_chunk = N_edges / hpx_get_num_ranks();
-  int my_edges_chunk = edges_chunk;
-  if (hpx_get_num_ranks() == (hpx_get_my_rank() + 1))
-  {
-    my_edges_chunk += N_edges % hpx_get_num_ranks();
-  }
-  int my_starting_edge = edges_chunk * hpx_get_my_rank();
-
-  // seek to my edge chunk
-  int edge_size_in_bytes = sizeof(int) * 3; // ints of: to, from, weight
-  fseek(f, edge_size_in_bytes * my_starting_edge, SEEK_CUR);
-
-  //printf("Dispatching Edges from: %d, my_edges_chunk: %d, my_starting_edge: %d\n", hpx_get_my_rank(), my_edges_chunk, my_starting_edge);
-
-  //fflush(stdout);
-
-  // staging the sending in chunks to not let the network saturate and cause faults
-  int total_sending_chunks = my_edges_chunk / edges_chunk_size;
-  int left_over_sending_chunks = my_edges_chunk % edges_chunk_size;
+  int total_sending_chunks = N_edges / edges_chunk_size;
+  int left_over_sending_chunks = N_edges % edges_chunk_size;
   if (left_over_sending_chunks != 0)
   {
     total_sending_chunks++;
   }
-  //printf("edges_chunk_size: %d, total_sending_chunks: %d, left_over_sending_chunks: %d\n", edges_chunk_size, total_sending_chunks, left_over_sending_chunks);
-  //fflush(stdout);
-
+  printf("edges_chunk_size: %d, total_sending_chunks: %d, left_over_sending_chunks: %d\n", edges_chunk_size, total_sending_chunks, left_over_sending_chunks);
   for (int i = 0; i < total_sending_chunks; i++)
   {
     int LCO_size = edges_chunk_size;
@@ -397,14 +325,12 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
     {
       LCO_size = left_over_sending_chunks;
     }
-    // printf("LCO_size: %d\n", LCO_size);
+    printf("LCO_size: %d\n", LCO_size);
     hpx_addr_t done = hpx_lco_and_new(LCO_size);
     for (int j = 0; j < LCO_size; j++)
     {
-      fread(&vert_from, sizeof(int), 1, f);
-      fread(&vert_to, sizeof(int), 1, f);
-      fread(&weight, sizeof(int), 1, f);
-      //  fscanf(f, "%d\t%d\t%d", &vert_from, &vert_to, &weight);
+
+      fscanf(f, "%d\t%d\t%d", &vert_from, &vert_to, &weight);
 
       if (graph500_gen)
       {
@@ -415,13 +341,9 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
       if (vert_from == vert_to)
       {
         printf("Cycle Detected! %d\n", vert_from);
-        fflush(stdout);
       }
-
-      /*
       if (0 && vert_from == root_vertex_)
         printf("read %d --> %d\n", vert_from, vert_to);
-      */
 
       hpx_addr_t vertex_ = vertex_element_at(vertices, vert_from);
       hpx_call(vertex_, _send_edge, done, &vert_to, &weight);
@@ -429,26 +351,6 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
     hpx_lco_wait(done);
     hpx_lco_delete(done, HPX_NULL);
   }
-
-  // close the file
-  fclose(f);
-  return HPX_SUCCESS;
-}
-
-void populate_graph(hpx_addr_t hook, hpx_addr_t vertices)
-{
-  hpx_addr_t done = hpx_lco_and_new(hpx_get_num_ranks());
-  for (int i = 0; i < hpx_get_num_ranks(); i++)
-  {
-    // printf("i = %d\n", i);
-    hpx_addr_t hpx_process_ = hpx_addr_add(hook, sizeof(int) * i, sizeof(int));
-    // printf("vertex_ = %ld\n", vertex_);
-    hpx_call(hpx_process_, _populate_graph_dispatch, done, &vertices);
-    // printf("i = %d done\n", i);
-  }
-
-  hpx_lco_wait(done);
-  hpx_lco_delete(done, HPX_NULL);
 
   return;
 }
@@ -919,85 +821,36 @@ void REDUCE_actions_invoked_async(hpx_addr_t vertices, int start_vertex,
                  &vertices, &root_parent, &reduce_done_lco);
 }
 
-// For checking to see if HPX works fine
-static HPX_ACTION_DECL(_hello_action);
-static int _hello_action_handler(int *hook)
-{
-  /*
-  hpx_addr_t local = hpx_thread_current_target();
-  Vertex *v = NULL;
-  if (!hpx_gas_try_pin(local, (void **)&v))
-    return HPX_RESEND;
-
-  printf("v->vertex_id = %d, v->distance_from_start = %d\n", v->vertex_id, v->distance_from_start);
-
-  hpx_gas_unpin(local);
-  return HPX_SUCCESS;
-*/
-  printf("Hello World from %d.\n", hpx_get_my_rank());
-  return HPX_SUCCESS;
-}
-
-void call_hello(hpx_addr_t hook)
-{
-
-  hpx_addr_t done = hpx_lco_and_new(hpx_get_num_ranks());
-
-  for (int i = 0; i < hpx_get_num_ranks(); i++)
-  {
-
-    hpx_addr_t hpx_process_ = hpx_addr_add(hook, sizeof(int) * i, sizeof(int));
-    // printf("vertex_ = %ld\n", vertex_);
-    hpx_call(hpx_process_, _hello_action, done);
-  }
-
-  hpx_lco_wait(done);
-  hpx_lco_delete(done, HPX_NULL);
-  return;
-}
-
 static HPX_ACTION_DECL(_sssp);
 static int _sssp_handler(void)
 {
-
   FILE *f = NULL;
-  if ((f = fopen(filename_, "rb")) == NULL)
-  {
-    printf("File reading failed!\n");
+  if ((f = fopen(filename_, "r")) == NULL)
     return -1;
-  }
 
-  fread(&N, sizeof(int), 1, f);
-  fread(&N_, sizeof(int), 1, f);
-  fread(&N_edges, sizeof(int), 1, f);
+  int N = 0;
+  int N_ = 0;
+  int N_edges = 0;
+
+  fscanf(f, "%d\t%d", &N, &N_);
+  fscanf(f, "%d", &N_edges);
 
   printf("Graph: %s, graph vertex count is %d with %d egdes.\n",
          filename_, N, N_edges);
-  // TODO remove this
-  fclose(f);
-  fflush(stdout);
 
   hpx_addr_t vertices = hpx_gas_calloc_cyclic(N, sizeof(Vertex), 0);
   // this is the main hpx sssp code
   assert(vertices != HPX_NULL);
   printf("Vertices allocation is done\n");
 
-  hpx_addr_t hook_to_HPX_processes = hpx_gas_calloc_cyclic(N, sizeof(int), 0);
-  // this is the main hpx sssp code
-  assert(hook_to_HPX_processes != HPX_NULL);
-  printf("hook_to_HPX_processes done\n");
-
-  //call_hello(hook_to_HPX_processes);
-
   // Populate the graph
   // intialize the counts of Vertex struct
-  init_count_vertices(hook_to_HPX_processes, vertices, N);
-  printf("init_count_vertices done\n");
-  fflush(stdout);
-  
-  populate_graph(hook_to_HPX_processes, vertices);
+  init_count_vertices(vertices, N);
+
+  populate_graph(vertices, N, N_edges, f);
+  fclose(f);
+
   printf("Graph has been initialied from the input file\n");
-  fflush(stdout);
 
   // Call the Asynchronous SSSP here
   hpx_addr_t sssp_done_lco = hpx_lco_and_new(1);
@@ -1026,8 +879,8 @@ static int _sssp_handler(void)
   Yes, it is working, so commenting it out.
   */
 
-  //int target_vertex = 5;
-  //print_distance_at(vertices, target_vertex);
+  int target_vertex = 47;
+  print_distance_at(vertices, target_vertex);
 
   // reduce the results, in this case the number of actions invoked
   hpx_addr_t reduce_done_lco = hpx_lco_and_new(1);
@@ -1038,24 +891,15 @@ static int _sssp_handler(void)
   printf("Input Graph: %s\n", filename_);
   printf("HPX Processes: %d\n", hpx_get_num_ranks());
 
-
   printf("Freeing memory, vertices\n");
   FREE_vertices_internal(vertices, N);
   hpx_gas_free(vertices, HPX_NULL);
 
   printf("All done! Goodbye.\n");
-
-  fflush(stdout);
   hpx_exit(0, NULL);
 }
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _populate_graph_dispatch,
-                  _populate_graph_dispatch_handler, HPX_POINTER, HPX_ADDR);
-
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _init_count_vertices_dispatch,
-                  _init_count_vertices_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
-
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _hello_action, _hello_action_handler, HPX_POINTER);
+// static HPX_ACTION(HPX_DEFAULT, 0, _hello, _hello_action);
 
 static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _print_distance_at,
                   __print_distance_at_handler, HPX_POINTER, HPX_INT);
