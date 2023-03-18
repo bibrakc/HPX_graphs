@@ -118,17 +118,88 @@ static int _free_vertices_handler(Vertex *v_, int id)
 
 // Print result for a single vertex for sanity checks and validation
 static HPX_ACTION_DECL(_print_distance_at);
-static int __print_distance_at_handler(Vertex *v_, int id)
+static int __print_distance_at_handler(Vertex *v_)
 {
   hpx_addr_t local = hpx_thread_current_target();
   Vertex *v = NULL;
   if (!hpx_gas_try_pin(local, (void **)&v))
     return HPX_RESEND;
 
-  printf("v->vertex_id = %d, v->distance_from_start = %d\n", v->vertex_id, v->distance_from_start);
+  printf("v->vertex_id = %d, v->distance_from_start = %d, v->actions_invoked = %d\n", v->vertex_id, v->distance_from_start, v->actions_invoked);
   fflush(stdout);
+
   hpx_gas_unpin(local);
   return HPX_SUCCESS;
+}
+
+static HPX_ACTION_DECL(_reset_vertices);
+static int _reset_vertices_handler(Vertex *v_, int id)
+{
+
+  hpx_addr_t local = hpx_thread_current_target();
+  Vertex *v = NULL;
+  if (!hpx_gas_try_pin(local, (void **)&v))
+    return HPX_RESEND;
+
+  v->parent = UNKNOWN;
+  v->distance_from_start = 0;
+  v->first_edge = UNKNOWN; // for Dijkstra–Scholten termination detection
+  v->deficit = 0;          // for Dijkstra–Scholten termination detection
+
+  // for performance statistics
+  v->actions_invoked = 0;
+  v->reduced_int_buffer = 0;
+  v->total_time_in_actions = 0;
+  v->reduced_time_buffer = 0;
+
+  hpx_gas_unpin(local);
+
+  return HPX_SUCCESS;
+}
+
+// Dispatch this to underlying ranks to speedup
+static HPX_ACTION_DECL(_reset_vertices_dispatch);
+static int _reset_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
+{
+  int chunk = N / hpx_get_num_ranks();
+  int my_chunk = chunk;
+  if (hpx_get_num_ranks() == (hpx_get_my_rank() + 1))
+  {
+    my_chunk += N % hpx_get_num_ranks();
+  }
+
+  int start_vertex = chunk * hpx_get_my_rank();
+  // printf("Dispatching from: %d, my_chunk: %d, start_vertex: %d\n", hpx_get_my_rank(), my_chunk, start_vertex);
+
+  // fflush(stdout);
+
+  hpx_addr_t done = hpx_lco_and_new(my_chunk);
+
+  for (int i = start_vertex; i < start_vertex + my_chunk; i++)
+  {
+    hpx_addr_t vertex_ = vertex_element_at(vertices, i);
+    hpx_call(vertex_, _reset_vertices, done, &i);
+  }
+
+  hpx_lco_wait(done);
+  hpx_lco_delete(done, HPX_NULL);
+
+  return HPX_SUCCESS;
+}
+
+void reset_vertices(hpx_addr_t hook, hpx_addr_t vertices, int N)
+{
+  hpx_addr_t done = hpx_lco_and_new(hpx_get_num_ranks());
+  for (int i = 0; i < hpx_get_num_ranks(); i++)
+  {
+    hpx_addr_t hpx_process_ = hpx_addr_add(hook, sizeof(int) * i, sizeof(int));
+    hpx_call(hpx_process_, _reset_vertices_dispatch, done, &vertices, &N);
+  }
+
+  hpx_lco_wait(done);
+  hpx_lco_delete(done, HPX_NULL);
+
+  return;
 }
 
 static HPX_ACTION_DECL(_init_count_vertices);
@@ -244,7 +315,7 @@ static int _send_edge_handler(Vertex *v_, int edge, int weight)
   return HPX_SUCCESS;
 }
 
-// For checking to see if HPX works fine
+// Dispatch this to underlying ranks to speedup
 static HPX_ACTION_DECL(_init_count_vertices_dispatch);
 static int _init_count_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
 {
@@ -256,9 +327,9 @@ static int _init_count_vertices_dispatch_handler(int *hook, hpx_addr_t vertices,
   }
 
   int start_vertex = chunk * hpx_get_my_rank();
-  //printf("Dispatching from: %d, my_chunk: %d, start_vertex: %d\n", hpx_get_my_rank(), my_chunk, start_vertex);
+  // printf("Dispatching from: %d, my_chunk: %d, start_vertex: %d\n", hpx_get_my_rank(), my_chunk, start_vertex);
 
-  //fflush(stdout);
+  // fflush(stdout);
 
   hpx_addr_t done = hpx_lco_and_new(my_chunk);
 
@@ -293,7 +364,21 @@ void init_count_vertices(hpx_addr_t hook, hpx_addr_t vertices, int N)
   return;
 }
 
+void print_vertex_info_all(hpx_addr_t vertices)
+{
+  hpx_addr_t done = hpx_lco_and_new(N);
 
+  for (int i = 0; i < N; i++)
+  {
+    hpx_addr_t vertex_ = vertex_element_at(vertices, i);
+    // printf("vertex_ = %ld\n", vertex_);
+    hpx_call(vertex_, _print_distance_at, done);
+  }
+  hpx_lco_wait(done);
+  hpx_lco_delete(done, HPX_NULL);
+
+  return;
+}
 
 void print_distance_at(hpx_addr_t vertices, int target_vertex)
 {
@@ -328,8 +413,8 @@ void FREE_vertices_internal(hpx_addr_t vertices, int N)
 static HPX_ACTION_DECL(_populate_graph_dispatch);
 static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
 {
- // printf("_populate_graph_dispatch_handler from %d.\n", hpx_get_my_rank());
- // fflush(stdout);
+  // printf("_populate_graph_dispatch_handler from %d.\n", hpx_get_my_rank());
+  // fflush(stdout);
 
   int vert_from, vert_to, weight;
   vert_from = -1;
@@ -362,9 +447,9 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
   int edge_size_in_bytes = sizeof(int) * 3; // ints of: to, from, weight
   fseek(f, edge_size_in_bytes * my_starting_edge, SEEK_CUR);
 
-  //printf("Dispatching Edges from: %d, my_edges_chunk: %d, my_starting_edge: %d\n", hpx_get_my_rank(), my_edges_chunk, my_starting_edge);
+  // printf("Dispatching Edges from: %d, my_edges_chunk: %d, my_starting_edge: %d\n", hpx_get_my_rank(), my_edges_chunk, my_starting_edge);
 
-  //fflush(stdout);
+  // fflush(stdout);
 
   // staging the sending in chunks to not let the network saturate and cause faults
   int total_sending_chunks = my_edges_chunk / edges_chunk_size;
@@ -373,8 +458,8 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
   {
     total_sending_chunks++;
   }
-  //printf("edges_chunk_size: %d, total_sending_chunks: %d, left_over_sending_chunks: %d\n", edges_chunk_size, total_sending_chunks, left_over_sending_chunks);
-  //fflush(stdout);
+  // printf("edges_chunk_size: %d, total_sending_chunks: %d, left_over_sending_chunks: %d\n", edges_chunk_size, total_sending_chunks, left_over_sending_chunks);
+  // fflush(stdout);
 
   for (int i = 0; i < total_sending_chunks; i++)
   {
@@ -509,8 +594,11 @@ static int _reduce_actions_ack_handler(Vertex *v_, hpx_addr_t vertices,
     // v->reduced_time_buffer += (v->total_time_in_actions / v->actions_invoked) * 2.0;
     v->total_time_in_actions = 1; // hack
     v->reduced_time_buffer += v->total_time_in_actions;
-    printf("vertex %d reduced actions invoked is %d, sum of action time is %lf\n",
-           v->vertex_id, v->reduced_int_buffer, v->reduced_time_buffer);
+
+    // printf("vertex %d reduced actions invoked is %d\n", v->vertex_id, v->reduced_int_buffer);
+
+    printf("Actions_Invoked:\t%d\n", v->reduced_int_buffer);
+    fflush(stdout);
 
     v->reduced_int_buffer = 0;
     v->actions_invoked = 0;
@@ -973,57 +1061,83 @@ static int _sssp_handler(void)
   assert(hook_to_HPX_processes != HPX_NULL);
   printf("hook_to_HPX_processes done\n");
 
-  //call_hello(hook_to_HPX_processes);
+  // call_hello(hook_to_HPX_processes);
 
   // Populate the graph
   // intialize the counts of Vertex struct
   init_count_vertices(hook_to_HPX_processes, vertices, N);
   printf("init_count_vertices done\n");
   fflush(stdout);
-  
+
   populate_graph(hook_to_HPX_processes, vertices);
   printf("Graph has been initialied from the input file\n");
   fflush(stdout);
 
-  // Call the Asynchronous SSSP here
-  hpx_addr_t sssp_done_lco = hpx_lco_and_new(1);
+  for (int iterations = 0; iterations < 100; iterations++)
+  {
 
-  struct timeval end, begin;
-  gettimeofday(&begin, 0);
+    // Call the Asynchronous SSSP here
+    hpx_addr_t sssp_done_lco = hpx_lco_and_new(1);
 
-  int start_vertex = root_vertex_;
-  SSSP_hpx_async(vertices, start_vertex, sssp_done_lco);
+    struct timeval end, begin;
+    gettimeofday(&begin, 0);
 
-  hpx_lco_wait(sssp_done_lco);
-  hpx_lco_delete(sssp_done_lco, HPX_NULL);
+    int start_vertex = root_vertex_;
+    SSSP_hpx_async(vertices, start_vertex, sssp_done_lco);
 
-  gettimeofday(&end, 0);
-  printf("Asynchronous SSSP using HPX-5 finished\n");
+    hpx_lco_wait(sssp_done_lco);
+    hpx_lco_delete(sssp_done_lco, HPX_NULL);
 
-  // timing
-  double elapsed = (end.tv_sec - begin.tv_sec) +
-                   ((end.tv_usec - begin.tv_usec) / 1000000.0);
+    gettimeofday(&end, 0);
+    // printf("Asynchronous SSSP using HPX-5 finished\n");
 
-  printf("Time taken in Asynchronous SSSP (secs): %lf\n", elapsed);
+    // timing
+    double elapsed = (end.tv_sec - begin.tv_sec) +
+                     ((end.tv_usec - begin.tv_usec) / 1000000.0);
 
-  /* Validation:
-  Print the sssp value at a known target_vertex for the input graph
-  Manually check whether it aligns with the result using python networkx
-  Yes, it is working, so commenting it out.
-  */
+    // printf("Time taken in Asynchronous SSSP (secs): %lf\n", elapsed);
+    printf("SSSP_Time(secs):\t%lf\n", elapsed);
+    fflush(stdout);
+    /* Validation:
+    Print the sssp value at a known target_vertex for the input graph
+    Manually check whether it aligns with the result using python networkx
+    Yes, it is working, so commenting it out.
+    */
 
-  //int target_vertex = 5;
-  //print_distance_at(vertices, target_vertex);
+    // int target_vertex = root_vertex_;
+    // print_distance_at(vertices, target_vertex);
+    //  print_vertex_info_all(vertices);
+    // fflush(stdout);
 
-  // reduce the results, in this case the number of actions invoked
-  hpx_addr_t reduce_done_lco = hpx_lco_and_new(1);
-  REDUCE_actions_invoked_async(vertices, start_vertex, reduce_done_lco);
-  hpx_lco_wait(reduce_done_lco);
-  hpx_lco_delete(reduce_done_lco, HPX_NULL);
+    gettimeofday(&begin, 0);
+    // reduce the results, in this case the number of actions invoked
+    hpx_addr_t reduce_done_lco = hpx_lco_and_new(1);
+    REDUCE_actions_invoked_async(vertices, start_vertex, reduce_done_lco);
+    // fflush(stdout);
+
+    hpx_lco_wait(reduce_done_lco);
+    hpx_lco_delete(reduce_done_lco, HPX_NULL);
+    gettimeofday(&end, 0);
+
+    double elapsed_reduce_actions = (end.tv_sec - begin.tv_sec) +
+                                    ((end.tv_usec - begin.tv_usec) / 1000000.0);
+
+    gettimeofday(&begin, 0);
+    // reset vertices for next run (iteration)
+    reset_vertices(hook_to_HPX_processes, vertices, N);
+
+    gettimeofday(&end, 0);
+
+    // timing
+    elapsed = (end.tv_sec - begin.tv_sec) +
+              ((end.tv_usec - begin.tv_usec) / 1000000.0);
+
+    // printf("Time taken in Asynchronous SSSP (secs): %lf\n", elapsed);
+    printf("reset_vertices(secs):\t%lf, REDUCE_actions_invoked_async:\t%lf\n", elapsed, elapsed_reduce_actions);
+  }
 
   printf("Input Graph: %s\n", filename_);
   printf("HPX Processes: %d\n", hpx_get_num_ranks());
-
 
   printf("Freeing memory, vertices\n");
   FREE_vertices_internal(vertices, N);
@@ -1038,16 +1152,22 @@ static int _sssp_handler(void)
 static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _populate_graph_dispatch,
                   _populate_graph_dispatch_handler, HPX_POINTER, HPX_ADDR);
 
+static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices,
+                  _reset_vertices_handler, HPX_POINTER, HPX_INT);
+
+static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices_dispatch,
+                  _reset_vertices_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
+
+static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _init_count_vertices,
+                  _init_count_vertices_handler, HPX_POINTER, HPX_INT);
+
 static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _init_count_vertices_dispatch,
                   _init_count_vertices_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
 
 static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _hello_action, _hello_action_handler, HPX_POINTER);
 
 static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _print_distance_at,
-                  __print_distance_at_handler, HPX_POINTER, HPX_INT);
-
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _init_count_vertices,
-                  _init_count_vertices_handler, HPX_POINTER, HPX_INT);
+                  __print_distance_at_handler, HPX_POINTER);
 
 static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _free_vertices,
                   _free_vertices_handler, HPX_POINTER, HPX_INT);
