@@ -59,9 +59,7 @@ typedef struct
   // int edges[EDGES_BUFF_SIZE];
 
   edge_list edges;
-  // int count;
 
-  // TODO: although seems redundant but lets put it here
   int vertex_id;
 
   // the result in this case parent for SSSP
@@ -71,9 +69,6 @@ typedef struct
   // Dijkstra–Scholten termination detection
   int first_edge;
   int deficit;
-
-  // TODO:
-  // edges_list *next;
 
   // control related
   hpx_addr_t vertex_local_mutex;
@@ -92,8 +87,8 @@ hpx_addr_t vertex_element_at(hpx_addr_t vert, int i)
   return hpx_addr_add(vert, sizeof(Vertex) * i, sizeof(Vertex));
 }
 
-static HPX_ACTION_DECL(_free_vertices);
-static int _free_vertices_handler(Vertex *v_, int id)
+HPX_ACTION_DECL(_free_vertices);
+int _free_vertices_handler(Vertex *v_, int id)
 {
 
   hpx_addr_t local = hpx_thread_current_target();
@@ -106,7 +101,6 @@ static int _free_vertices_handler(Vertex *v_, int id)
 
   for (int i = 0; i < v->edges.buckets_count; i++)
   {
-    // printf("vertex = %d, deleting i = %d\n", v->vertex_id, i);
     temp = v->edges.head;
     v->edges.head = v->edges.head->next;
     free(temp);
@@ -117,23 +111,23 @@ static int _free_vertices_handler(Vertex *v_, int id)
 }
 
 // Print result for a single vertex for sanity checks and validation
-static HPX_ACTION_DECL(_print_distance_at);
-static int __print_distance_at_handler(Vertex *v_)
+HPX_ACTION_DECL(_print_distance_at);
+int __print_distance_at_handler(Vertex *v_)
 {
   hpx_addr_t local = hpx_thread_current_target();
   Vertex *v = NULL;
   if (!hpx_gas_try_pin(local, (void **)&v))
     return HPX_RESEND;
 
-  printf("v->vertex_id = %d, v->distance_from_start = %d, v->actions_invoked = %d\n", v->vertex_id, v->distance_from_start, v->actions_invoked);
+  printf("v->vertex_id = %d, v->distance_from_start = %d\n", v->vertex_id, v->distance_from_start);
   fflush(stdout);
 
   hpx_gas_unpin(local);
   return HPX_SUCCESS;
 }
 
-static HPX_ACTION_DECL(_reset_vertices);
-static int _reset_vertices_handler(Vertex *v_, int id)
+HPX_ACTION_DECL(_reset_vertices);
+int _reset_vertices_handler(Vertex *v_, int id)
 {
 
   hpx_addr_t local = hpx_thread_current_target();
@@ -158,8 +152,8 @@ static int _reset_vertices_handler(Vertex *v_, int id)
 }
 
 // Dispatch this to underlying ranks to speedup
-static HPX_ACTION_DECL(_reset_vertices_dispatch);
-static int _reset_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
+HPX_ACTION_DECL(_reset_vertices_dispatch);
+int _reset_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
 {
   int chunk = N / hpx_get_num_ranks();
   int my_chunk = chunk;
@@ -169,9 +163,6 @@ static int _reset_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int 
   }
 
   int start_vertex = chunk * hpx_get_my_rank();
-  // printf("Dispatching from: %d, my_chunk: %d, start_vertex: %d\n", hpx_get_my_rank(), my_chunk, start_vertex);
-
-  // fflush(stdout);
 
   hpx_addr_t done = hpx_lco_and_new(my_chunk);
 
@@ -202,21 +193,15 @@ void reset_vertices(hpx_addr_t hook, hpx_addr_t vertices, int N)
   return;
 }
 
-static HPX_ACTION_DECL(_init_count_vertices);
-static int _init_count_vertices_handler(Vertex *v_, int id)
+HPX_ACTION_DECL(_init_count_vertices);
+int _init_count_vertices_handler(Vertex *v_, int id)
 {
 
-  // this pin thingy will be need in distributed setting
-  // printf("pop handler neigh = %d\n", zero);
 
   hpx_addr_t local = hpx_thread_current_target();
   Vertex *v = NULL;
   if (!hpx_gas_try_pin(local, (void **)&v))
     return HPX_RESEND;
-
-  //  printf("pop handler neigh = %d\n", zero);
-
-  //  printf("v->count = %d\n", v->count);
 
   v->vertex_id = id;
   // v->count = 0;
@@ -235,8 +220,6 @@ static int _init_count_vertices_handler(Vertex *v_, int id)
     return HPX_ERROR;
   }
 
-  // temp->count = 0;
-  // printf("initializing vertex: %d\n", v->vertex_id);
   // the edge_list
   v->edges.buckets_count = 1;
   v->edges.head = temp;
@@ -244,8 +227,6 @@ static int _init_count_vertices_handler(Vertex *v_, int id)
 
   v->edges.head->count = 0;
   v->edges.head->next = NULL;
-
-  // printf("initializing vertex: %d : done with pointers\n", v->vertex_id);
 
   v->vertex_local_mutex = hpx_lco_sema_new(1);
 
@@ -260,11 +241,9 @@ static int _init_count_vertices_handler(Vertex *v_, int id)
   return HPX_SUCCESS;
 }
 
-// TODO write a cleanup handler too that frees vertex internal data like:
-//      vertex_local_mutex and the edges linklist
 
-static HPX_ACTION_DECL(_send_edge);
-static int _send_edge_handler(Vertex *v_, int edge, int weight)
+HPX_ACTION_DECL(_send_edge);
+int _send_edge_handler(Vertex *v_, int edge, int weight)
 {
 
   hpx_addr_t local = hpx_thread_current_target();
@@ -274,7 +253,6 @@ static int _send_edge_handler(Vertex *v_, int edge, int weight)
 
   hpx_lco_sema_p(v->vertex_local_mutex);
 
-  // printf("vertex: %d, inserting %d v->edges.tail->count = %d \n", v->vertex_id, edge, v->edges.tail->count);
   if (v->edges.tail->count == EDGES_BUFF_SIZE)
   { // if this bucket is full
 
@@ -295,20 +273,9 @@ static int _send_edge_handler(Vertex *v_, int edge, int weight)
     v->edges.buckets_count++;
   }
 
-  /*
-    if(v->count >= EDGES_BUFF_SIZE){
-      printf("Vertex ID: %d, EDGES_BUFF_SIZE exeeded, implement linklist! Not adding edge %d, count = %d\n",v->vertex_id, edge, v->count);
-      hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
-      unpin here
-      return HPX_SUCCESS;
-    }
-
-  */
-
   v->edges.tail->edges[v->edges.tail->count].node_id = edge;
   v->edges.tail->edges[v->edges.tail->count].weight = weight;
   v->edges.tail->count++;
-  // printf("vertex: %d, edge %d inserted as %d\n", v->vertex_id, edge, v->edges.tail->edges[v->edges.tail->count - 1]);
   hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
 
   hpx_gas_unpin(local);
@@ -316,8 +283,8 @@ static int _send_edge_handler(Vertex *v_, int edge, int weight)
 }
 
 // Dispatch this to underlying ranks to speedup
-static HPX_ACTION_DECL(_init_count_vertices_dispatch);
-static int _init_count_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
+HPX_ACTION_DECL(_init_count_vertices_dispatch);
+int _init_count_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
 {
   int chunk = N / hpx_get_num_ranks();
   int my_chunk = chunk;
@@ -327,16 +294,12 @@ static int _init_count_vertices_dispatch_handler(int *hook, hpx_addr_t vertices,
   }
 
   int start_vertex = chunk * hpx_get_my_rank();
-  // printf("Dispatching from: %d, my_chunk: %d, start_vertex: %d\n", hpx_get_my_rank(), my_chunk, start_vertex);
-
-  // fflush(stdout);
 
   hpx_addr_t done = hpx_lco_and_new(my_chunk);
 
   for (int i = start_vertex; i < start_vertex + my_chunk; i++)
   {
     hpx_addr_t vertex_ = vertex_element_at(vertices, i);
-    // printf("vertex_ = %ld\n", vertex_);
     hpx_call(vertex_, _init_count_vertices, done, &i);
   }
 
@@ -351,11 +314,8 @@ void init_count_vertices(hpx_addr_t hook, hpx_addr_t vertices, int N)
   hpx_addr_t done = hpx_lco_and_new(hpx_get_num_ranks());
   for (int i = 0; i < hpx_get_num_ranks(); i++)
   {
-    // printf("i = %d\n", i);
     hpx_addr_t hpx_process_ = hpx_addr_add(hook, sizeof(int) * i, sizeof(int));
-    // printf("vertex_ = %ld\n", vertex_);
     hpx_call(hpx_process_, _init_count_vertices_dispatch, done, &vertices, &N);
-    // printf("i = %d done\n", i);
   }
 
   hpx_lco_wait(done);
@@ -371,7 +331,6 @@ void print_vertex_info_all(hpx_addr_t vertices)
   for (int i = 0; i < N; i++)
   {
     hpx_addr_t vertex_ = vertex_element_at(vertices, i);
-    // printf("vertex_ = %ld\n", vertex_);
     hpx_call(vertex_, _print_distance_at, done);
   }
   hpx_lco_wait(done);
@@ -385,7 +344,6 @@ void print_distance_at(hpx_addr_t vertices, int target_vertex)
   hpx_addr_t done = hpx_lco_and_new(1);
 
   hpx_addr_t vertex_ = vertex_element_at(vertices, target_vertex);
-  // printf("vertex_ = %ld\n", vertex_);
   hpx_call(vertex_, _print_distance_at, done, &target_vertex);
 
   hpx_lco_wait(done);
@@ -410,11 +368,9 @@ void FREE_vertices_internal(hpx_addr_t vertices, int N)
 }
 
 // Read the input graph from file and populate the vertices
-static HPX_ACTION_DECL(_populate_graph_dispatch);
-static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
+HPX_ACTION_DECL(_populate_graph_dispatch);
+int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
 {
-  // printf("_populate_graph_dispatch_handler from %d.\n", hpx_get_my_rank());
-  // fflush(stdout);
 
   int vert_from, vert_to, weight;
   vert_from = -1;
@@ -447,9 +403,6 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
   int edge_size_in_bytes = sizeof(int) * 3; // ints of: to, from, weight
   fseek(f, edge_size_in_bytes * my_starting_edge, SEEK_CUR);
 
-  // printf("Dispatching Edges from: %d, my_edges_chunk: %d, my_starting_edge: %d\n", hpx_get_my_rank(), my_edges_chunk, my_starting_edge);
-
-  // fflush(stdout);
 
   // staging the sending in chunks to not let the network saturate and cause faults
   int total_sending_chunks = my_edges_chunk / edges_chunk_size;
@@ -458,8 +411,7 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
   {
     total_sending_chunks++;
   }
-  // printf("edges_chunk_size: %d, total_sending_chunks: %d, left_over_sending_chunks: %d\n", edges_chunk_size, total_sending_chunks, left_over_sending_chunks);
-  // fflush(stdout);
+
 
   for (int i = 0; i < total_sending_chunks; i++)
   {
@@ -468,14 +420,12 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
     {
       LCO_size = left_over_sending_chunks;
     }
-    // printf("LCO_size: %d\n", LCO_size);
     hpx_addr_t done = hpx_lco_and_new(LCO_size);
     for (int j = 0; j < LCO_size; j++)
     {
       fread(&vert_from, sizeof(int), 1, f);
       fread(&vert_to, sizeof(int), 1, f);
       fread(&weight, sizeof(int), 1, f);
-      //  fscanf(f, "%d\t%d\t%d", &vert_from, &vert_to, &weight);
 
       if (graph500_gen)
       {
@@ -488,11 +438,6 @@ static int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
         printf("Cycle Detected! %d\n", vert_from);
         fflush(stdout);
       }
-
-      /*
-      if (0 && vert_from == root_vertex_)
-        printf("read %d --> %d\n", vert_from, vert_to);
-      */
 
       hpx_addr_t vertex_ = vertex_element_at(vertices, vert_from);
       hpx_call(vertex_, _send_edge, done, &vert_to, &weight);
@@ -511,11 +456,8 @@ void populate_graph(hpx_addr_t hook, hpx_addr_t vertices)
   hpx_addr_t done = hpx_lco_and_new(hpx_get_num_ranks());
   for (int i = 0; i < hpx_get_num_ranks(); i++)
   {
-    // printf("i = %d\n", i);
     hpx_addr_t hpx_process_ = hpx_addr_add(hook, sizeof(int) * i, sizeof(int));
-    // printf("vertex_ = %ld\n", vertex_);
     hpx_call(hpx_process_, _populate_graph_dispatch, done, &vertices);
-    // printf("i = %d done\n", i);
   }
 
   hpx_lco_wait(done);
@@ -524,8 +466,8 @@ void populate_graph(hpx_addr_t hook, hpx_addr_t vertices)
   return;
 }
 
-static HPX_ACTION_DECL(_ack);
-static int _ack_handler(Vertex *v_, hpx_addr_t vertices, hpx_addr_t sssp_halting_LCO)
+HPX_ACTION_DECL(_ack);
+int _ack_handler(Vertex *v_, hpx_addr_t vertices, hpx_addr_t sssp_halting_LCO)
 {
 
   hpx_addr_t local = hpx_thread_current_target();
@@ -552,15 +494,12 @@ static int _ack_handler(Vertex *v_, hpx_addr_t vertices, hpx_addr_t sssp_halting
       printf("_ack_handler: vertex %d, HALTED: parent is %d, distance = %d, sending to %d\n",
              v->vertex_id, v->parent, v->distance_from_start, v->first_edge);
 
-    // printf("ack: v->first_edge %d\n",v->first_edge);
     hpx_addr_t vertex_ = vertex_element_at(vertices, v->first_edge);
     v->first_edge = UNKNOWN;
     hpx_call_async(vertex_, _ack, HPX_NULL, HPX_NULL, &vertices, &sssp_halting_LCO);
 
     // this is just for performance
     v->actions_invoked++;
-    // DEBUGGING: Printing the result, later write a reducer TODO:
-    // printf("vertex %d actions invoked is %d\n",v->vertex_id, v->actions_invoked);
   }
 
   hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
@@ -569,9 +508,9 @@ static int _ack_handler(Vertex *v_, hpx_addr_t vertices, hpx_addr_t sssp_halting
   return HPX_SUCCESS;
 }
 
-static HPX_ACTION_DECL(_reduce_actions_ack);
-static int _reduce_actions_ack_handler(Vertex *v_, hpx_addr_t vertices,
-                                       int partial_reduce, double partial_time, hpx_addr_t reduce_halting_LCO)
+HPX_ACTION_DECL(_reduce_actions_ack);
+int _reduce_actions_ack_handler(Vertex *v_, hpx_addr_t vertices,
+                                int partial_reduce, double partial_time, hpx_addr_t reduce_halting_LCO)
 {
 
   hpx_addr_t local = hpx_thread_current_target();
@@ -585,8 +524,6 @@ static int _reduce_actions_ack_handler(Vertex *v_, hpx_addr_t vertices,
   v->reduced_int_buffer += partial_reduce;
   v->reduced_time_buffer += partial_time;
 
-  // printf("ack: vertex %d deficit = %d\n", v->vertex_id, v->deficit);
-
   if (v->deficit == 0 && v->parent == ROOT)
   {
     // v->reduce_int_buffer += v->actions_invoked;
@@ -594,8 +531,6 @@ static int _reduce_actions_ack_handler(Vertex *v_, hpx_addr_t vertices,
     // v->reduced_time_buffer += (v->total_time_in_actions / v->actions_invoked) * 2.0;
     v->total_time_in_actions = 1; // hack
     v->reduced_time_buffer += v->total_time_in_actions;
-
-    // printf("vertex %d reduced actions invoked is %d\n", v->vertex_id, v->reduced_int_buffer);
 
     printf("Actions_Invoked:\t%d\n", v->reduced_int_buffer);
     fflush(stdout);
@@ -610,11 +545,7 @@ static int _reduce_actions_ack_handler(Vertex *v_, hpx_addr_t vertices,
   else if (v->deficit == 0)
   {
 
-    // DEBUGGING: Printing the result, later write a reducer TODO:
-    // printf("vertex %d parent is %d\n",v->vertex_id, v->parent);
-
     v->reduced_int_buffer += v->actions_invoked;
-    // v->reduced_time_buffer += (v->total_time_in_actions / v->actions_invoked) * 2;
     v->total_time_in_actions = 1; // hack
     v->reduced_time_buffer += v->total_time_in_actions;
     hpx_addr_t vertex_ = vertex_element_at(vertices, v->first_edge);
@@ -622,10 +553,6 @@ static int _reduce_actions_ack_handler(Vertex *v_, hpx_addr_t vertices,
     hpx_call_async(vertex_, _reduce_actions_ack, HPX_NULL, HPX_NULL, &vertices,
                    &v->reduced_int_buffer, &v->reduced_time_buffer, &reduce_halting_LCO);
 
-    /*
-    if(v->actions_invoked != 0)
-    printf("vertex %d actions invoked is %d, v->reduced_int_buffer = %d\n",v->vertex_id, v->actions_invoked, v->reduced_int_buffer);
-    */
     v->reduced_int_buffer = 0;
     v->actions_invoked = 0;
     v->reduced_time_buffer = 0;
@@ -640,10 +567,10 @@ static int _reduce_actions_ack_handler(Vertex *v_, hpx_addr_t vertices,
 
 // To understand this reducer you need to intuitively think of reducing the spaning tree
 // Therefore this function is asynchronously recurssive
-static HPX_ACTION_DECL(_reduce_acks);
-static int _reduce_acks_handler(Vertex *v_, hpx_addr_t vertices,
-                                int sender_vertex,
-                                hpx_addr_t reduce_halting_LCO)
+HPX_ACTION_DECL(_reduce_acks);
+int _reduce_acks_handler(Vertex *v_, hpx_addr_t vertices,
+                         int sender_vertex,
+                         hpx_addr_t reduce_halting_LCO)
 {
 
   hpx_addr_t local = hpx_thread_current_target();
@@ -745,10 +672,10 @@ static int _reduce_acks_handler(Vertex *v_, hpx_addr_t vertices,
   return HPX_SUCCESS;
 }
 
-static HPX_ACTION_DECL(_sssp_hpx_async);
-static int _sssp_hpx_async_handler(Vertex *v_, hpx_addr_t vertices,
-                                   int sender_vertex, int incoming_distance,
-                                   hpx_addr_t sssp_halting_LCO)
+HPX_ACTION_DECL(_sssp_hpx_async);
+int _sssp_hpx_async_handler(Vertex *v_, hpx_addr_t vertices,
+                            int sender_vertex, int incoming_distance,
+                            hpx_addr_t sssp_halting_LCO)
 {
 
   struct timeval end, begin;
@@ -776,25 +703,8 @@ static int _sssp_hpx_async_handler(Vertex *v_, hpx_addr_t vertices,
     v->parent = sender_vertex;
     v->distance_from_start = incoming_distance;
 
-    // printf("Vertex: %d: Active, First Edge is: %d\n", v->vertex_id, v->first_edge);
-    // if(sender_vertex == ROOT)
-    //   printf("In ROOT: sender_vertex = %d, distance = %d\n",sender_vertex, incoming_distance);
-
-    // printf("SSSP: vertex: %d set it's parent as %d\n", v->vertex_id, v->parent);
     int distance = v->distance_from_start;
 
-    /*
-    for(int i=0; i<v->count; i++){
-      //printf("SSSP: vertex: %d preparing edge: %d\n", v->vertex_id, v->edges[i]);
-      hpx_addr_t vertex_ = vertex_element_at(vertices, v->edges[i]);
-      hpx_call_async(vertex_, _sssp_hpx_async, HPX_NULL, HPX_NULL,
-                     &vertices, &v->vertex_id, &distance, &sssp_halting_LCO);
-      v->deficit ++;
-
-      // this is just for performance
-      v->actions_invoked ++;
-    }
-    */
     int new_distance = 0;
     edge_bucket *cursor = v->edges.head;
     // diffuse
@@ -994,8 +904,8 @@ void REDUCE_actions_invoked_async(hpx_addr_t vertices, int start_vertex,
 }
 
 // For checking to see if HPX works fine
-static HPX_ACTION_DECL(_hello_action);
-static int _hello_action_handler(int *hook)
+HPX_ACTION_DECL(_hello_action);
+int _hello_action_handler(int *hook)
 {
   /*
   hpx_addr_t local = hpx_thread_current_target();
@@ -1030,8 +940,8 @@ void call_hello(hpx_addr_t hook)
   return;
 }
 
-static HPX_ACTION_DECL(_sssp);
-static int _sssp_handler(void)
+HPX_ACTION_DECL(_sssp);
+int _sssp_handler(void)
 {
 
   FILE *f = NULL;
@@ -1103,12 +1013,14 @@ static int _sssp_handler(void)
     Manually check whether it aligns with the result using python networkx
     Yes, it is working, so commenting it out.
     */
-
-    // int target_vertex = root_vertex_;
-    // print_distance_at(vertices, target_vertex);
-    //  print_vertex_info_all(vertices);
-    // fflush(stdout);
-
+    /*
+        int target_vertex = root_vertex_;
+        print_distance_at(vertices, target_vertex);
+        target_vertex = 3;
+        print_distance_at(vertices, target_vertex);
+        //  print_vertex_info_all(vertices);
+        // fflush(stdout);
+    */
     gettimeofday(&begin, 0);
     // reduce the results, in this case the number of actions invoked
     hpx_addr_t reduce_done_lco = hpx_lco_and_new(1);
@@ -1149,46 +1061,46 @@ static int _sssp_handler(void)
   hpx_exit(0, NULL);
 }
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _populate_graph_dispatch,
-                  _populate_graph_dispatch_handler, HPX_POINTER, HPX_ADDR);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _populate_graph_dispatch,
+           _populate_graph_dispatch_handler, HPX_POINTER, HPX_ADDR);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices,
-                  _reset_vertices_handler, HPX_POINTER, HPX_INT);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices,
+           _reset_vertices_handler, HPX_POINTER, HPX_INT);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices_dispatch,
-                  _reset_vertices_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices_dispatch,
+           _reset_vertices_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _init_count_vertices,
-                  _init_count_vertices_handler, HPX_POINTER, HPX_INT);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _init_count_vertices,
+           _init_count_vertices_handler, HPX_POINTER, HPX_INT);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _init_count_vertices_dispatch,
-                  _init_count_vertices_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _init_count_vertices_dispatch,
+           _init_count_vertices_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _hello_action, _hello_action_handler, HPX_POINTER);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _hello_action, _hello_action_handler, HPX_POINTER);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _print_distance_at,
-                  __print_distance_at_handler, HPX_POINTER);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _print_distance_at,
+           __print_distance_at_handler, HPX_POINTER);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _free_vertices,
-                  _free_vertices_handler, HPX_POINTER, HPX_INT);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _free_vertices,
+           _free_vertices_handler, HPX_POINTER, HPX_INT);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _send_edge, _send_edge_handler,
-                  HPX_POINTER, HPX_INT, HPX_INT);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _send_edge, _send_edge_handler,
+           HPX_POINTER, HPX_INT, HPX_INT);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _ack, _ack_handler,
-                  HPX_POINTER, HPX_ADDR, HPX_ADDR);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _ack, _ack_handler,
+           HPX_POINTER, HPX_ADDR, HPX_ADDR);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reduce_actions_ack, _reduce_actions_ack_handler,
-                  HPX_POINTER, HPX_ADDR, HPX_INT, HPX_DOUBLE, HPX_ADDR);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reduce_actions_ack, _reduce_actions_ack_handler,
+           HPX_POINTER, HPX_ADDR, HPX_INT, HPX_DOUBLE, HPX_ADDR);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reduce_acks, _reduce_acks_handler,
-                  HPX_POINTER, HPX_ADDR, HPX_INT, HPX_ADDR);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reduce_acks, _reduce_acks_handler,
+           HPX_POINTER, HPX_ADDR, HPX_INT, HPX_ADDR);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _sssp_hpx_async, _sssp_hpx_async_handler,
-                  HPX_POINTER, HPX_ADDR, HPX_INT, HPX_INT, HPX_ADDR);
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _sssp_hpx_async, _sssp_hpx_async_handler,
+           HPX_POINTER, HPX_ADDR, HPX_INT, HPX_INT, HPX_ADDR);
 
 // main action
-static HPX_ACTION(HPX_DEFAULT, 0, _sssp, _sssp_handler);
+HPX_ACTION(HPX_DEFAULT, 0, _sssp, _sssp_handler);
 
 int main(int argc, char *argv[argc])
 {
