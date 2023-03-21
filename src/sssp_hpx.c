@@ -22,10 +22,11 @@ PhD in Intelligent Systems Engineering
 char *filename_;
 int root_vertex_;
 int graph500_gen;
+int iterations = 0;
+
 int N = 0;
 int N_ = 0;
 int N_edges = 0;
-
 
 // stores the actions invoked by the vertices of a HPX_LOCALITY (or rank)
 // later will be used in the reduction to rank 0
@@ -132,6 +133,7 @@ int __print_distance_at_handler(Vertex *v_)
   return HPX_SUCCESS;
 }
 
+/*
 HPX_ACTION_DECL(_reset_vertices);
 int _reset_vertices_handler(Vertex *v_, int id)
 {
@@ -156,31 +158,39 @@ int _reset_vertices_handler(Vertex *v_, int id)
 
   return HPX_SUCCESS;
 }
+*/
 
 // Dispatch this to underlying ranks to speedup
 HPX_ACTION_DECL(_reset_vertices_dispatch);
 int _reset_vertices_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
 {
-  int chunk = N / hpx_get_num_ranks();
-  int my_chunk = chunk;
-  if (hpx_get_num_ranks() == (hpx_get_my_rank() + 1))
-  {
-    my_chunk += N % hpx_get_num_ranks();
-  }
 
-  int start_vertex = chunk * hpx_get_my_rank();
-
-  hpx_addr_t done = hpx_lco_and_new(my_chunk);
-
-  for (int i = start_vertex; i < start_vertex + my_chunk; i++)
+  int start_vertex = hpx_get_my_rank();
+  for (int i = start_vertex; i < N; i += hpx_get_num_ranks())
   {
     hpx_addr_t vertex_ = vertex_element_at(vertices, i);
-    hpx_call(vertex_, _reset_vertices, done, &i);
+    hpx_addr_t local = vertex_; // hpx_thread_current_target();
+    Vertex *v = NULL;
+    if (!hpx_gas_try_pin(local, (void **)&v))
+    {
+      printf("hpx_gas_try_pin failed! vertex = %d\n", i);
+      continue;
+    }
+
+    v->parent = UNKNOWN;
+    v->distance_from_start = 0;
+    v->first_edge = UNKNOWN; // for Dijkstra–Scholten termination detection
+    v->deficit = 0;          // for Dijkstra–Scholten termination detection
+
+    // for performance statistics
+    v->actions_invoked = 0;
+    v->reduced_int_buffer = 0;
+    v->total_time_in_actions = 0;
+    v->reduced_time_buffer = 0;
+
+    hpx_gas_unpin(local);
   }
-
-  hpx_lco_wait(done);
-  hpx_lco_delete(done, HPX_NULL);
-
+  // printf("rank: %d | accumulate_actions: %d\n", hpx_get_my_rank(), accumulate_actions);
   return HPX_SUCCESS;
 }
 
@@ -204,19 +214,6 @@ HPX_ACTION_DECL(_reduce_actions_v2_dispatch);
 int _reduce_actions_v2_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
 {
 
-  /*
-    hpx_addr_t done = hpx_lco_and_new(my_chunk);
-
-    for (int i = start_vertex; i < start_vertex + my_chunk; i++)
-    {
-      hpx_addr_t vertex_ = vertex_element_at(vertices, i);
-      hpx_call(vertex_, _reset_vertices, done, &i);
-    }
-
-    hpx_lco_wait(done);
-    hpx_lco_delete(done, HPX_NULL);
-  */
-
   int start_vertex = hpx_get_my_rank();
   accumulate_actions = 0;
   for (int i = start_vertex; i < N; i += hpx_get_num_ranks())
@@ -234,26 +231,27 @@ int _reduce_actions_v2_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
     accumulate_actions += v->actions_invoked;
     hpx_gas_unpin(local);
   }
-  //printf("rank: %d | accumulate_actions: %d\n", hpx_get_my_rank(), accumulate_actions);
+  // printf("rank: %d | accumulate_actions: %d\n", hpx_get_my_rank(), accumulate_actions);
   return HPX_SUCCESS;
 }
 
-
-static int _sum(int count, int values[count]) {
+static int _sum(int count, int values[count])
+{
   int total = 0;
-  for (int i = 0; i < count; ++i) {
+  for (int i = 0; i < count; ++i)
+  {
     total += values[i];
   }
   return total;
 }
 
-
 HPX_ACTION_DECL(_get_value);
-static int _get_value_handler(void) {
+static int _get_value_handler(void)
+{
   return HPX_THREAD_CONTINUE(accumulate_actions);
 }
 
-void reduce_actions_v2(hpx_addr_t hook, hpx_addr_t vertices, int N)
+int reduce_actions_v2(hpx_addr_t hook, hpx_addr_t vertices, int N)
 {
   hpx_addr_t done = hpx_lco_and_new(hpx_get_num_ranks());
   for (int i = 0; i < hpx_get_num_ranks(); i++)
@@ -265,13 +263,13 @@ void reduce_actions_v2(hpx_addr_t hook, hpx_addr_t vertices, int N)
   hpx_lco_wait(done);
   hpx_lco_delete(done, HPX_NULL);
 
-
-  int         values[hpx_get_num_ranks()];
-  void        *addrs[hpx_get_num_ranks()];
-  size_t       sizes[hpx_get_num_ranks()];
+  int values[hpx_get_num_ranks()];
+  void *addrs[hpx_get_num_ranks()];
+  size_t sizes[hpx_get_num_ranks()];
   hpx_addr_t futures[hpx_get_num_ranks()];
 
-  for (int i = 0; i < hpx_get_num_ranks(); ++i) {
+  for (int i = 0; i < hpx_get_num_ranks(); ++i)
+  {
     addrs[i] = &values[i];
     sizes[i] = sizeof(int);
     futures[i] = hpx_lco_future_new(sizeof(int));
@@ -281,14 +279,15 @@ void reduce_actions_v2(hpx_addr_t hook, hpx_addr_t vertices, int N)
   hpx_lco_get_all(hpx_get_num_ranks(), futures, sizes, addrs, NULL);
 
   int actions_invoked_total = _sum(hpx_get_num_ranks(), values);
-  printf("Actions Invoked_total: %d\n", actions_invoked_total);
-  fflush(stdout);
+  //printf("Actions Invoked_total: %d\n", actions_invoked_total);
+  //fflush(stdout);
 
-  for (int i = 0; i < hpx_get_num_ranks(); ++i) {
+  for (int i = 0; i < hpx_get_num_ranks(); ++i)
+  {
     hpx_lco_delete(futures[i], HPX_NULL);
   }
 
-  return;
+  return actions_invoked_total;
 }
 
 HPX_ACTION_DECL(_init_count_vertices);
@@ -1077,9 +1076,9 @@ int _sssp_handler(void)
   printf("Graph has been initialied from the input file\n");
   fflush(stdout);
 
-  for (int iterations = 0; iterations < 1; iterations++)
+  printf("Iteration\tSSSP_Time(secs)\tActions_Invoked\treset_time(secs)\treduce_time(secs)\n");
+  for (int iterations_runs = 0; iterations_runs < iterations; iterations_runs++)
   {
-    
 
     // Call the Asynchronous SSSP here
     hpx_addr_t sssp_done_lco = hpx_lco_and_new(1);
@@ -1097,38 +1096,38 @@ int _sssp_handler(void)
     // printf("Asynchronous SSSP using HPX-5 finished\n");
 
     // timing
-    double elapsed = (end.tv_sec - begin.tv_sec) +
+    double elapsed_sssp = (end.tv_sec - begin.tv_sec) +
                      ((end.tv_usec - begin.tv_usec) / 1000000.0);
 
     // printf("Time taken in Asynchronous SSSP (secs): %lf\n", elapsed);
-    printf("SSSP_Time(secs):\t%lf\n", elapsed);
-    fflush(stdout);
+    
 
     /* Validation:
     Print the sssp value at a known target_vertex for the input graph
     Manually check whether it aligns with the result using python networkx
     Yes, it is working, so commenting it out.
     */
-    /*
-        int target_vertex = root_vertex_;
-        print_distance_at(vertices, target_vertex);
-        target_vertex = 3;
-        print_distance_at(vertices, target_vertex);
-        //  print_vertex_info_all(vertices);
-        // fflush(stdout);
-    */
 
-    reduce_actions_v2(hook_to_HPX_processes, vertices, N);
-    fflush(stdout);
+    //    int target_vertex = root_vertex_;
+    //    print_distance_at(vertices, target_vertex);
+    //int target_vertex = 3;
+    //print_distance_at(vertices, target_vertex);
+    //  print_vertex_info_all(vertices);
+    // fflush(stdout);
 
     gettimeofday(&begin, 0);
     // reduce the results, in this case the number of actions invoked
-    hpx_addr_t reduce_done_lco = hpx_lco_and_new(1);
-    REDUCE_actions_invoked_async(vertices, start_vertex, reduce_done_lco);
-    // fflush(stdout);
+    int actions_invoked_total = reduce_actions_v2(hook_to_HPX_processes, vertices, N);
+    fflush(stdout);
 
-    hpx_lco_wait(reduce_done_lco);
-    hpx_lco_delete(reduce_done_lco, HPX_NULL);
+    /*
+        hpx_addr_t reduce_done_lco = hpx_lco_and_new(1);
+        REDUCE_actions_invoked_async(vertices, start_vertex, reduce_done_lco);
+        // fflush(stdout);
+
+        hpx_lco_wait(reduce_done_lco);
+        hpx_lco_delete(reduce_done_lco, HPX_NULL);
+    */
     gettimeofday(&end, 0);
 
     double elapsed_reduce_actions = (end.tv_sec - begin.tv_sec) +
@@ -1141,11 +1140,16 @@ int _sssp_handler(void)
     gettimeofday(&end, 0);
 
     // timing
-    elapsed = (end.tv_sec - begin.tv_sec) +
+    double elapsed_reset = (end.tv_sec - begin.tv_sec) +
               ((end.tv_usec - begin.tv_usec) / 1000000.0);
 
     // printf("Time taken in Asynchronous SSSP (secs): %lf\n", elapsed);
-    printf("reset_vertices(secs):\t%lf, REDUCE_actions_invoked_async:\t%lf\n", elapsed, elapsed_reduce_actions);
+  
+  
+   // printf("Actions Invoked_total: %d\n", actions_invoked_total);
+   // printf("reset_vertices(secs):\t%lf, reduce_actions_v2(sec):\t%lf\n", elapsed_reset, elapsed_reduce_actions);
+    printf("%d\t%lf\t%d\t%lf\t%lf\n", iterations_runs ,elapsed_sssp, actions_invoked_total, elapsed_reset, elapsed_reduce_actions);
+    fflush(stdout);
   }
 
   printf("Input Graph: %s\n", filename_);
@@ -1166,8 +1170,8 @@ HPX_ACTION(HPX_DEFAULT, 0, _get_value, _get_value_handler);
 HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _populate_graph_dispatch,
            _populate_graph_dispatch_handler, HPX_POINTER, HPX_ADDR);
 
-HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices,
-           _reset_vertices_handler, HPX_POINTER, HPX_INT);
+// HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices,
+//            _reset_vertices_handler, HPX_POINTER, HPX_INT);
 
 HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reduce_actions_v2_dispatch,
            _reduce_actions_v2_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
@@ -1213,6 +1217,7 @@ int main(int argc, char *argv[argc])
   filename_ = argv[1];
   root_vertex_ = atoi(argv[2]);
   graph500_gen = atoi(argv[3]);
+  iterations = atoi(argv[4]);
   // strcpy(filename_, argv[1]);
   // printf("%s -- filename\n", filename_);
   if (hpx_init(&argc, &argv) != 0)
