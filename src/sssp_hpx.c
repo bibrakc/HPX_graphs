@@ -26,6 +26,12 @@ int N = 0;
 int N_ = 0;
 int N_edges = 0;
 
+
+// stores the actions invoked by the vertices of a HPX_LOCALITY (or rank)
+// later will be used in the reduction to rank 0
+// This is just for the performance analysis
+static int accumulate_actions;
+
 typedef struct
 {
   int node_id;
@@ -193,10 +199,101 @@ void reset_vertices(hpx_addr_t hook, hpx_addr_t vertices, int N)
   return;
 }
 
+// Dispatch this to underlying ranks to speedup
+HPX_ACTION_DECL(_reduce_actions_v2_dispatch);
+int _reduce_actions_v2_dispatch_handler(int *hook, hpx_addr_t vertices, int N)
+{
+
+  /*
+    hpx_addr_t done = hpx_lco_and_new(my_chunk);
+
+    for (int i = start_vertex; i < start_vertex + my_chunk; i++)
+    {
+      hpx_addr_t vertex_ = vertex_element_at(vertices, i);
+      hpx_call(vertex_, _reset_vertices, done, &i);
+    }
+
+    hpx_lco_wait(done);
+    hpx_lco_delete(done, HPX_NULL);
+  */
+
+  int start_vertex = hpx_get_my_rank();
+  accumulate_actions = 0;
+  for (int i = start_vertex; i < N; i += hpx_get_num_ranks())
+  {
+    hpx_addr_t vertex_ = vertex_element_at(vertices, i);
+    hpx_addr_t local = vertex_; // hpx_thread_current_target();
+    Vertex *v = NULL;
+    if (!hpx_gas_try_pin(local, (void **)&v))
+    {
+      printf("hpx_gas_try_pin failed! vertex = %d\n", i);
+      continue;
+    }
+    // printf("rank: %d | v[%d]: ID = %d\n", hpx_get_my_rank(), i, v->vertex_id);
+    // printf("rank: %d | v->vertex_id = %d, v->distance_from_start = %d\n", hpx_get_my_rank(), v->vertex_id, v->distance_from_start);
+    accumulate_actions += v->actions_invoked;
+    hpx_gas_unpin(local);
+  }
+  //printf("rank: %d | accumulate_actions: %d\n", hpx_get_my_rank(), accumulate_actions);
+  return HPX_SUCCESS;
+}
+
+
+static int _sum(int count, int values[count]) {
+  int total = 0;
+  for (int i = 0; i < count; ++i) {
+    total += values[i];
+  }
+  return total;
+}
+
+
+HPX_ACTION_DECL(_get_value);
+static int _get_value_handler(void) {
+  return HPX_THREAD_CONTINUE(accumulate_actions);
+}
+
+void reduce_actions_v2(hpx_addr_t hook, hpx_addr_t vertices, int N)
+{
+  hpx_addr_t done = hpx_lco_and_new(hpx_get_num_ranks());
+  for (int i = 0; i < hpx_get_num_ranks(); i++)
+  {
+    hpx_addr_t hpx_process_ = hpx_addr_add(hook, sizeof(int) * i, sizeof(int));
+    hpx_call(hpx_process_, _reduce_actions_v2_dispatch, done, &vertices, &N);
+  }
+
+  hpx_lco_wait(done);
+  hpx_lco_delete(done, HPX_NULL);
+
+
+  int         values[hpx_get_num_ranks()];
+  void        *addrs[hpx_get_num_ranks()];
+  size_t       sizes[hpx_get_num_ranks()];
+  hpx_addr_t futures[hpx_get_num_ranks()];
+
+  for (int i = 0; i < hpx_get_num_ranks(); ++i) {
+    addrs[i] = &values[i];
+    sizes[i] = sizeof(int);
+    futures[i] = hpx_lco_future_new(sizeof(int));
+    hpx_call(HPX_THERE(i), _get_value, futures[i]);
+  }
+
+  hpx_lco_get_all(hpx_get_num_ranks(), futures, sizes, addrs, NULL);
+
+  int actions_invoked_total = _sum(hpx_get_num_ranks(), values);
+  printf("Actions Invoked_total: %d\n", actions_invoked_total);
+  fflush(stdout);
+
+  for (int i = 0; i < hpx_get_num_ranks(); ++i) {
+    hpx_lco_delete(futures[i], HPX_NULL);
+  }
+
+  return;
+}
+
 HPX_ACTION_DECL(_init_count_vertices);
 int _init_count_vertices_handler(Vertex *v_, int id)
 {
-
 
   hpx_addr_t local = hpx_thread_current_target();
   Vertex *v = NULL;
@@ -240,7 +337,6 @@ int _init_count_vertices_handler(Vertex *v_, int id)
 
   return HPX_SUCCESS;
 }
-
 
 HPX_ACTION_DECL(_send_edge);
 int _send_edge_handler(Vertex *v_, int edge, int weight)
@@ -403,7 +499,6 @@ int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
   int edge_size_in_bytes = sizeof(int) * 3; // ints of: to, from, weight
   fseek(f, edge_size_in_bytes * my_starting_edge, SEEK_CUR);
 
-
   // staging the sending in chunks to not let the network saturate and cause faults
   int total_sending_chunks = my_edges_chunk / edges_chunk_size;
   int left_over_sending_chunks = my_edges_chunk % edges_chunk_size;
@@ -411,7 +506,6 @@ int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
   {
     total_sending_chunks++;
   }
-
 
   for (int i = 0; i < total_sending_chunks; i++)
   {
@@ -983,8 +1077,9 @@ int _sssp_handler(void)
   printf("Graph has been initialied from the input file\n");
   fflush(stdout);
 
-  for (int iterations = 0; iterations < 100; iterations++)
+  for (int iterations = 0; iterations < 1; iterations++)
   {
+    
 
     // Call the Asynchronous SSSP here
     hpx_addr_t sssp_done_lco = hpx_lco_and_new(1);
@@ -1008,6 +1103,7 @@ int _sssp_handler(void)
     // printf("Time taken in Asynchronous SSSP (secs): %lf\n", elapsed);
     printf("SSSP_Time(secs):\t%lf\n", elapsed);
     fflush(stdout);
+
     /* Validation:
     Print the sssp value at a known target_vertex for the input graph
     Manually check whether it aligns with the result using python networkx
@@ -1021,6 +1117,10 @@ int _sssp_handler(void)
         //  print_vertex_info_all(vertices);
         // fflush(stdout);
     */
+
+    reduce_actions_v2(hook_to_HPX_processes, vertices, N);
+    fflush(stdout);
+
     gettimeofday(&begin, 0);
     // reduce the results, in this case the number of actions invoked
     hpx_addr_t reduce_done_lco = hpx_lco_and_new(1);
@@ -1061,11 +1161,16 @@ int _sssp_handler(void)
   hpx_exit(0, NULL);
 }
 
+HPX_ACTION(HPX_DEFAULT, 0, _get_value, _get_value_handler);
+
 HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _populate_graph_dispatch,
            _populate_graph_dispatch_handler, HPX_POINTER, HPX_ADDR);
 
 HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices,
            _reset_vertices_handler, HPX_POINTER, HPX_INT);
+
+HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reduce_actions_v2_dispatch,
+           _reduce_actions_v2_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
 
 HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices_dispatch,
            _reset_vertices_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
