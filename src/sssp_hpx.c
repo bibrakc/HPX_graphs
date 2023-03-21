@@ -133,32 +133,6 @@ int __print_distance_at_handler(Vertex *v_)
   return HPX_SUCCESS;
 }
 
-/*
-HPX_ACTION_DECL(_reset_vertices);
-int _reset_vertices_handler(Vertex *v_, int id)
-{
-
-  hpx_addr_t local = hpx_thread_current_target();
-  Vertex *v = NULL;
-  if (!hpx_gas_try_pin(local, (void **)&v))
-    return HPX_RESEND;
-
-  v->parent = UNKNOWN;
-  v->distance_from_start = 0;
-  v->first_edge = UNKNOWN; // for Dijkstra–Scholten termination detection
-  v->deficit = 0;          // for Dijkstra–Scholten termination detection
-
-  // for performance statistics
-  v->actions_invoked = 0;
-  v->reduced_int_buffer = 0;
-  v->total_time_in_actions = 0;
-  v->reduced_time_buffer = 0;
-
-  hpx_gas_unpin(local);
-
-  return HPX_SUCCESS;
-}
-*/
 
 // Dispatch this to underlying ranks to speedup
 HPX_ACTION_DECL(_reset_vertices_dispatch);
@@ -601,170 +575,6 @@ int _ack_handler(Vertex *v_, hpx_addr_t vertices, hpx_addr_t sssp_halting_LCO)
   return HPX_SUCCESS;
 }
 
-HPX_ACTION_DECL(_reduce_actions_ack);
-int _reduce_actions_ack_handler(Vertex *v_, hpx_addr_t vertices,
-                                int partial_reduce, double partial_time, hpx_addr_t reduce_halting_LCO)
-{
-
-  hpx_addr_t local = hpx_thread_current_target();
-  Vertex *v = NULL;
-  if (!hpx_gas_try_pin(local, (void **)&v))
-    return HPX_RESEND;
-
-  hpx_lco_sema_p(v->vertex_local_mutex);
-
-  v->deficit--;
-  v->reduced_int_buffer += partial_reduce;
-  v->reduced_time_buffer += partial_time;
-
-  if (v->deficit == 0 && v->parent == ROOT)
-  {
-    // v->reduce_int_buffer += v->actions_invoked;
-    v->reduced_int_buffer += v->actions_invoked;
-    // v->reduced_time_buffer += (v->total_time_in_actions / v->actions_invoked) * 2.0;
-    v->total_time_in_actions = 1; // hack
-    v->reduced_time_buffer += v->total_time_in_actions;
-
-    printf("Actions_Invoked:\t%d\n", v->reduced_int_buffer);
-    fflush(stdout);
-
-    v->reduced_int_buffer = 0;
-    v->actions_invoked = 0;
-    v->reduced_time_buffer = 0;
-    v->total_time_in_actions = 0;
-
-    hpx_lco_and_set(reduce_halting_LCO, HPX_NULL);
-  }
-  else if (v->deficit == 0)
-  {
-
-    v->reduced_int_buffer += v->actions_invoked;
-    v->total_time_in_actions = 1; // hack
-    v->reduced_time_buffer += v->total_time_in_actions;
-    hpx_addr_t vertex_ = vertex_element_at(vertices, v->first_edge);
-    v->first_edge = UNKNOWN;
-    hpx_call_async(vertex_, _reduce_actions_ack, HPX_NULL, HPX_NULL, &vertices,
-                   &v->reduced_int_buffer, &v->reduced_time_buffer, &reduce_halting_LCO);
-
-    v->reduced_int_buffer = 0;
-    v->actions_invoked = 0;
-    v->reduced_time_buffer = 0;
-    v->total_time_in_actions = 0;
-  }
-
-  hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
-
-  hpx_gas_unpin(local);
-  return HPX_SUCCESS;
-}
-
-// To understand this reducer you need to intuitively think of reducing the spaning tree
-// Therefore this function is asynchronously recurssive
-HPX_ACTION_DECL(_reduce_acks);
-int _reduce_acks_handler(Vertex *v_, hpx_addr_t vertices,
-                         int sender_vertex,
-                         hpx_addr_t reduce_halting_LCO)
-{
-
-  hpx_addr_t local = hpx_thread_current_target();
-  Vertex *v = NULL;
-  if (!hpx_gas_try_pin(local, (void **)&v))
-    return HPX_RESEND;
-
-  hpx_lco_sema_p(v->vertex_local_mutex);
-
-  if (sender_vertex == ROOT && v->edges.head->count > 0)
-  {
-
-    edge_bucket *cursor = v->edges.head;
-    // diffuse
-    for (int i = 0; i < v->edges.buckets_count; i++)
-    {
-      for (int j = 0; j < cursor->count; j++)
-      {
-
-        hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j].node_id);
-        hpx_call_async(vertex_, _reduce_acks, HPX_NULL, HPX_NULL,
-                       &vertices, &v->vertex_id, &reduce_halting_LCO);
-        v->deficit++;
-      }
-      cursor = cursor->next;
-    }
-
-    hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
-
-    hpx_gas_unpin(local);
-    return HPX_SUCCESS;
-  }
-
-  if (sender_vertex == ROOT && v->edges.head->count == 0)
-  {
-
-    printf("vertex %d reduced actions invocked is %d\n", v->vertex_id, v->reduced_int_buffer);
-
-    hpx_lco_and_set(reduce_halting_LCO, HPX_NULL);
-
-    hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
-    hpx_gas_unpin(local);
-    return HPX_SUCCESS;
-  }
-
-  if (v->first_edge == UNKNOWN && sender_vertex != ROOT)
-  {
-
-    v->first_edge = sender_vertex;
-
-    edge_bucket *cursor = v->edges.head;
-    // diffuse
-    for (int i = 0; i < v->edges.buckets_count; i++)
-    {
-      for (int j = 0; j < cursor->count; j++)
-      {
-
-        hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j].node_id);
-        hpx_call_async(vertex_, _reduce_acks, HPX_NULL, HPX_NULL,
-                       &vertices, &v->vertex_id, &reduce_halting_LCO);
-        v->deficit++;
-      }
-      cursor = cursor->next;
-    }
-
-    cursor = v->edges.head;
-    if (cursor->count == 0)
-    {
-      v->first_edge = UNKNOWN;
-      // just send the ack
-      int partial_reduce = v->actions_invoked;
-      // double time_per_action = (v->total_time_in_actions / partial_reduce) * 2;
-      v->total_time_in_actions = 1; // hack
-      double time_per_action = v->total_time_in_actions;
-      hpx_addr_t vertex_ = vertex_element_at(vertices, sender_vertex);
-      hpx_call_async(vertex_, _reduce_actions_ack, HPX_NULL, HPX_NULL,
-                     &vertices, &partial_reduce, &time_per_action, &reduce_halting_LCO);
-    }
-
-    hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
-
-    hpx_gas_unpin(local);
-    return HPX_SUCCESS;
-  }
-  else
-  {
-
-    // just send the ack
-    int partial_reduce = 0;
-    double time_per_action = 0;
-    hpx_addr_t vertex_ = vertex_element_at(vertices, sender_vertex);
-    hpx_call_async(vertex_, _reduce_actions_ack, HPX_NULL, HPX_NULL,
-                   &vertices, &partial_reduce, &time_per_action, &reduce_halting_LCO);
-  }
-
-  hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
-
-  hpx_gas_unpin(local);
-  return HPX_SUCCESS;
-}
-
 HPX_ACTION_DECL(_sssp_hpx_async);
 int _sssp_hpx_async_handler(Vertex *v_, hpx_addr_t vertices,
                             int sender_vertex, int incoming_distance,
@@ -1120,14 +930,6 @@ int _sssp_handler(void)
     int actions_invoked_total = reduce_actions_v2(hook_to_HPX_processes, vertices, N);
     fflush(stdout);
 
-    /*
-        hpx_addr_t reduce_done_lco = hpx_lco_and_new(1);
-        REDUCE_actions_invoked_async(vertices, start_vertex, reduce_done_lco);
-        // fflush(stdout);
-
-        hpx_lco_wait(reduce_done_lco);
-        hpx_lco_delete(reduce_done_lco, HPX_NULL);
-    */
     gettimeofday(&end, 0);
 
     double elapsed_reduce_actions = (end.tv_sec - begin.tv_sec) +
@@ -1143,11 +945,6 @@ int _sssp_handler(void)
     double elapsed_reset = (end.tv_sec - begin.tv_sec) +
               ((end.tv_usec - begin.tv_usec) / 1000000.0);
 
-    // printf("Time taken in Asynchronous SSSP (secs): %lf\n", elapsed);
-  
-  
-   // printf("Actions Invoked_total: %d\n", actions_invoked_total);
-   // printf("reset_vertices(secs):\t%lf, reduce_actions_v2(sec):\t%lf\n", elapsed_reset, elapsed_reduce_actions);
     printf("%d\t%lf\t%d\t%lf\t%lf\n", iterations_runs ,elapsed_sssp, actions_invoked_total, elapsed_reset, elapsed_reduce_actions);
     fflush(stdout);
   }
@@ -1170,8 +967,6 @@ HPX_ACTION(HPX_DEFAULT, 0, _get_value, _get_value_handler);
 HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _populate_graph_dispatch,
            _populate_graph_dispatch_handler, HPX_POINTER, HPX_ADDR);
 
-// HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reset_vertices,
-//            _reset_vertices_handler, HPX_POINTER, HPX_INT);
 
 HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reduce_actions_v2_dispatch,
            _reduce_actions_v2_dispatch_handler, HPX_POINTER, HPX_ADDR, HPX_INT);
@@ -1199,11 +994,6 @@ HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _send_edge, _send_edge_handler,
 HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _ack, _ack_handler,
            HPX_POINTER, HPX_ADDR, HPX_ADDR);
 
-HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reduce_actions_ack, _reduce_actions_ack_handler,
-           HPX_POINTER, HPX_ADDR, HPX_INT, HPX_DOUBLE, HPX_ADDR);
-
-HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _reduce_acks, _reduce_acks_handler,
-           HPX_POINTER, HPX_ADDR, HPX_INT, HPX_ADDR);
 
 HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _sssp_hpx_async, _sssp_hpx_async_handler,
            HPX_POINTER, HPX_ADDR, HPX_INT, HPX_INT, HPX_ADDR);
