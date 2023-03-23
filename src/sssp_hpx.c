@@ -446,7 +446,7 @@ int _populate_graph_dispatch_handler(int *hook, hpx_addr_t vertices)
   vert_to = -1;
   weight = -1;
 
-  const int edges_chunk_size = 4000;
+  const int edges_chunk_size = 300;
 
   // open file
   FILE *f = NULL;
@@ -793,17 +793,6 @@ void SSSP_hpx_async(hpx_addr_t vertices, int start_vertex,
   int distance = 0;
   hpx_call_async(vertex_, _sssp_hpx_async, HPX_NULL, HPX_NULL,
                  &vertices, &root_parent, &distance, &sssp_done_lco);
-}
-
-void REDUCE_actions_invoked_async(hpx_addr_t vertices, int start_vertex,
-                                  hpx_addr_t reduce_done_lco)
-{
-
-  hpx_addr_t vertex_ = vertex_element_at(vertices, start_vertex);
-  int root_parent = ROOT;
-
-  hpx_call_async(vertex_, _reduce_acks, HPX_NULL, HPX_NULL,
-                 &vertices, &root_parent, &reduce_done_lco);
 }
 
 // For checking to see if HPX works fine
