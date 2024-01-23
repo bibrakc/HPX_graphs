@@ -15,19 +15,19 @@
 #module load modulename
 
 #change directory to:
-cd /N/u/bchandio/BigRed200/Research/SC23/run_scripts/march_12_2023
+cd /N/u/bchandio/BigRed200/Research/SC23/run_scripts/march_13_2023
 
+input_dir=data_gen_scale_15
 
-
-echo "n = 256"
 procs=512
+echo "n = ${procs}"
 echo "-----------"
 
 for i in {1..10}; do
 
   echo "Iteration: $i" 
   #Run your program
-  srun -n 512 ../../code/sssp_hpx.out ../../input_graphs/data_gen/Powerlaw-clustered_ef_16_v_17.edgelist 0 0
+  srun -n 512 ../../code/sssp_hpx.out ../../input_graphs/${input_dir}/Powerlaw-clustered_ef_${ef}_v_${sc}.edgelist 0 0
   echo "-----------"
 
   #Run your program
@@ -38,4 +38,3 @@ for i in {1..10}; do
   srun -n 512 ../../code/sssp_hpx.out ../../input_graphs/data_gen/Small-world_ef_16_v_17.edgelist 0 0
   echo "-----------"
 done
-

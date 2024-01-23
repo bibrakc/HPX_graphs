@@ -8,9 +8,17 @@ import random
 # For statistics
 import pandas as pd
 
+# For argument parsing
+import sys 
 
 # nme of the graph
 A=""
+
+Output_filename=""
+
+def write_to_file(filename, content):
+    with open(filename, 'a') as f:
+        f.write(content+"\n")
 
 # Input: A graph
 # Output: find degrees and plot their distribution
@@ -32,6 +40,8 @@ def Degree_Distribution(G):
     print("Degree Distribution Statistics")
     s = pd.Series(degree)
     print(s.describe())
+    write_to_file(Output_filename, "Degree Distribution Statistics")
+    write_to_file(Output_filename, str(s.describe()))
 
 
 # Input: A graph
@@ -100,6 +110,8 @@ def Clustering_Analysis(G):
     print("Clustering Statistics")
     s = pd.Series(local_clust_coefficient)
     print(s.describe())
+    write_to_file(Output_filename, "Clustering Analysis")
+    write_to_file(Output_filename,str(s.describe()));
 
 
 # Input: A graph
@@ -143,6 +155,8 @@ def ShortestPaths_Analysis(G):
         print("Shortest Path Lengths Statistics")
         s = pd.Series(shortest_path_lens)
         print(s.describe())
+        write_to_file(Output_filename, "ShortestPaths_Analysis")
+        write_to_file(Output_filename, str(s.describe()));
 
 
 import matplotlib.pyplot as plt
@@ -200,103 +214,149 @@ def plot_degree_bar (G) :
 
 # Main
 
-edge_factor = 16
-scale_factor = 18
+
+args = sys.argv 
+
+#graph_types = ["Powerlaw", "Scalefree", "Smallworld", "Erdos"]
+graph = args[1]
+
+edge_factor = int(args[2])
+scale_factor = int(args[3])
 vertices_needed = 2**scale_factor
 edges_needed = vertices_needed * edge_factor
 
 
-graph_types = ["Powerlaw", "Scalefree", "Smallworld"]
 
-for graph in graph_types:
-    print(graph)
+print(graph)
+Output_filename=graph+"_ef_"+str(edge_factor)+"_v_"+str(scale_factor)+"_output.txt"
+write_to_file(Output_filename, "\n\n"+graph)
 
-    if graph == "Powerlaw":
-        G_gen = nx.powerlaw_cluster_graph(vertices_needed, edge_factor, .8)
-        A = "Powerlaw-clustered_ef_"+str(edge_factor)+"_v_"+str(scale_factor)
+if graph == "Powerlaw":
+    G_gen = nx.powerlaw_cluster_graph(vertices_needed, edge_factor, .4)
+    while (nx.is_connected(G_gen) == False):
+        print(graph+" was not connected trying again")
+        G_gen = nx.powerlaw_cluster_graph(vertices_needed, edge_factor, .4)
+    A = "Powerlaw-clustered_ef_"+str(edge_factor)+"_v_"+str(scale_factor)
 
-    if graph == "Scalefree":
+if graph == "Scalefree":
+    G_gen = nx.barabasi_albert_graph(vertices_needed, edge_factor)
+    while (nx.is_connected(G_gen) == False):
+        print(graph+" was not connected trying again")
         G_gen = nx.barabasi_albert_graph(vertices_needed, edge_factor)
-        A = "Scale-free_ef_"+str(edge_factor)+"_v_"+str(scale_factor)
+    A = "Scale-free_ef_"+str(edge_factor)+"_v_"+str(scale_factor)
 
-    if graph == "Smallworld":
+if graph == "Smallworld":
+    G_gen = nx.watts_strogatz_graph(vertices_needed, edge_factor, .2)
+    while (nx.is_connected(G_gen) == False):
+        print(graph+" was not connected trying again")
         G_gen = nx.watts_strogatz_graph(vertices_needed, edge_factor, .2)
-        A = "Small-world_ef_"+str(edge_factor)+"_v_"+str(scale_factor)
-
-    '''
-    # Erdos-Renyi
-    # gnp_random_graph(n, p, seed=None, directed=False)
-    G_gen = nx.gnm_random_graph(vertices_needed, 1, seed=133)
-    A = "Erdos-Renyi_p_03_v_"+str(scale_factor)
-    '''
+    A = "Small-world_ef_"+str(edge_factor)+"_v_"+str(scale_factor)
 
 
-    print(A, ": Number of vertices:", G_gen.number_of_nodes(), ", Number of edges: ", G_gen.number_of_edges())
+if graph == "Erdos":
+    G_gen = nx.gnm_random_graph(vertices_needed, edges_needed, seed=133)
+    while (nx.is_connected(G_gen) == False):
+        print(graph+" was not connected trying again")
+        G_gen = nx.gnm_random_graph(vertices_needed, edges_needed, seed=133)
+    A = "Erdos-Renyi_ef_"+str(edge_factor)+"_v_"+str(scale_factor)
 
 
-    for (u, v) in G_gen.edges():
-        G_gen.edges[u,v]['weight'] = random.randint(1,5)
+#print(A, ": Number of vertices:", G_gen.number_of_nodes(), ", Number of edges: ", G_gen.number_of_edges())
+#write_to_file(Output_filename, A+ ": Number of vertices:"+ str(G_gen.number_of_nodes())+ ", Number of edges: "+ str(G_gen.number_of_edges()))
 
-
-    # Analyze the graph that you have created
-
-    '''
-    # Degree Distribution is time consuming
-    start = time.time()
-    Degree_Distribution(G_gen)
-    end = time.time()
-    print("Time in Degree_Distribution: ", end-start, "\n")
-    '''
+for (u, v) in G_gen.edges():
+    G_gen.edges[u,v]['weight'] = random.randint(1,5)
 
 
 
-    start = time.time()
-    Clustering_Analysis(G_gen)
-    end = time.time()
-    print("Time in Clustering_Analysis: ", end-start, "\n")
 
 
-    start = time.time()
-    ShortestPaths_Analysis(G_gen)
-    end = time.time()
-    print("Time in SSSP: ", end-start, "\n")
+# Analyze the graph that you have created
+
+# Degree Distribution is time consuming
+start = time.time()
+Degree_Distribution(G_gen)
+end = time.time()
+print("Time in Degree_Distribution: ", end-start, "\n")
 
 
-    length, path = nx.single_source_dijkstra(G_gen, 4, 47, weight='weight')
-    print("SSSP Path with wieghts from Src: 4 to target: 47 = ", length, "\n")
-
-    #sssp = nx.shortest_path(G_gen,source=4,target=47, weight=None)#, weight='weight')
-    #sss_path = nx.single_source_shortest_path(G_gen, 4)
-    #print(sssp)
-    #print(path)
+start = time.time()
+Clustering_Analysis(G_gen)
+end = time.time()
+print("Time in Clustering_Analysis: ", end-start, "\n")
 
 
-    start = time.time()
-    CC_Distribution(G_gen)
-    end = time.time()
-    print("Time in CC: ", end-start, "\n")
+start = time.time()
+ShortestPaths_Analysis(G_gen)
+end = time.time()
+print("Time in SSSP: ", end-start, "\n")
 
 
 
-    # Store the graph as directed graph in file
-    G = G_gen.to_directed()
 
-    filename_to_write = A+".edgelist"
 
-    nx.write_weighted_edgelist(G, filename_to_write, delimiter='\t')
+length, path = nx.single_source_dijkstra(G_gen, 0, 35, weight='weight')
+print("SSSP Path with wieghts from Src: 0 to target: 35 = ", length, "\n")
+print(path)
 
-    n = G.number_of_nodes()
-    m = G.number_of_edges()
-    print(A, ": Number of vertices:", n, ", Number of edges: ", m, ", Number of edges in file: ", 2*m)
+#sssp = nx.shortest_path(G_gen,source=4, target=47, weight=None)#, weight='weight')
+#sssp = nx.shortest_path(G_gen,source=0, target=35,  weight='weight')
+#sss_path = nx.single_source_shortest_path(G_gen, 47)
+#print(sssp)
+#print(path)
 
-    f = open(filename_to_write,'r')
-    temp = f.read()
-    f.close()
 
-    f = open(filename_to_write, 'w')
+""" 
+# Get edge labels
+edge_labels = {(u,v):d["weight"] for u,v,d in G_gen.edges(data=True)}
 
-    f.write(str(n)+"\t"+str(n)+"\n")
-    f.write(str(m)+"\n")
+# Draw the graph
+pos = nx.spring_layout(G_gen)
+nx.draw(G_gen, pos, with_labels=True)
+nx.draw_networkx_edge_labels(G_gen, pos, edge_labels=edge_labels)
 
-    f.write(temp)
-    f.close()
+# Show the graph
+plt.show() """
+
+
+'''
+start = time.time()
+CC_Distribution(G_gen)
+end = time.time()
+print("Time in CC: ", end-start, "\n")
+'''
+
+# Store the graph as directed graph in file
+G = G_gen.to_directed()
+
+
+
+#nx.draw(G, with_labels=True)
+# Show the graph
+#plt.show()
+
+
+
+
+
+filename_to_write = A+".edgelist"
+
+nx.write_weighted_edgelist(G, filename_to_write, delimiter='\t')
+
+n = G.number_of_nodes()
+m = G.number_of_edges()
+print(A, "Directed : Number of vertices:", n, ", Number of edges: ", m, ", Edge Factor: ", edge_factor, ", Scale: ", scale_factor)
+write_to_file(Output_filename, A+" Directed: Number of vertices:"+ str(n)+", Number of edges: "+ str(m)+", Edge Factor: "+ str(edge_factor) + ", Scale: "+ str( scale_factor));
+
+
+f = open(filename_to_write,'r')
+temp = f.read()
+f.close()
+
+f = open(filename_to_write, 'w')
+
+f.write(str(n)+"\t"+str(n)+"\n")
+f.write(str(m)+"\n")
+
+f.write(temp)
+f.close()

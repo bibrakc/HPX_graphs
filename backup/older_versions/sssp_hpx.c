@@ -7,18 +7,26 @@
 
 // the h file
 
-#define EDGES_BUFF_SIZE 500
+#define EDGES_BUFF_SIZE 5000
 #define UNKNOWN -3
 #define ROOT -1
 
 // struct edge_list;
 // struct edge_bucket;
 
+typedef struct
+{
+
+    int node_id;
+    int weight;
+
+} edge_t;
+
 struct edge_bucket
 {
 
     int count;
-    int edges[EDGES_BUFF_SIZE];
+    edge_t edges[EDGES_BUFF_SIZE];
     struct edge_bucket* next;
 
 }; // the node
@@ -45,7 +53,7 @@ typedef struct
     // TODO: although seems redundant but lets put it here
     int vertex_id;
 
-    // the result in this case parent for BFS
+    // the result in this case parent for SSSP
     int parent;
     int distance_from_start;
 
@@ -167,7 +175,7 @@ _init_count_vertices_handler(Vertex* v_, int id)
 
 static HPX_ACTION_DECL(_send_edge);
 static int
-_send_edge_handler(Vertex* v_, int edge)
+_send_edge_handler(Vertex* v_, int edge, int weight)
 {
 
     hpx_addr_t local = hpx_thread_current_target();
@@ -207,7 +215,8 @@ _send_edge_handler(Vertex* v_, int edge)
 
     */
 
-    v->edges.tail->edges[v->edges.tail->count] = edge;
+    v->edges.tail->edges[v->edges.tail->count].node_id = edge;
+    v->edges.tail->edges[v->edges.tail->count].weight = weight;
     v->edges.tail->count++;
     // printf("vertex: %d, edge %d inserted as %d\n", v->vertex_id, edge,
     // v->edges.tail->edges[v->edges.tail->count - 1]);
@@ -262,14 +271,15 @@ populate_graph(hpx_addr_t vertices, int N, int N_edges, FILE* f)
 {
     hpx_addr_t done = hpx_lco_and_new(N_edges);
 
-    int vert_from, vert_to;
+    int vert_from, vert_to, weight;
     vert_from = -1;
     vert_to = -1;
+    weight = -1;
     // int is_EOF;
     // while((is_EOF = fscanf(f, "%d %d", &vert_from, &vert_to)) != EOF){
     for (int i = 0; i < N_edges; i++) {
         // printf("i = %d\n", i);
-        fscanf(f, "%d %d", &vert_from, &vert_to);
+        fscanf(f, "%d\t%d\t%d", &vert_from, &vert_to, &weight);
 
         vert_from--;
         vert_to--; // because Graph500 octave generator indexes from 1
@@ -277,7 +287,7 @@ populate_graph(hpx_addr_t vertices, int N, int N_edges, FILE* f)
 
         hpx_addr_t vertex_ = vertex_element_at(vertices, vert_from);
         // printf("vertex_ = %ld\n", vertex_);
-        hpx_call(vertex_, _send_edge, done, &vert_to);
+        hpx_call(vertex_, _send_edge, done, &vert_to, &weight);
         // printf("i = %d done\n", i);
     }
 
@@ -289,7 +299,7 @@ populate_graph(hpx_addr_t vertices, int N, int N_edges, FILE* f)
 
 static HPX_ACTION_DECL(_ack);
 static int
-_ack_handler(Vertex* v_, hpx_addr_t vertices, hpx_addr_t bfs_halting_LCO)
+_ack_handler(Vertex* v_, hpx_addr_t vertices, hpx_addr_t sssp_halting_LCO)
 {
 
     hpx_addr_t local = hpx_thread_current_target();
@@ -304,13 +314,13 @@ _ack_handler(Vertex* v_, hpx_addr_t vertices, hpx_addr_t bfs_halting_LCO)
     // printf("ack: vertex %d deficit = %d\n", v->vertex_id, v->deficit);
 
     if (v->deficit == 0 && v->parent == ROOT) {
-        // printf("vertex %d actions invocked is %d\n",v->vertex_id, v->actions_invoked);
-        hpx_lco_and_set(bfs_halting_LCO, HPX_NULL);
+        // rintf("vertex %d actions invocked is %d\n",v->vertex_id, v->actions_invoked);
+        hpx_lco_and_set(sssp_halting_LCO, HPX_NULL);
     } else if (v->deficit == 0) {
 
         hpx_addr_t vertex_ = vertex_element_at(vertices, v->first_edge);
         v->first_edge = UNKNOWN;
-        hpx_call_async(vertex_, _ack, HPX_NULL, HPX_NULL, &vertices, &bfs_halting_LCO);
+        hpx_call_async(vertex_, _ack, HPX_NULL, HPX_NULL, &vertices, &sssp_halting_LCO);
 
         // this is just for performance
         v->actions_invoked++;
@@ -411,7 +421,7 @@ _reduce_acks_handler(Vertex* v_,
         for (int i = 0; i < v->edges.buckets_count; i++) {
             for (int j = 0; j < cursor->count; j++) {
 
-                hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j]);
+                hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j].node_id);
                 hpx_call_async(vertex_,
                                _reduce_acks,
                                HPX_NULL,
@@ -430,6 +440,17 @@ _reduce_acks_handler(Vertex* v_,
         return HPX_SUCCESS;
     }
 
+    if (sender_vertex == ROOT && v->edges.head->count == 0) {
+
+        printf("vertex %d reduced actions invocked is %d\n", v->vertex_id, v->reduced_int_buffer);
+
+        hpx_lco_and_set(reduce_halting_LCO, HPX_NULL);
+
+        hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
+        hpx_gas_unpin(local);
+        return HPX_SUCCESS;
+    }
+
     if (v->first_edge == UNKNOWN && sender_vertex != ROOT) {
 
         v->first_edge = sender_vertex;
@@ -439,7 +460,7 @@ _reduce_acks_handler(Vertex* v_,
         for (int i = 0; i < v->edges.buckets_count; i++) {
             for (int j = 0; j < cursor->count; j++) {
 
-                hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j]);
+                hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j].node_id);
                 hpx_call_async(vertex_,
                                _reduce_acks,
                                HPX_NULL,
@@ -492,13 +513,13 @@ _reduce_acks_handler(Vertex* v_,
     return HPX_SUCCESS;
 }
 
-static HPX_ACTION_DECL(_bfs_hpx_async);
+static HPX_ACTION_DECL(_sssp_hpx_async);
 static int
-_bfs_hpx_async_handler(Vertex* v_,
-                       hpx_addr_t vertices,
-                       int sender_vertex,
-                       int incoming_distance,
-                       hpx_addr_t bfs_halting_LCO)
+_sssp_hpx_async_handler(Vertex* v_,
+                        hpx_addr_t vertices,
+                        int sender_vertex,
+                        int incoming_distance,
+                        hpx_addr_t sssp_halting_LCO)
 {
 
     hpx_addr_t local = hpx_thread_current_target();
@@ -507,7 +528,7 @@ _bfs_hpx_async_handler(Vertex* v_,
         return HPX_RESEND;
 
     // there needs to be a vertex lco too as this is critical section
-    // printf("BFS: in _bfs_hpx_async_handler, vertex: = %d\n", v->vertex_id);
+    // printf("SSSP: in _sssp_hpx_async_handler, vertex: = %d\n", v->vertex_id);
     hpx_lco_sema_p(v->vertex_local_mutex);
 
     // this is for the first activation of the vertex
@@ -525,36 +546,38 @@ _bfs_hpx_async_handler(Vertex* v_,
         //   printf("In ROOT: sender_vertex = %d, distance = %d\n",sender_vertex,
         //   incoming_distance);
 
-        // printf("BFS: vertex: %d set it's parent as %d\n", v->vertex_id, v->parent);
-        int distance = v->distance_from_start + 1;
+        // printf("SSSP: vertex: %d set it's parent as %d\n", v->vertex_id, v->parent);
+        int distance = v->distance_from_start;
 
         /*
         for(int i=0; i<v->count; i++){
-          //printf("BFS: vertex: %d preparing edge: %d\n", v->vertex_id, v->edges[i]);
+          //printf("SSSP: vertex: %d preparing edge: %d\n", v->vertex_id, v->edges[i]);
           hpx_addr_t vertex_ = vertex_element_at(vertices, v->edges[i]);
-          hpx_call_async(vertex_, _bfs_hpx_async, HPX_NULL, HPX_NULL,
-                         &vertices, &v->vertex_id, &distance, &bfs_halting_LCO);
+          hpx_call_async(vertex_, _sssp_hpx_async, HPX_NULL, HPX_NULL,
+                         &vertices, &v->vertex_id, &distance, &sssp_halting_LCO);
           v->deficit ++;
 
           // this is just for performance
           v->actions_invoked ++;
         }
         */
-
+        int new_distance = 0;
         edge_bucket* cursor = v->edges.head;
         // diffuse
         for (int i = 0; i < v->edges.buckets_count; i++) {
             for (int j = 0; j < cursor->count; j++) {
-
-                hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j]);
+                new_distance = distance + cursor->edges[j].weight;
+                hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j].node_id);
+                // printf("vertex %d: sending to vertex %d\n", v->vertex_id,
+                // cursor->edges[j].node_id);
                 hpx_call_async(vertex_,
-                               _bfs_hpx_async,
+                               _sssp_hpx_async,
                                HPX_NULL,
                                HPX_NULL,
                                &vertices,
                                &v->vertex_id,
-                               &distance,
-                               &bfs_halting_LCO);
+                               &new_distance,
+                               &sssp_halting_LCO);
 
                 v->deficit++;
 
@@ -563,27 +586,38 @@ _bfs_hpx_async_handler(Vertex* v_,
             }
             cursor = cursor->next;
         }
+        // printf("send for the firsst time ver %d\n", v->vertex_id);
 
-        // printf("BFS: vertex: %d setting bfs_halting_LCO\n", v->vertex_id);
-        // hpx_lco_and_set(bfs_halting_LCO, HPX_NULL);
+        // printf("SSSP: vertex: %d setting sssp_halting_LCO\n", v->vertex_id);
+        // hpx_lco_and_set(sssp_halting_LCO, HPX_NULL);
 
         cursor = v->edges.head;
         // what is the graph root is dirty such that the root has no neighbours
         //  take care of that case TODO: later
         if (cursor->count == 0) {
+            // printf("root vertex has no neighbours \n");
+            //  erase the first_edge and
+            //  send ack back
 
-            // erase the first_edge and
-            // send ack back
-            hpx_addr_t vertex_ = vertex_element_at(vertices, v->first_edge);
-            v->first_edge = UNKNOWN;
-            hpx_call_async(vertex_, _ack, HPX_NULL, HPX_NULL, &vertices, &bfs_halting_LCO);
+            if (sender_vertex == ROOT) {
+                hpx_lco_and_set(sssp_halting_LCO, HPX_NULL);
 
-            // this is just for performance
-            v->actions_invoked++;
+                hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
+                hpx_gas_unpin(local);
+                return HPX_SUCCESS;
+
+            } else {
+                hpx_addr_t vertex_ = vertex_element_at(vertices, v->first_edge);
+                v->first_edge = UNKNOWN;
+                hpx_call_async(vertex_, _ack, HPX_NULL, HPX_NULL, &vertices, &sssp_halting_LCO);
+
+                // this is just for performance
+                v->actions_invoked++;
+            }
         }
 
         hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
-        // printf("BFS: exiting _bfs_hpx_async_handler, vertex: = %d\n", v->vertex_id);
+        // printf("SSSP: exiting _sssp_hpx_async_handler, vertex: = %d\n", v->vertex_id);
         hpx_gas_unpin(local);
         return HPX_SUCCESS;
 
@@ -606,7 +640,7 @@ _bfs_hpx_async_handler(Vertex* v_,
 
                 // normal operation
                 hpx_addr_t vertex_ = vertex_element_at(vertices, sender_vertex);
-                hpx_call_async(vertex_, _ack, HPX_NULL, HPX_NULL, &vertices, &bfs_halting_LCO);
+                hpx_call_async(vertex_, _ack, HPX_NULL, HPX_NULL, &vertices, &sssp_halting_LCO);
 
                 // this is just for performance
                 v->actions_invoked++;
@@ -617,14 +651,14 @@ _bfs_hpx_async_handler(Vertex* v_,
                 v->first_edge = sender_vertex;
             }
 
-            int distance = v->distance_from_start + 1;
+            int distance = v->distance_from_start;
             /*
             // diffuse
             for(int i=0; i<v->count; i++){
-              //printf("BFS: vertex: %d preparing edge: %d\n", v->vertex_id, v->edges[i]);
+              //printf("SSSP: vertex: %d preparing edge: %d\n", v->vertex_id, v->edges[i]);
               hpx_addr_t vertex_ = vertex_element_at(vertices, v->edges[i]);
-              hpx_call_async(vertex_, _bfs_hpx_async, HPX_NULL, HPX_NULL,
-                           &vertices, &v->vertex_id, &distance, &bfs_halting_LCO);
+              hpx_call_async(vertex_, _sssp_hpx_async, HPX_NULL, HPX_NULL,
+                           &vertices, &v->vertex_id, &distance, &sssp_halting_LCO);
               v->deficit ++;
 
               // this is just for performance
@@ -632,21 +666,21 @@ _bfs_hpx_async_handler(Vertex* v_,
 
             }
             */
-
+            int new_distance = 0;
             edge_bucket* cursor = v->edges.head;
             // diffuse
             for (int i = 0; i < v->edges.buckets_count; i++) {
                 for (int j = 0; j < cursor->count; j++) {
-
-                    hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j]);
+                    new_distance = distance + cursor->edges[j].weight;
+                    hpx_addr_t vertex_ = vertex_element_at(vertices, cursor->edges[j].node_id);
                     hpx_call_async(vertex_,
-                                   _bfs_hpx_async,
+                                   _sssp_hpx_async,
                                    HPX_NULL,
                                    HPX_NULL,
                                    &vertices,
                                    &v->vertex_id,
-                                   &distance,
-                                   &bfs_halting_LCO);
+                                   &new_distance,
+                                   &sssp_halting_LCO);
 
                     v->deficit++;
 
@@ -660,7 +694,7 @@ _bfs_hpx_async_handler(Vertex* v_,
 
             // just ack to the sender
             hpx_addr_t vertex_ = vertex_element_at(vertices, sender_vertex);
-            hpx_call_async(vertex_, _ack, HPX_NULL, HPX_NULL, &vertices, &bfs_halting_LCO);
+            hpx_call_async(vertex_, _ack, HPX_NULL, HPX_NULL, &vertices, &sssp_halting_LCO);
 
             // this is just for performance
             v->actions_invoked++;
@@ -668,26 +702,26 @@ _bfs_hpx_async_handler(Vertex* v_,
     }
 
     hpx_lco_sema_v(v->vertex_local_mutex, HPX_NULL);
-    // printf("BFS: exiting _bfs_hpx_async_handler, vertex: = %d\n", v->vertex_id);
+    // printf("SSSP: exiting _sssp_hpx_async_handler, vertex: = %d\n", v->vertex_id);
     hpx_gas_unpin(local);
     return HPX_SUCCESS;
 }
 
 void
-BFS_hpx_async(hpx_addr_t vertices, int start_vertex, hpx_addr_t bfs_done_lco)
+SSSP_hpx_async(hpx_addr_t vertices, int start_vertex, hpx_addr_t sssp_done_lco)
 {
 
     hpx_addr_t vertex_ = vertex_element_at(vertices, start_vertex);
     int root_parent = ROOT;
     int distance = 0;
     hpx_call_async(vertex_,
-                   _bfs_hpx_async,
+                   _sssp_hpx_async,
                    HPX_NULL,
                    HPX_NULL,
                    &vertices,
                    &root_parent,
                    &distance,
-                   &bfs_done_lco);
+                   &sssp_done_lco);
 }
 
 void
@@ -701,13 +735,13 @@ REDUCE_actions_invoked_async(hpx_addr_t vertices, int start_vertex, hpx_addr_t r
         vertex_, _reduce_acks, HPX_NULL, HPX_NULL, &vertices, &root_parent, &reduce_done_lco);
 }
 
-static HPX_ACTION_DECL(_bfs);
+static HPX_ACTION_DECL(_sssp);
 static int
-_bfs_handler(void)
+_sssp_handler(void)
 {
     FILE* f = NULL;
 
-    if ((f = fopen("scale15.mm", "r")) == NULL)
+    if ((f = fopen("scale19_s.mm", "r")) == NULL)
         return -1;
 
     int N = 0;
@@ -717,13 +751,13 @@ _bfs_handler(void)
     fscanf(f, "%d\t%d", &N, &N_);
     fscanf(f, "%d", &N_edges);
 
-    printf("Hello World in _bfs_handler from %u the graph vertex count is %d with %d egdes.\n",
+    printf("Hello World in _sssp_handler from %u the graph vertex count is %d with %d egdes.\n",
            hpx_get_my_rank(),
            N,
            N_edges);
 
     hpx_addr_t vertices = hpx_gas_calloc_cyclic(N, sizeof(Vertex), 0);
-    // this is the main hpx bfs code
+    // this is the main hpx sssp code
     assert(vertices != HPX_NULL);
     printf("allocation is done\n");
 
@@ -739,18 +773,18 @@ _bfs_handler(void)
     populate_graph(vertices, N, N_edges, f);
     fclose(f);
     // TODO 1
-    // call the BFS algo here
-    hpx_addr_t bfs_done_lco = hpx_lco_and_new(1);
-    printf("bfs_done_lco = %ld\n", bfs_done_lco);
+    // call the SSSP algo here
+    hpx_addr_t sssp_done_lco = hpx_lco_and_new(1);
+    printf("sssp_done_lco = %ld\n", sssp_done_lco);
 
     gettimeofday(&begin, 0);
 
-    int start_vertex = 3;
-    BFS_hpx_async(vertices, start_vertex, bfs_done_lco);
+    int start_vertex = 417;
+    SSSP_hpx_async(vertices, start_vertex, sssp_done_lco);
 
-    hpx_lco_wait(bfs_done_lco);
-    hpx_lco_delete(bfs_done_lco, HPX_NULL);
-    printf("BFS_hpx_async and LCOs done waited and deleted\n");
+    hpx_lco_wait(sssp_done_lco);
+    hpx_lco_delete(sssp_done_lco, HPX_NULL);
+    printf("SSSP_hpx_async and LCOs done waited and deleted\n");
 
     // timing
     gettimeofday(&end, 0);
@@ -809,7 +843,13 @@ static HPX_ACTION(HPX_DEFAULT,
                   HPX_POINTER,
                   HPX_INT);
 
-static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _send_edge, _send_edge_handler, HPX_POINTER, HPX_INT);
+static HPX_ACTION(HPX_DEFAULT,
+                  HPX_PINNED,
+                  _send_edge,
+                  _send_edge_handler,
+                  HPX_POINTER,
+                  HPX_INT,
+                  HPX_INT);
 static HPX_ACTION(HPX_DEFAULT, HPX_PINNED, _ack, _ack_handler, HPX_POINTER, HPX_ADDR, HPX_ADDR);
 
 static HPX_ACTION(HPX_DEFAULT,
@@ -831,8 +871,8 @@ static HPX_ACTION(HPX_DEFAULT,
 
 static HPX_ACTION(HPX_DEFAULT,
                   HPX_PINNED,
-                  _bfs_hpx_async,
-                  _bfs_hpx_async_handler,
+                  _sssp_hpx_async,
+                  _sssp_hpx_async_handler,
                   HPX_POINTER,
                   HPX_ADDR,
                   HPX_INT,
@@ -840,14 +880,14 @@ static HPX_ACTION(HPX_DEFAULT,
                   HPX_ADDR);
 
 // main action
-static HPX_ACTION(HPX_DEFAULT, 0, _bfs, _bfs_handler);
+static HPX_ACTION(HPX_DEFAULT, 0, _sssp, _sssp_handler);
 
 int
 main(int argc, char* argv[argc])
 {
     if (hpx_init(&argc, &argv) != 0)
         return -1;
-    int e = hpx_run(&_bfs, NULL);
+    int e = hpx_run(&_sssp, NULL);
     hpx_finalize();
     return e;
 }

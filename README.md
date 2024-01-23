@@ -1,10 +1,6 @@
-Asynchronous Graph Processing Using HPX
+# Asynchronous Graph Processing Using HPX-5
 
-Implements the SSSP algorithm using HPX and also explicitly manages the termination detection
-
-
-Please visit the directory /Reports_and_Posters for explanation of this work.
+Implements the SSSP algorithm using HPX-5 and also explicitly manages the termination detection.
 
 
-This acts as my working desk and is cluttered with object files, binaries, scripts, and output and error files. 
-
+Please visit the directory [reports](/reports) for explanation of this work.

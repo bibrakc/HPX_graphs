@@ -1,0 +1,17 @@
+Tasks   -n  -c  -hint   result
+128     64  2   mem     FAST
+128     64  1   mem     SLOW
+128     64  x   mem     FAST  <--- might be a little slower
+128     64  x   x       SLOW
+128     64  2   x       FAST  <--- winner
+
+
+
+task 128
+-n 64 -c 2
+
+-n 32 -c 2
+
+-n 16 -c 2
+
+-n 8 -c 2
